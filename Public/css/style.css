@@ -107,3 +107,18 @@
 .footer a:hover {
     color: white;
 }
+
+
+/* contact us form start */
+
+.Cdetails {
+    font-size: 17px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #050505;
+    line-height: 1.5;
+}
+
+
+/* contact us form end */
