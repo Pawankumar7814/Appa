@@ -33,3 +33,15 @@
     margin-top: 8%;
     margin-left: 41%;
 }
+
+.btn-sm {
+    border: 3px outset gold;
+    width: 10vw;
+    background-color: antiquewhite;
+}
+
+.btn-sm:hover {
+    border: 3px inset gold;
+    background-color: purple;
+    color: white;
+}
