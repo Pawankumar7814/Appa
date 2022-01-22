@@ -20,4 +20,22 @@
 }
 
 
+/* css logo roation  */
+
+.coin {
+    animation: animate 9s linear 10;
+    animation-delay: 10s;
+    animation-direction: alternate;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+
 /* CSS for error 404 page */
