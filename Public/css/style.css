@@ -49,14 +49,15 @@
 }
 
 .btn-sm {
-    border: 3px outset gold;
+    border: 3px outset lemonchiffon;
     width: 10vw;
-    background-color: antiquewhite;
+    background-color: lightblue;
 }
 
 .btn-sm:hover {
-    border: 3px inset gold;
-    background-color: purple;
+    border: 3px inset darkgreen;
+    font-weight: bold;
+    background-color: white;
 }
 
 
@@ -118,6 +119,14 @@
     font-weight: 400;
     color: #050505;
     line-height: 1.5;
+}
+
+.Cdetails div input {
+    border: solid black 1.5px;
+}
+
+.Cdetails div textarea {
+    border: solid black 1.5px;
 }
 
 
