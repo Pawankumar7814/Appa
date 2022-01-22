@@ -19,7 +19,7 @@
     margin-top: 16px;
 }
 
-
+<<<<<<< HEAD
 /* css logo roation  */
 
 .coin {
@@ -38,4 +38,35 @@
 }
 
 
+/* CSS for error 404 page */
+
+=======<<<<<<< HEAD
+/* CSS for error 404 page */
+
+.eror {
+    margin-top: 8%;
+    margin-left: 41%;
+}
+
+
+/* CSS for Home Page */
+
+.content {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: small;
+    text-align: justify;
+}
+
+.image {
+    width: 10vw;
+    height: 23vh;
+    border-radius: 40%;
+    margin: -2em 0em 3em 3em;
+}
+
+.column {
+    margin: 1rem;
+}
+
+=======
 /* CSS for error 404 page */
