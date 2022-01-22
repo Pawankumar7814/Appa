@@ -1,10 +1,3 @@
-/* CSS for logo */
-
-.logo {
-    width: 7em;
-}
-
-
 /* CSS for whatsapp */
 
 .float {
@@ -28,8 +21,3 @@
 
 
 /* CSS for error 404 page */
-
-.eror {
-    margin-top: 8%;
-    margin-left: 41%;
-}
