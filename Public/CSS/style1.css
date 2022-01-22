@@ -5,7 +5,7 @@
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 40px;
+    right: 100px;
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
@@ -19,7 +19,7 @@
     margin-top: 16px;
 }
 
-<<<<<<< HEAD
+
 /* css logo roation  */
 
 .coin {
@@ -40,7 +40,7 @@
 
 /* CSS for error 404 page */
 
-=======<<<<<<< HEAD
+
 /* CSS for error 404 page */
 
 .eror {
@@ -65,8 +65,5 @@
 }
 
 .column {
-    margin: 1rem;
+    margin: 3rem 0rem 1rem 0rem;
 }
-
-=======
-/* CSS for error 404 page */

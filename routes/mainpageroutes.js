@@ -8,7 +8,7 @@ router.get(["/", "/index"], (req, res) => {
 });
 
 router.get("*", (req, res) => {
-    res.status(200).render("../views/mainpages/error404.ejs");
+    res.status(404).render("../views/mainpages/error404.ejs");
 });
 
 module.exports = router;
