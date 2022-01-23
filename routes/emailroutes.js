@@ -10,10 +10,10 @@ router.use(express.urlencoded({ extended: false }));
 router.post("/sendemail", (req, res) => {
     console.log(req.body);
     let data = {
-        uname: req.body.uname,
-        uemail: req.body.uemail,
-        uphone: req.body.uphoneno,
-        umsg: req.body.message,
+        UNAME: req.body.UNAME,
+        Uemail: req.body.Uemail,
+        Uphone: req.body.Uphone,
+        Umsg: req.body.Umsg
     };
     ejs.renderFile("views/email/thanksforcontact.ejs", { udata: data }, async(err, tfile) => {
         if (err) {
