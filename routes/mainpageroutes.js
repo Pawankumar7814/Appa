@@ -7,6 +7,11 @@ router.get(["/", "/index"], (req, res) => {
     res.status(200).render("../views/mainpages/index.ejs");
 });
 
+// Route to index page
+router.get(["/contactus", "/contact"], (req, res) => {
+    res.status(200).render("../views/mainpages/contactus.ejs");
+});
+
 router.get("*", (req, res) => {
     res.status(404).render("../views/mainpages/error404.ejs");
 });

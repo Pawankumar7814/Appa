@@ -43,14 +43,15 @@
         }
         
         .btn-sm {
-            border: 3px outset gold;
+            border: 3px outset lemonchiffon;
             width: 10vw;
-            background-color: antiquewhite;
+            background-color: white;
         }
         
         .btn-sm:hover {
-            border: 3px inset gold;
-            background-color: purple;
+            border: 3px inset darkgreen;
+            font-weight: bold;
+            background-color: white;
         }
         /* CSS for Home Page */
         
@@ -97,3 +98,22 @@
         .footer a:hover {
             color: white;
         }
+        /* contact us form start */
+        
+        .Cdetails {
+            font-size: 17px;
+            font-family: "Times New Roman", Times, serif;
+            font-style: normal;
+            font-weight: 400;
+            color: #050505;
+            line-height: 1.5;
+        }
+        
+        .Cdetails div input {
+            border: solid black 1.5px;
+        }
+        
+        .Cdetails div textarea {
+            border: solid black 1.5px;
+        }
+        /* contact us form end */
