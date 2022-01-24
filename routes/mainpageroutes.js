@@ -4,16 +4,21 @@ var router = express.Router();
 
 // Route to index page
 router.get(["/", "/index"], (req, res) => {
-    res.status(200).render("../views/mainpages/index.ejs");
+    res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
 });
 
 // Route to index page
 router.get(["/contactus", "/contact"], (req, res) => {
-    res.status(200).render("../views/mainpages/contactus.ejs");
+    res.status(200).render("../views/mainpages/contactus.ejs", { title: "Contact us - Appa" });
+});
+
+// Route to about page
+router.get(["/aboutus", "/about"], (req, res) => {
+    res.status(200).render("../views/mainpages/aboutus.ejs", { title: "About us - Appa" });
 });
 
 router.get("*", (req, res) => {
-    res.status(404).render("../views/mainpages/error404.ejs");
+    res.status(404).render("../views/mainpages/error404.ejs", { title: "Error 404 " });
 });
 
 module.exports = router;
