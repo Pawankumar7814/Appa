@@ -6,6 +6,9 @@ var sendemail = new SendEmail();
 var emaildata = new EmailData();
 let finalreturnvalue = {};
 
+router.use(express.json());
+router.use(express.urlencoded({ extended: false }));
+
 //route for sending emails
 router.post("/sendemail", async(req, res) => {
     await sendemail.SendOnContactUSform(req.body, async function(returnvalue) {
