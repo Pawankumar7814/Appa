@@ -8,13 +8,12 @@ var connectDBDev = require('../config/connection');
 
 class EmailData {
 
-    async SaveContactUsemail(data, cb) {
+    async SaveContactUserEmail(data, cb) {
         let sender = {};
         sender.FName = data.UNAME;
         sender.Email = data.Uemail;
         sender.Phone = data.Uphone;
         sender.Msg = data.Umsg;
-
         let senderModel = new Sender(sender);
         await senderModel.save((err, data) => {
             if (err) {

@@ -12,14 +12,12 @@ router.use(express.urlencoded({ extended: false }));
 //route for sending emails
 router.post("/sendemail", async(req, res) => {
     await sendemail.SendOnContactUSform(req.body, async function(returnvalue) {
-        await emaildata.SaveContactUsemail(req.body, function(data) {});
+        await emaildata.SaveContactUserEmail(req.body, function(data) {});
         finalreturnvalue = returnvalue;
         //console.log(finalreturnvalue);
     });
-
     setTimeout(() => {
         if (finalreturnvalue.Status == "err") {
-
             req.flash("error", finalreturnvalue.Msg);
             res.status(200).redirect('/contact')
         } else {
