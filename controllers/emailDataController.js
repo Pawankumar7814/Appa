@@ -3,14 +3,14 @@ var router = express.Router();
 var mongooe = require('mongoose');
 var Sender = require('../module/contactUsUser');
 var bodyParser = require('body-parser');
-
+var connectDBDev = require('../config/connection');
 class EmailData {
     async SaveContactUsemail(data, cb) {
         let sender = {};
-        sender.FName = data.uname;
-        sender.Email = data.uemail;
-        sender.Phone = data.uphon;
-        sender.Msg = data.umsg;
+        sender.FName = data.UNAME;
+        sender.Email = data.Uemail;
+        sender.Phone = data.Uphone;
+        sender.Msg = data.Umsg;
 
         let senderModel = new Sender(sender);
         await senderModel.save((err, data) => {
