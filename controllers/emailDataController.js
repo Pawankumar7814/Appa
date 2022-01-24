@@ -4,7 +4,10 @@ var mongooe = require('mongoose');
 var Sender = require('../module/contactUsUser');
 var bodyParser = require('body-parser');
 var connectDBDev = require('../config/connection');
+
+
 class EmailData {
+
     async SaveContactUsemail(data, cb) {
         let sender = {};
         sender.FName = data.UNAME;
@@ -21,6 +24,7 @@ class EmailData {
             }
         });
     }
+
 }
 
 module.exports = EmailData

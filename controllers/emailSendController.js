@@ -29,6 +29,7 @@ class EmailSend {
             }
         });
     }
+
 }
 
 module.exports = EmailSend;
