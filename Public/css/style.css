@@ -117,3 +117,79 @@
             border: solid black 1.5px;
         }
         /* contact us form end */
+        /*css for about us (starting)*/
+        
+        .heading {
+            text-align: center;
+            color: white;
+            padding-top: 1.5%;
+            font-size: 300%;
+            font-weight: bold;
+            text-shadow: black 2px 2px 10px;
+        }
+        
+        .card {
+            margin: 5% 18%;
+            box-shadow: 0 4px 8px 0;
+            width: 67%;
+            height: 80%;
+            border-radius: 10%;
+            border-color: orange;
+        }
+        
+        .subbg {
+            background-image: url('/Public/Images/whitebg.jpg');
+            width: 55%;
+            margin-left: 20%;
+            margin-top: 10%;
+            border-radius: 20%;
+            box-shadow: 20px 20px 50px 15px grey;
+        }
+        
+        .card-body {
+            text-align: center;
+            font-size: larger;
+            color: brown;
+            font-weight: bold;
+        }
+        
+        .topbg {
+            background-image: url('/Public/Images/diya.jpeg');
+            height: 40vh;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            padding: 2%;
+            background-position: 20% 20%;
+        }
+        
+        .text {
+            color: mediumvioletred;
+            font-size: x-large;
+            font-weight: bold;
+            text-shadow: 2px 2px 7px black;
+        }
+        
+        .display {
+            display: flex;
+        }
+        
+        .textadjust {
+            margin-left: 5%;
+        }
+        
+        .para {
+            font-size: large;
+            text-shadow: black 2px 2px 8px;
+        }
+        
+        .midimg {
+            padding: 0% 5%;
+            margin-left: 0%;
+            margin-right: 0%;
+            border-radius: 50%;
+            height: 70%;
+            margin-top: 3%;
+            width: 30%;
+        }
+        /*css for about us (ending)*/
