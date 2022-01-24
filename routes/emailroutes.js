@@ -1,35 +1,32 @@
-const express = require("express");
-var router = express.Router();
-let config = require("../config/config.json");
-let transporter = require("../config/mailer");
-let ejs = require("ejs");
+const express = require('express');
+const router = express.Router();
+var SendEmail = require("../controllers/emailSendController");
+var EmailData = require("../controllers/emailDataController");
+var sendemail = new SendEmail();
+var emaildata = new EmailData();
+let finalreturnvalue = {};
+
 router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 
 //route for sending emails
-router.post("/sendemail", (req, res) => {
-    console.log(req.body);
-    let data = {
-        UNAME: req.body.UNAME,
-        Uemail: req.body.Uemail,
-        Uphone: req.body.Uphone,
-        Umsg: req.body.Umsg,
-    };
-    ejs.renderFile("views/email/thanks.ejs", { udata: data }, async(err, tfile) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(tfile);
-            let info = await transporter.sendMail({
-                from: config.email, // sender address
-                to: data.Uemail, // list of receivers
-                subject: "Hello ✔", // Subject line
-                text: "Hello world?", // plain text body
-                html: tfile, // html body
-            });
-            res.status(200).redirect("/");
-        }
+router.post("/sendemail", async(req, res) => {
+    await sendemail.SendOnContactUSform(req.body, async function(returnvalue) {
+        await emaildata.SaveContactUsemail(req.body, function(data) {});
+        finalreturnvalue = returnvalue;
+        //console.log(finalreturnvalue);
     });
+
+    setTimeout(() => {
+        if (finalreturnvalue.Status == "err") {
+
+            req.flash("error", finalreturnvalue.Msg);
+            res.status(200).redirect('/contact')
+        } else {
+            req.flash("success", finalreturnvalue.Msg);
+            req.session.save(function() { res.status(200).redirect('/contact') });
+        }
+    }, 3000);
 });
 
 router.get("/test", (req, res) => {
