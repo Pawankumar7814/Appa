@@ -5,6 +5,8 @@ var ejs = require("ejs");
 var flash = require("connect-flash");
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var favicon = require("./config/favicon");
+
 
 // Creating appp
 var app = express();
@@ -14,6 +16,10 @@ app.set("view engine", "ejs");
 
 // assign port number
 var port = 3100 | process.env.port;
+
+//seting favicon by passing app
+favicon(app);
+
 //conected to flash message
 app.use(flash());
 app.use(cookieParser("this is cokkie for appa"));
