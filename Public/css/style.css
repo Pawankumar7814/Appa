@@ -331,7 +331,7 @@
     border-color: orange;
 }
 
-.card-shadow {
+.card-shadow:hover {
     box-shadow: 0rem 0.5rem 3rem 0rem goldenrod;
 }
 
