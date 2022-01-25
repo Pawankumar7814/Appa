@@ -59,6 +59,13 @@
     margin-left: 41%;
 }
 
+.bttn {
+    color: darkgreen;
+    border-radius: 1em;
+    border: 2px solid gold;
+    background-color: lavender;
+}
+
 .btn-sm {
     border: 3px outset lemonchiffon;
     width: 10vw;
@@ -69,6 +76,34 @@
     border: 3px inset darkgreen;
     font-weight: bold;
     background-color: white;
+}
+
+.bttn a:link {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+.bttn a:visited {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+.bttn:hover {
+    color: lavender;
+    background-color: darkgreen;
+    border-color: gold;
+}
+
+.bttn a:hover {
+    color: lavender;
+    background-color: darkgreen;
+    border-color: gold;
+}
+
+.bttn :hover {
+    color: lavender;
+    background-color: darkgreen;
+    border-color: gold;
 }
 
 
@@ -186,9 +221,6 @@
 
 /* CSS for error 404 page */
 
-
-/* CSS for error 404 page */
-
 .eror {
     margin-top: 8%;
     margin-left: 41%;
@@ -293,10 +325,14 @@
 .card {
     margin: 5% 17%;
     box-shadow: 0 4px 8px 0;
-    width: 67%;
-    height: 80%;
-    border-radius: 10%;
+    width: 70%;
+    height: 85%;
+    border-radius: 2rem 2rem 2rem 2rem;
     border-color: orange;
+}
+
+.card-shadow:hover {
+    box-shadow: 0rem 0.5rem 3rem 0rem goldenrod;
 }
 
 .subbg {
@@ -315,7 +351,13 @@
     font-size: larger;
     color: brown;
     font-weight: bold;
+    padding: 4rem 1rem;
     border-color: black;
+}
+
+.card-img-top {
+    margin-bottom: -3rem;
+    border-radius: 2rem 2rem 0rem 0rem;
 }
 
 .topbg {
@@ -347,7 +389,16 @@
 .para {
     font-size: large;
     text-shadow: black 2px 2px 8px;
-    padding: 2vw;
+    /* padding: 2vw; */
+    padding: 7%;
+}
+
+.para-r {
+    text-align: left;
+}
+
+.para-l {
+    text-align: right;
 }
 
 .midimg {
@@ -362,3 +413,17 @@
 
 
 /*css for about us (ending)*/
+
+@media screen and (max-width: 768px) {
+    .para-l {
+        text-align: left;
+    }
+    .card {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    .change {
+        order: 2;
+        margin-top: 10%;
+    }
+}
