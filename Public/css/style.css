@@ -379,4 +379,8 @@
         margin-top: 10%;
         margin-bottom: 10%;
     }
+    .change {
+        order: 2;
+        margin-top: 10%;
+    }
 }

@@ -53,8 +53,10 @@ app.use("/Images", express.static(__dirname + "/Public/Images"));
 app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
 
 // Routes
-app.use("/", require("./routes/mainpageroutes.js"));
+
+app.use("/", require("./routes/productroutes"));
 app.use("/", require("./routes/emailroutes"));
+app.use("/", require("./routes/mainpageroutes"));
 
 // Creating server
 http.createServer(app).listen(port, () => {
