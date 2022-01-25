@@ -347,7 +347,15 @@
 .para {
     font-size: large;
     text-shadow: black 2px 2px 8px;
-    padding: 2vw;
+    padding: 7%;
+}
+
+.para-r {
+    text-align: left;
+}
+
+.para-l {
+    text-align: right;
 }
 
 .midimg {
@@ -362,3 +370,13 @@
 
 
 /*css for about us (ending)*/
+
+@media screen and (max-width: 768px) {
+    .para-l {
+        text-align: left;
+    }
+    .card {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
