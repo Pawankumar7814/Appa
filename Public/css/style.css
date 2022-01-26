@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&display=swap');
 
 /* CSS for whatsapp */
 
@@ -433,6 +433,20 @@
 
 /* Thank you page's CSS */
 
+.img-thankyou {
+    width: 42vw;
+    margin: 5em 2em 5em 2em;
+    border-radius: 1.5rem;
+}
+
+.margin-thankyou {
+    margin-top: 15em;
+    margin-left: 14em;
+}
+
 .thankyou {
-    font-family: 'Parisienne', cursive;
+    display: inline;
+    font-family: 'EB Garamond', serif;
+    border: 1px solid black;
+    padding: 1px;
 }

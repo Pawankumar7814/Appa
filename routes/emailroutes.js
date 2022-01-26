@@ -28,7 +28,7 @@ router.post("/sendemail", async(req, res) => {
 });
 
 router.get("/test", (req, res) => {
-    res.render("../views/email/thanks.ejs");
+    res.render("../views/email/thanks.ejs", { title: "thank" });
 });
 
 module.exports = router;
