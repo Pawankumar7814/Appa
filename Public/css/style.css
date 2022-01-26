@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
 /* CSS for whatsapp */
 
 .float {
@@ -426,4 +428,11 @@
         order: 2;
         margin-top: 10%;
     }
+}
+
+
+/* Thank you page's CSS */
+
+.thankyou {
+    font-family: 'Parisienne', cursive;
 }
