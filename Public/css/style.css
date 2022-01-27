@@ -450,3 +450,16 @@
     border: 1px solid black;
     padding: 1px;
 }
+
+/* nav icon media query */
+@media screen and (min-width : 992px){
+    .nav-icon1{
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width : 992px){
+    .nav-icon2{
+        visibility: hidden;
+    }
+}
