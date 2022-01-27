@@ -56,6 +56,8 @@ app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
 
 app.use("/", require("./routes/productroutes"));
 app.use("/", require("./routes/emailroutes"));
+app.use("/User", require("./routes/userroutes"));
+
 app.use("/", require("./routes/mainpageroutes"));
 
 // Creating server
