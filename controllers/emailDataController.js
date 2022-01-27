@@ -7,7 +7,6 @@ var connectDBDev = require('../config/connection');
 
 
 class EmailData {
-
     async SaveContactUserEmail(data, cb) {
         let sender = {};
         sender.FName = data.UNAME;
@@ -23,7 +22,6 @@ class EmailData {
             }
         });
     }
-
 }
 
 module.exports = EmailData
