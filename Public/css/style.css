@@ -451,15 +451,23 @@
     padding: 1px;
 }
 
+
 /* nav icon media query */
-@media screen and (min-width : 992px){
-    .nav-icon1{
+
+@media screen and (min-width: 992px) {
+    .nav-icon1 {
         visibility: hidden;
+        align-content: center;
+        padding-left: 17%;
+        padding-right: 14%;
+    }
+    .navbar-collapse {
+        margin-left: -70%;
     }
 }
 
-@media screen and (max-width : 992px){
-    .nav-icon2{
+@media screen and (max-width: 992px) {
+    .nav-icon2 {
         visibility: hidden;
     }
 }
