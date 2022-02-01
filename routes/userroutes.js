@@ -4,9 +4,8 @@ var router = express.Router();
 
 // Route to index page
 router.get(["/", "/index", "/Signin", "/Login"], (req, res) => {
-    res.status(200).render("../views/user/index.ejs", { title: "LogIn - Appa" });
+    res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
 });
-
 
 // Route to index page
 router.get(["/Signup", "/Register"], (req, res) => {
