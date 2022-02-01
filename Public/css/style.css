@@ -436,13 +436,18 @@
 .img-thankyou {
     width: 42vw;
     margin: 5em 2em 5em 2em;
-    border-radius: 1.5rem;
+    border-radius: 5.5rem;
+    transform: rotate( -17deg);
 }
 
 .margin-thankyou {
     margin-top: 15em;
     margin-left: 14em;
     margin-bottom: 3em;
+}
+
+.text-center {
+    margin-top: 32%;
 }
 
 .thankyou {
