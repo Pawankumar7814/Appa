@@ -442,13 +442,15 @@
 .margin-thankyou {
     margin-top: 15em;
     margin-left: 14em;
+    margin-bottom: 3em;
 }
 
 .thankyou {
     display: inline;
     font-family: 'EB Garamond', serif;
     border: 1px solid black;
-    padding: 1px;
+    padding: 0.2em;
+    border-radius: 1.1em;
 }
 
 
@@ -463,6 +465,11 @@
     }
     .navbar-collapse {
         margin-left: -70%;
+    }
+    .margin-thankyou {
+        margin-top: 10em;
+        margin-top: 0em;
+        margin-left: 4em;
     }
 }
 
