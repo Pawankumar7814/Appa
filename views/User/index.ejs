@@ -1,31 +1,43 @@
 <%- include("../partial/header.ejs") %>
-
     <main>
         <section>
-            <div class="container-fluid">
-                <b5-row>
-                    <div class="col-12">
-                        <form action="">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Example label</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+            <div class="container-fluid col">
+                <div class="bg">
+                    <div class="row row-md-5">
+                        <h1>Log In</h1>
+                        <div class="cardadjust">
+                            <div class="card carddesign" style="width: 31rem;">
+                                <div class="card-body cardcont">
+                                    <h5 class="card-title">Log In</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">New User?<a href="/User/Register.ejs">Register now</a></h6>
+                                    <p class="card-text">
+                                        <form method="post">
+                                            <div>
+                                                <label for="emailid">Email ID:</label>
+                                                <input type="email" class="form-control col" id="uemail" placeholder="@gmail.com" size="20" required>
+                                            </div>
+                                            <div>
+                                                <label for="pass">Password:</label>
+                                                <input type="password" class="form-control col" id="upass" placeholder="At least 6 characters" size="20" required>
+                                            </div>
+                                            <br>
+                                            <div class="d-flex">
+                                                <button type="submit" onclick="alert('Registeration Successful!! Please Login')" class="buttondisp">Submit</button>
+                                                <button type="reset" class="buttondisp" style="margin-left: 3%;">Reset</button>
+                                            </div>
+                                            <br>
+                                            <div>
+                                                <button type="submit" class="buttondisp">Sign in</button>
+                                            </div>
+                                        </form>
+                                    </p>
+                                    <a href="#" class="card-link">Forget Password</a>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Password</label>
-                                <input type="text" class="form-control" id="" placeholder="Password">
-                            </div>
-                            <div class="col-12 req anchorformat">
-                                <a href="/user/signup ">Sign up?</a>
-                                <a href="# " target="_blank ">Forget Password?</a>
-                                <a href="# " target="_blank ">Need Help?</a>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </b5-row>
+                </div>
             </div>
         </section>
     </main>
-
-
-
     <%- include("../partial/footer.ejs") %>

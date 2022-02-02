@@ -425,7 +425,7 @@ h1 {
 }
 
 .bg {
-    background-image: url('/Public/Images/ganesha.jpeg');
+    background-image: url('/Images/ganesha.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
