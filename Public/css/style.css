@@ -476,7 +476,7 @@ form {
         width: auto;
     }
     .cardadjust {
-        float: left;
+        margin-left: 0.5%;
     }
 }
 
