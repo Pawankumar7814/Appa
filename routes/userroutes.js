@@ -14,7 +14,7 @@ router.get(["/Signup", "/Register"], (req, res) => {
 
 // Route to index page
 router.get(["/Logout", "/SignOut"], (req, res) => {
-    res.status(200).render("../views/User/LogOut.ejs", { title: "Register  - Appa" });
+    res.status(200).render("../views/User/LogOut.ejs", { title: "Bye  - Appa" });
 });
 
 module.exports = router;

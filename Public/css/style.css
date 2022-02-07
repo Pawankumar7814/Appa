@@ -416,90 +416,6 @@
 
 /*css for about us (ending)*/
 
-h1 {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    padding: 5.5%;
-    padding-bottom: 1.5%;
-}
-
-.bg {
-    background-image: url('/Images/ganesha.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-}
-
-.cardadjust {
-    margin-left: 33.2%;
-}
-
-.cardcont {
-    text-align: center;
-}
-
-form {
-    text-align: left;
-    padding: 1.5%;
-}
-
-.boxgap {
-    margin-left: 9%;
-}
-
-.carddesign {
-    box-shadow: 2px 2px 5px 10px rgba(0, 0, 0, 0.452);
-    border-radius: 2%;
-}
-
-.buttondisp {
-    width: 100%;
-    background-color: goldenrod;
-    border-radius: 4%;
-    border-color: black;
-    font-weight: 800;
-}
-
-.buttondisp:hover {
-    background-color: #2383a8;
-}
-
-.buttondisp:active {
-    box-shadow: 1px 1px 3px 5px rgba(39, 37, 37, 0.452);
-    transform: translate(3px);
-}
-
-@media screen and (max-width: 768px) {
-    .bg {
-        width: auto;
-    }
-    .cardadjust {
-        margin-left: 0.1%;
-    }
-}
-
-
-/*css for registeration page(starting)*/
-
-
-/*css for registeration page(ending)*/
-
-@media screen and (max-width: 768px) {
-    .para-l {
-        text-align: left;
-    }
-    .card {
-        margin-top: 10%;
-        margin-bottom: 10%;
-    }
-    .change {
-        order: 2;
-        margin-top: 10%;
-    }
-}
-
 
 /* Thank you page's CSS */
 
@@ -516,9 +432,10 @@ form {
     margin-bottom: 3em;
 }
 
-.text-center {
+
+/* .text-center {
     margin-top: 32%;
-}
+} */
 
 .thankyou {
     display: inline;
