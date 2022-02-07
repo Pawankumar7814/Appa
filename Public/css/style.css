@@ -129,35 +129,6 @@
 }
 
 
-/* CSS for footer */
-
-.footer {
-    background: #061D25;
-    padding: 10px 0;
-}
-
-.footer a {
-    color: #70726F;
-    font-size: 20px;
-    padding: 10px;
-    border-right: 1px solid #70726F;
-    transition: all .5s ease;
-}
-
-.footer a:first-child {
-    border-left: 1px solid #70726F;
-}
-
-.footer p {
-    margin-top: 2vh;
-    color: white;
-}
-
-.footer a:hover {
-    color: white;
-}
-
-
 /* contact us form start */
 
 .Cdetails {
@@ -432,10 +403,9 @@
     margin-bottom: 3em;
 }
 
-
-/* .text-center {
-    margin-top: 32%;
-} */
+.text-center {
+    margin-top: 2%;
+}
 
 .thankyou {
     display: inline;
