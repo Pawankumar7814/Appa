@@ -440,3 +440,10 @@
         visibility: hidden;
     }
 }
+
+.bg {
+    background-image: url("/Images/ganesha-right.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
