@@ -12,7 +12,23 @@ class UserData {
         user.ULName = UserInfo.Ulname;
         user.UEmail = UserInfo.Uemail;
         user.UPhone = UserInfo.Uphone;
-        user.UPAss = UserInfo.Upass;
+        user.UPass = UserInfo.Upass
+            // if (UserInfo.Upass == UserInfo.upass1) {
+            //     if (UserInfo.Upass > 8) {
+            //         // document.getElementById("message").innerHTML = "Password must be atleast 8 Characters";
+            //         console.log("8");
+            //         return false;
+            //     } else if (UserInfo.Upass < 15) {
+            //         // document.getElementById("message").innerHTML = "Password must be less than 15 characters";
+            //         console.log("18");
+            //         return true;
+            //     }
+            //     user.UPass = UserInfo.Upass;
+            // } else {
+            //     // document.getElementById("message").innerHTML = "Password must be same";
+            //     console.log("Password must be same");
+            //     return false;
+            // }
         let userModel = new User(user);
         await userModel.save((err, done) => {
             if (err) {
