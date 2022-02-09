@@ -1,15 +1,10 @@
-function match() {
-    a = document.getElementById("Upass").value;
-    b = document.getElementById("Upass1").value;
-    if (a == b) {
-        if (a < 8) {
-            document.write("Password is too short");
-        } else if (a > 15) {
-            document.write("Password is too long");
-        } else {
-            return true;
-        }
+var check = function() {
+    if (document.getElementById('Upass').value ==
+        document.getElementById('Upass1').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'matching';
     } else {
-        alert("Password should be same.");
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
     }
 }

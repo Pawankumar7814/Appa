@@ -5,9 +5,9 @@ class EmailSend {
 
     // use to send email to contact us form 
     SendOnContactUSform(data, cb) {
-        ejs.renderFile('views/email/thanks.ejs', { name: data.UNAME }, function(err, tfile) {
+        ejs.renderFile('/views/email/thanks.ejs', { name: data.UNAME }, function(err, tfile) {
             if (err) {
-                // console.log(err);
+                console.log(err);
                 return cb({ Status: "err", Msg: "Error while file compling" });
             } else {
                 var mainOptions = {
