@@ -1,37 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks for contacting</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/Public/Images/Fevicon.png" type="image/x-icon">
+    <title>Thank you - Appa</title>
+    <link rel="stylesheet" href="https://appa-img.s3.ap-south-1.amazonaws.com/css/style.css">
     <style>
+        .divb {
+            border: 4rem brown groove;
+        }
+        
+        .card {
+            margin-left: 40%;
+            margin-bottom: 7%;
+            padding-top: 5%;
+            height: 55%;
+        }
+        
+        .coin {
+            animation: animate 9s linear 10;
+            animation-delay: 10s;
+            animation-direction: alternate;
+            margin-top: 3%;
+            margin-left: 45%;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+        
         body {
-            margin: 5% 10%;
-            padding: 5% 5%;
+            background-color: bisque;
+        }
+        
+        .img-thankyou {
+            width: 42vw;
+            margin-left: 16%;
+            border-radius: 5.5rem;
+        }
+        
+        .margin-thankyou {
+            margin-top: 3%;
+            margin-left: 50%;
+            /* margin-bottom: 3em; */
+        }
+        
+        .text-center {
+            margin-top: 2%;
+        }
+        
+        .thankyou {
+            display: inline;
+            font-family: 'EB Garamond', serif;
+            border: 1px solid black;
+            padding: 0.2em;
+            border-radius: 1.1em;
         }
     </style>
 </head>
 
 <body>
-    <h1>Thanks for getting in touch</h1>
-    <br>
-    <br>
-    <h4>Dear
-        <!-- <%= udata.uname %>, -->
-    </h4>
-    <br><br>
-    <p>We have recieved your message and would like to thank you for writing to us. If your inquiry is urgent, please use Whats app Link to connect one of our staff members.</p>
-    <br><br><br><br>
-    <p>
-        Otherwise, we will reply by email as soon as possible.
-    </p>
-    <br><br>
-    <h6>Talk to you soon, APPA</h6>
-    <br><br> © 2022, Appa
+    <div class="divb">
+        <main>
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="https://appa-img.s3.ap-south-1.amazonaws.com/Images/logo.png" alt="Appa logo" width="90" height="60" class="d-inline-block align-text-top coin ">
+                        </div>
+                        <div class="col-md-3 ">
+                            <img src="https://appa-img.s3.ap-south-1.amazonaws.com/Images/thanks.jpeg" alt="Background_img" class="img-thankyou">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card container">
+                                <div class="text-center">
+                                    <h1 style="margin-bottom: -3%;">
+                                        <u><i>Dear <%= Udata.UNAME %></i></u>
+                                    </h1>
+                                    <br><br>
+                                    <h1 class="thankyou" style="margin-left: -2.5%;">T</h1>
+                                    <h1 class="thankyou">H</h1>
+                                    <h1 class="thankyou">A</h1>
+                                    <h1 class="thankyou">N</h1>
+                                    <h1 class="thankyou">K</h1>
+                                    <h1 class="thankyou">Y</h1>
+                                    <h1 class="thankyou">O</h1>
+                                    <h1 class="thankyou">U</h1>
+                                    <br>
+                                    <p style="margin-left: 5%;"><i>for contacting us...</i></p>
+                                    <p style="margin-left: 3%;">We will contact you as early as possible.</ps>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>
