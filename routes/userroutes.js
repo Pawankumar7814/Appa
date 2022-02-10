@@ -1,16 +1,37 @@
 // All require modules
 var express = require("express");
+const res = require("express/lib/response");
 var router = express.Router();
 var User = require("../controllers/UserController");
 var user = new User();
 
+checkuserexist = function(req, res, next) {
+    var token = req.cookies.token;
+    if (!token) {
+        next();
+    } else {
+        req.flash("error", "User Already login.");
+        res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
+    }
+}
+
+checkusernotexist = function(req, res, next) {
+    var token = req.cookies.token;
+    if (!token) {
+        req.flash("Error", "Please login");
+        res.status(200).render("../views/User/index.ejs"), { title: "Login - Appa" };
+    } else {
+        next();
+    }
+}
+
 // Route to index page
-router.get(["/", "/index", "/Signin", "/Login"], (req, res) => {
+router.get(["/", "/index", "/Signin", "/Login"], checkuserexist, (req, res) => {
     res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
 });
 
 // Route to index page
-router.get(["/Signup", "/Register"], (req, res) => {
+router.get(["/Signup", "/Register"], checkuserexist, (req, res) => {
     res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
 });
 
