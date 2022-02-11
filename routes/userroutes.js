@@ -26,12 +26,24 @@ checkusernotexist = function(req, res, next) {
 }
 
 // Route to index page
-router.get(["/", "/index", "/Signin", "/Login"], checkuserexist, (req, res) => {
+router.get(["/", "/index", "/Signin", "/Login"], (req, res) => {
     res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
 });
 
 // Route to index page
-router.get(["/Signup", "/Register"], checkuserexist, (req, res) => {
+router.post(["/", "/index", "/Signin", "/Login"], (req, res) => {
+    user.CheckUser(req.body, (data) => {
+        console.log(data);
+        if (info.Status == "err") {
+            res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
+        } else {
+            res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
+        }
+    });
+});
+
+// Route to index page
+router.get(["/Signup", "/Register"], (req, res) => {
     res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
 });
 

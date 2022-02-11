@@ -23,6 +23,18 @@ class UserData {
         });
     }
 
+    //Check User in Database
+    async CheckUser(UserInfo, cb) {
+        User.findOne({ UEmail: UserInfo.Uemail, UPass: UserInfo.Upass }, (err, user) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else {
+                delete user.UPass;
+                console.log(user);
+                return cb({ Status: "suc", Msg: "User found", data: user });
+            }
+        });
+    }
 }
 
 module.exports = UserData
