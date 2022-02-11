@@ -28,10 +28,18 @@ class UserData {
         User.findOne({ UEmail: UserInfo.Uemail, UPass: UserInfo.Upass }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else if (user == null) {
+                return cb({ Status: "err", Msg: "User Does not Exist", data: err });
             } else {
-                delete user.UPass;
-                console.log(user);
-                return cb({ Status: "suc", Msg: "User found", data: user });
+                let user2 = JSON.stringify(user);
+                let user1 = JSON.parse(user2);
+                delete user1.UPass;
+                delete user1.Ustatus;
+                delete user1.U_added_date;
+                delete user1._id;
+
+                console.log(typeof user1);
+                return cb({ Status: "suc", Msg: "User found", data: user1 });
             }
         });
     }

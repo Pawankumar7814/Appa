@@ -30,37 +30,41 @@ router.get(["/", "/index", "/Signin", "/Login"], (req, res) => {
     res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
 });
 
-// Route to index page
+// Route to login  page
 router.post(["/", "/index", "/Signin", "/Login"], (req, res) => {
     user.CheckUser(req.body, (data) => {
         console.log(data);
         if (data.Status == "err") {
-            res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
+            req.flash("error", data.msg);
+            res.status(200).redirect("/User/Login");
         } else {
-            res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
+            req.flash("success", data.msg);
+            res.status(200).redirect("/User/Login");
         }
     });
 });
 
-// Route to index page
+// Route to registration page
 router.get(["/Signup", "/Register"], (req, res) => {
     res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
 });
 
-// Route to index page
+// Route to add user from registration page
 router.post(["/Signup", "/Register"], (req, res) => {
     // console.log(req.body);
     user.SaveUser(req.body, (info) => {
         console.log(info);
         if (info.Status == "err") {
-            res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
+            req.flash("error", info.msg);
+            res.status(200).redirect("/User/Signup");
         } else {
-            res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
+            req.flash("success", info.msg);
+            res.status(200).redirect("/User/LogIn");
         }
     });
 });
 
-// Route to index page
+// Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
     res.status(200).render("../views/User/LogOut.ejs", { title: "Bye  - Appa" });
 });
