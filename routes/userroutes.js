@@ -34,7 +34,7 @@ router.get(["/", "/index", "/Signin", "/Login"], (req, res) => {
 router.post(["/", "/index", "/Signin", "/Login"], (req, res) => {
     user.CheckUser(req.body, (data) => {
         console.log(data);
-        if (info.Status == "err") {
+        if (data.Status == "err") {
             res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
         } else {
             res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
