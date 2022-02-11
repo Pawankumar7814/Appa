@@ -366,22 +366,17 @@
     padding: 7%;
 }
 
-.para-r {
-    text-align: left;
-}
-
+.para-r,
 .para-l {
-    text-align: right;
+    text-align: justify;
 }
 
 .midimg {
-    padding: 0% 5%;
-    margin-left: 0%;
-    margin-right: 0%;
-    border-radius: 50%;
-    height: 70%;
-    margin-top: 3%;
+    padding: 1%;
+    height: 77%;
+    margin-top: 10%;
     width: 100%;
+    border: 5px solid black;
 }
 
 
