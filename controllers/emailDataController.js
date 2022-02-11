@@ -4,6 +4,7 @@ var mongooe = require('mongoose');
 var Sender = require('../module/contactUsUser');
 var bodyParser = require('body-parser');
 var connectDBDev = require('../config/connection');
+const { redirect } = require('express/lib/response');
 
 
 class EmailData {
@@ -24,4 +25,4 @@ class EmailData {
     }
 }
 
-module.exports = EmailData
+module.exports = EmailData;
