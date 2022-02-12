@@ -31,15 +31,15 @@ router.get(["/", "/index", "/Signin", "/Login"], (req, res) => {
 });
 
 // Route to login  page
-router.post(["/", "/index", "/Signin", "/Login"], (req, res) => {
+router.post(["/Signin", "/Login"], (req, res) => {
     user.CheckUser(req.body, (data) => {
         console.log(data);
         if (data.Status == "err") {
-            req.flash("error", data.msg);
-            res.status(200).redirect("/User/Login");
+            req.flash("error", data.Msg);
+            return res.status(200).redirect("/User/Login");
         } else {
-            req.flash("success", data.msg);
-            res.status(200).redirect("/User/Login");
+            req.flash("success", data.Msg);
+            return res.status(200).redirect("/User/View");
         }
     });
 });
@@ -55,15 +55,19 @@ router.post(["/Signup", "/Register"], (req, res) => {
     user.SaveUser(req.body, (info) => {
         console.log(info);
         if (info.Status == "err") {
-            req.flash("error", info.msg);
+            req.flash("error", info.Msg);
             res.status(200).redirect("/User/Signup");
         } else {
-            req.flash("success", info.msg);
+            req.flash("success", info.Msg);
             res.status(200).redirect("/User/LogIn");
         }
     });
 });
 
+// Route to View User
+router.get(["/view"], (req, res) => {
+    res.status(200).render("../views/User/Viewuser.ejs", { title: "Bye  - Appa" });
+});
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
     res.status(200).render("../views/User/LogOut.ejs", { title: "Bye  - Appa" });
