@@ -8,13 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="/Public/css/style.css">
+    <title>User Profile - Appa</title>
 </head>
 
-<body>
+<body class="userprofile-body">
     <main>
         <section>
-            <div class="container card ">
+            <div class="container-fluid">
+                <br>
+                <a href="/"><button class="btn-sm">Back</button></a>
+                <a href=""><button class="btn-sm">Update</button></a>
+            </div>
+            <div class="container card user-profile">
                 <form class="row g-3">
                     <div class="container-fluid profileheading">
                         <h2>
@@ -39,7 +45,6 @@
                         <label for="inputAddress" class="form-label">Address</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                     </div>
-
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">City</label>
                         <input type="text" class="form-control" id="inputCity">
@@ -54,10 +59,6 @@
                     <div class="col-md-2">
                         <label for="inputZip" class="form-label">Zip</label>
                         <input type="text" class="form-control" id="inputZip">
-                    </div>
-
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Sign in</button>
                     </div>
                 </form>
             </div>

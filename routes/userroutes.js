@@ -37,7 +37,7 @@ router.post(["/", "/index", "/Signin", "/Login"], (req, res) => {
         if (data.Status == "err") {
             res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
         } else {
-            res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
+            res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
         }
     });
 });
@@ -58,6 +58,12 @@ router.post(["/Signup", "/Register"], (req, res) => {
             res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
         }
     });
+});
+
+
+// Route to profile
+router.get("/profile", (req, res) => {
+    req.status(200).render("../views/User/userprofile.ejs", { title: "Profile - Appa" });
 });
 
 // Route to index page
