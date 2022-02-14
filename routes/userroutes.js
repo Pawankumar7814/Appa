@@ -38,8 +38,10 @@ router.post(["/Signin", "/Login"], (req, res) => {
             req.flash("error", data.Msg);
             return res.status(200).redirect("/User/Login");
         } else {
+            res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
             req.flash("success", data.Msg);
             return res.status(200).redirect("/User/View");
+
         }
     });
 });
@@ -64,6 +66,13 @@ router.post(["/Signup", "/Register"], (req, res) => {
     });
 });
 
+
+// Route to profile
+router.get("/profile", (req, res) => {
+    req.status(200).render("../views/User/userprofile.ejs", { title: "Profile - Appa" });
+});
+
+// Route to index page
 // Route to View User
 router.get(["/view"], (req, res) => {
     res.status(200).render("../views/User/Viewuser.ejs", { title: "Bye  - Appa" });
