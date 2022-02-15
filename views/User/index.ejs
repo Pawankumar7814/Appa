@@ -12,15 +12,13 @@
                                         <form action="/User/LogIn" method="post">
                                             <div class="row">
                                                 <div class="row mb-3">
-                                                    <label for="Uemail" class="col-sm-4 col-form-label">
-                                                        <b>Email</b></label>
+                                                    <label for="Uemail" class="col-sm-4 col-form-label"><b>Email</b></label>
                                                     <div class="col-sm-8">
                                                         <input type="email" class="form-control Cdetails" id="Uemail" name="Uemail" placeholder="name@example.com" required>
                                                     </div>
                                                 </div>
                                                 <div class="row mb-3">
-                                                    <label for="Upass" class="col-sm-4 col-form-label"> <b>Password
-                                                        </b></label>
+                                                    <label for="Upass" class="col-sm-4 col-form-label"> <b>Password</b></label>
                                                     <div class="col-sm-8">
                                                         <input type="password" class="form-control Cdetails" id="Upass" name="Upass" placeholder="************" required>
                                                     </div>
@@ -34,7 +32,7 @@
                                         </form>
                                         <br>
                                         <h6 class="card-subtitle mb-2 text-muted">New User? &nbsp;<a href="/User/Register">Register now</a></h6>
-                                        <h6 class="card-subtitle mb-2 text-muted"><a href="#">Forget Password?</a></h6>
+                                        <h6 class="card-subtitle mb-2 text-muted"><a href="/User/changepassword">Forget Password?</a></h6>
                                     </div>
                                     <% if ( error && error.length> 0 ) { %>
                                         <div class="alert alert-danger" role="alert">
