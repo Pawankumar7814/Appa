@@ -81,8 +81,24 @@ router.get(["/Logout", "/SignOut"], (req, res) => {
 });
 
 // Route to forget password
-router.get(["/changepassword", "/forgetpassword"], (req, res) => {
-    res.status(200).render("../views/User/changepassword.ejs", { title: "Change Password - Appa" });
+router.get(["/forgetpassword"], (req, res) => {
+    res.status(200).render("../views/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
+});
+
+// Route to get data for forget password
+router.post(["/forgetpassword"], (req, res) => {
+    // console.log(req.body);
+    user.ForgetPassword(req.body, (info) => {
+        console.log(info);
+        if (info.Status == "err") {
+            req.flash("error", info.Msg);
+            res.status(200).redirect("/User/Signup");
+        } else {
+            req.flash("success", info.Msg);
+            res.status(200).redirect("/User/LogIn");
+        }
+    });
+
 });
 
 module.exports = router;

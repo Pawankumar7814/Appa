@@ -32,7 +32,7 @@ app.use(session({
 
 //for http data
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: false }));
 
 //some session variables i have created for work
 app.use(function(req, res, next) {
@@ -51,7 +51,6 @@ app.use(function(req, res, next) {
 // Route to Public 
 app.use("/Images", express.static(__dirname + "/Public/Images"));
 app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
-
 
 
 // Routes

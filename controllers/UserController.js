@@ -1,7 +1,8 @@
 var User = require('../module/User');
 var connectDBDev = require('../config/connection');
 var uuid = require("uuid");
-
+var EmailSend = require("./emailSendController");
+var emailSend = new EmailSend();
 class UserData {
 
     //Save the User
@@ -39,6 +40,33 @@ class UserData {
                 delete user1._id;
                 console.log(typeof user1);
                 return cb({ Status: "suc", Msg: "User found", data: user1 });
+            }
+        });
+    }
+
+    async ForgetPassword(UserInfo, cb) {
+        console.log(UserInfo);
+        User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else if (user == null) {
+                return cb({ Status: "err", Msg: "Email or Phone Does not Exist", data: err });
+            } else {
+                let user2 = JSON.stringify(user);
+                let user1 = JSON.parse(user2);
+                // delete user1.UPass;
+                delete user1.Ustatus;
+                delete user1.U_added_date;
+                delete user1._id;
+                console.log(typeof user1);
+                emailSend.forgetpasswordemail(user1, (info) => {
+                    if (info.Status == "err") {
+                        return cb({ Status: "err", Msg: "Error sending email", data: err });
+                    } else {
+                        return cb({ Status: "suc", Msg: "Check your email for password", data: user1 });
+                    }
+                });
+
             }
         });
     }
