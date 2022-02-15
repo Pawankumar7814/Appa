@@ -65,7 +65,6 @@ router.post(["/Signup", "/Register"], (req, res) => {
     });
 });
 
-
 // Route to profile
 router.get("/profile", (req, res) => {
     req.status(200).render("../views/User/userprofile.ejs", { title: "Profile - Appa" });
@@ -74,11 +73,16 @@ router.get("/profile", (req, res) => {
 // Route to index page
 // Route to View User
 router.get(["/view"], (req, res) => {
-    res.status(200).render("../views/User/Viewuser.ejs", { title: "Bye  - Appa" });
+    res.status(200).render("../views/User/ViewUser.ejs", { title: "Bye  - Appa" });
 });
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
     res.status(200).render("../views/User/LogOut.ejs", { title: "Bye  - Appa" });
+});
+
+// Route to forget password
+router.get(["/changepassword", "/forgetpassword"], (req, res) => {
+    res.status(200).render("../views/User/changepassword.ejs", { title: "Change Password - Appa" });
 });
 
 module.exports = router;
