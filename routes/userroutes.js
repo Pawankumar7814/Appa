@@ -41,7 +41,6 @@ router.post(["/Signin", "/Login"], (req, res) => {
             res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
             req.flash("success", data.Msg);
             return res.status(200).redirect("/User/View");
-
         }
     });
 });
