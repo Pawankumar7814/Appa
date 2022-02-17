@@ -67,14 +67,20 @@ router.post(["/Signup", "/Register"], (req, res) => {
 
 // Route to profile
 router.get("/profile", (req, res) => {
-    req.status(200).render("../views/User/userprofile.ejs", { title: "Profile - Appa" });
+    res.status(200).render("../views/User/userprofile.ejs", { title: "Profile - Appa" });
 });
 
 // Route to index page
 // Route to View User
 router.get(["/view"], (req, res) => {
-    res.status(200).render("../views/User/ViewUser.ejs", { title: "Bye  - Appa" });
+    res.status(200).render("../views/User/ViewUser.ejs", { title: "Profile - Appa" });
 });
+
+//Route to user profile edit page
+router.get(["/userupdate", "/userprofile"], (req, res) => {
+    res.status(200).render("../views/User/userprofile.ejs", { title: "Update User - Appa" });
+});
+
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
     res.status(200).render("../views/User/LogOut.ejs", { title: "Bye  - Appa" });
