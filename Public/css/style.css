@@ -299,6 +299,7 @@
     margin: 5% 17%;
     box-shadow: 0 4px 8px 0;
     width: 70%;
+    padding: 1%;
     height: 85%;
     border-radius: 2rem 2rem 2rem 2rem;
     border-color: orange;
@@ -366,22 +367,17 @@
     padding: 7%;
 }
 
-.para-r {
-    text-align: left;
-}
-
+.para-r,
 .para-l {
-    text-align: right;
+    text-align: justify;
 }
 
 .midimg {
-    padding: 0% 5%;
-    margin-left: 0%;
-    margin-right: 0%;
-    border-radius: 50%;
-    height: 70%;
-    margin-top: 3%;
+    padding: 1%;
+    height: 77%;
+    margin-top: 10%;
     width: 100%;
+    border: 5px solid black;
 }
 
 
@@ -445,4 +441,11 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
+}
+
+
+/* CSS for Profile page */
+
+.userprofile-body {
+    background-color: bisque;
 }

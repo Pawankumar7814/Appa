@@ -32,19 +32,19 @@ app.use(session({
 
 //for http data
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: false }));
 
 //some session variables i have created for work
 app.use(function(req, res, next) {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     var token = req.cookies.token;
-    if (token == null) {
-        res.locals.is_User = false;
-    } else {
-        res.locals.user = token;
-        res.locals.is_User = true;
-    }
+    // if (token == null) {
+    //     res.locals.is_User = false;
+    // } else {
+    //     res.locals.user = token;
+    //     res.locals.is_User = true;
+    // }
     next();
 });
 
@@ -53,13 +53,11 @@ app.use("/Images", express.static(__dirname + "/Public/Images"));
 app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
 
 
-
 // Routes
 
 app.use("/", require("./routes/productroutes"));
 app.use("/", require("./routes/emailroutes"));
 app.use("/User", require("./routes/userroutes"));
-
 app.use("/", require("./routes/mainpageroutes"));
 
 // Creating server
