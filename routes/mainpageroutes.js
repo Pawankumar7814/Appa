@@ -7,6 +7,10 @@ router.get(["/", "/index"], (req, res) => {
     res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
 });
 
+router.get(["/index1"], (req, res) => {
+    res.status(200).render("../views/mainpages/index1.ejs", { title: "Home - Appa" });
+});
+
 // Route to index page
 router.get(["/contactus", "/contact"], (req, res) => {
     res.status(200).render("../views/mainpages/contactus.ejs", { title: "Contact us - Appa" });
