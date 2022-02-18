@@ -125,6 +125,10 @@
     margin: -2em 0em 3em 3em;
 }
 
+.justify {
+    text-align: justify;
+}
+
 .column {
     margin: 3rem 0rem 1rem 0rem;
 }
@@ -298,7 +302,6 @@
 
 .card-text {
     font-size: medium;
-    text-align: justify;
 }
 
 .card {
