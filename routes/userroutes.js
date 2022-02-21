@@ -20,16 +20,13 @@ var usermiddleware = require("../middleware/userverification")(jwt);
     // Post Route 
     router.post(["/Signin", "/Login"], usermiddleware.checkuserexicte, (req, res) => {
         user.CheckUser(req.body, (udata) => {
-
             if (udata.Status == "err") {
                 req.flash("error", udata.Msg);
                 return res.status(200).redirect("/User/Login");
             } else {
                 var token = jwt.generateAccessToken({ UD: udata.data.UID });
                 res.cookie("token", token, { maxAge: 60 * 1000 * 60, httpOnly: true });
-                // res.locals.UserName = udata.data.UFname;
                 req.flash("UserName", udata.data.UFname)
-                    // console.log(res.locals);
                 req.flash("success", udata.Msg);
                 return res.status(200).redirect("/User/View");
             }
@@ -91,9 +88,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
             } else {
                 console.log(req.body);
                 console.log(info.data);
-                user.UpdateUser(info.data, (UserData) => {
-
-                });
+                user.UpdateUser(info.data, (UserData) => {});
                 res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
             }
         });
@@ -124,7 +119,6 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 
     });
 }
-
 
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {

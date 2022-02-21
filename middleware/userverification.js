@@ -1,6 +1,7 @@
 module.exports = function(jwrt) {
     var jwt = require('jsonwebtoken');
     var out = {};
+
     out.checkcookie = function(req, res, next) {
         var is_user = res.locals.is_User;
         if (is_user == true) {
@@ -22,9 +23,6 @@ module.exports = function(jwrt) {
     };
 
     out.authenticateToken = (req, res, next) => {
-
-
-
         try {
             var output1 = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
             var output2 = jwt.verify(res.locals.user, process.env.TOKEN_SECRET);

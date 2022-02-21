@@ -19,6 +19,7 @@ var port = 3100 | process.env.port;
 
 //token for jwt
 process.env.TOKEN_SECRET = require("crypto").randomBytes(64).toString('hex');
+
 //seting favicon by passing app
 favicon(app);
 
@@ -52,6 +53,8 @@ app.use(function(req, res, next) {
         res.locals.UserName = req.flash("UserName");;
         res.locals.is_User = true;
     }
+    console.log(token);
+    console.log(process.env.TOKEN_SECRET);
     next();
 });
 

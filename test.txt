@@ -1,0 +1,7 @@
+1) creat change password page with get route 
+2) edit page back color remove 
+3) creat home page like gana 
+4) forget passwor link login and regist
+5) check all button 
+6) remove cart and othere icon from 992 px
+7) need product page for enrty
