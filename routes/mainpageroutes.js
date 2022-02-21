@@ -6,6 +6,10 @@ var router = express.Router();
 router.get(["/", "/index"], (req, res) => {
     res.status(200).render("../views/mainpages/index.ejs", { title: "Home - Appa" });
 });
+// Route to index page
+router.get(["/indexsh"], (req, res) => {
+    res.status(200).render("../views/mainpages/indexsh.ejs", { title: "Home - Appa" });
+});
 
 // Route to index page
 router.get(["/contactus", "/contact"], (req, res) => {
@@ -22,7 +26,7 @@ router.get(["/aboutus1", "/about1"], (req, res) => {
     res.status(200).render("../views/mainpages/aboutus1.ejs", { title: "About us - Appa" });
 });
 
-router.get("*", (req, res) => {
+router.get("/*", (req, res) => {
     res.status(404).render("../views/mainpages/error404.ejs", { title: "Error 404 " });
 });
 
