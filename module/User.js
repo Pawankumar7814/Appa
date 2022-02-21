@@ -30,16 +30,35 @@ const user = new mongooes.Schema({
         default: "Active",
         required: [true, "Select from List"]
     },
-    // Address: [{
-    //     HouseNo: String,
-    //     GaliNo: String,
-    //     BlockNo: String,
-    //     City: String,
-    //     State: String,
-    //     PinCode: String,
-    //     ContactNumber: String,
-    //     NearBuy: String
-    // }],
+    Address: {
+        type: Array,
+        optional: true,
+        address: {
+            HouseNo: {
+                type: String,
+                default: " "
+            },
+            City: {
+                type: String,
+                default: " "
+            },
+            State: {
+                type: String,
+                default: " "
+            },
+            PostalCode: {
+                type: Number,
+                default: " "
+            },
+            Country: {
+                type: String,
+                default: " "
+            },
+            Address_UUID: {
+                type: String
+            }
+        }
+    },
     U_added_date: {
         type: Date,
         default: Date.now

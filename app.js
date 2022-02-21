@@ -17,6 +17,8 @@ app.set("view engine", "ejs");
 // assign port number
 var port = 3100 | process.env.port;
 
+//token for jwt
+process.env.TOKEN_SECRET = require("crypto").randomBytes(64).toString('hex');
 //seting favicon by passing app
 favicon(app);
 
@@ -34,17 +36,22 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
 //some session variables i have created for work
 app.use(function(req, res, next) {
+
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     var token = req.cookies.token;
-    // if (token == null) {
-    //     res.locals.is_User = false;
-    // } else {
-    //     res.locals.user = token;
-    //     res.locals.is_User = true;
-    // }
+    if (token == null) {
+        res.locals.is_User = false;
+        res.locals.user = "";
+        res.locals.UserName = "";
+    } else {
+        res.locals.user = token;
+        res.locals.UserName = req.flash("UserName");;
+        res.locals.is_User = true;
+    }
     next();
 });
 
