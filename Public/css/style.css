@@ -66,7 +66,7 @@
     border-radius: 1em;
     border: 2px solid gold;
     background-color: lavender;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 
 .btn-sm {
@@ -309,7 +309,7 @@
     box-shadow: 0 4px 8px 0;
     width: 70%;
     padding: 1%;
-    height: 85%;
+    /* height: 85%; */
     border-radius: 2rem 2rem 2rem 2rem;
     border-color: orange;
 }
@@ -468,4 +468,13 @@
 
 .userprofile-body {
     background-color: bisque;
+}
+
+
+/* Product Image */
+
+.img-product {
+    width: 132%;
+    border-radius: 18px;
+    margin-top: 10%;
 }
