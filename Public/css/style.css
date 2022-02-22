@@ -481,3 +481,10 @@
     border-radius: 18px;
     margin-top: 10%;
 }
+
+
+/* CSS for change password */
+
+.card-changepassword {
+    margin-left: 25%;
+}
