@@ -53,8 +53,6 @@ app.use(function(req, res, next) {
         res.locals.UserName = req.flash("UserName");;
         res.locals.is_User = true;
     }
-    console.log(token);
-    console.log(process.env.TOKEN_SECRET);
     next();
 });
 

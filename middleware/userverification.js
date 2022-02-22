@@ -34,11 +34,9 @@ module.exports = function(jwrt) {
                 res.status(200).redirect("/User/LogIn");
             }
         } catch (E) {
-
             req.flash("error", "Log In First");
             res.status(200).redirect("/User/LogIn");
         }
-
     };
 
     return out;

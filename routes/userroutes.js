@@ -10,11 +10,13 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 
 
 
+
 //log In Routes
 {
     // Get Route 
     router.get(["/", "/index", "/Signin", "/Login"], usermiddleware.checkuserexicte, (req, res) => {
-        res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
+
+        return res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
     });
 
     // Post Route 
@@ -39,7 +41,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 {
     // get Route 
     router.get(["/Signup", "/Register"], usermiddleware.checkuserexicte, (req, res) => {
-        res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
+        return res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
     });
 
     // post Route 
@@ -49,22 +51,31 @@ var usermiddleware = require("../middleware/userverification")(jwt);
             console.log(info);
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
-                res.status(200).redirect("/User/Signup");
+                return res.status(200).redirect("/User/Signup");
             } else {
                 req.flash("success", "User Registration Done Try to Login");
-                res.status(200).redirect("/User/LogIn");
+                return res.status(200).redirect("/User/LogIn");
             }
         });
     });
 }
-
 
 //User Profile Route
 {
 
     // get Route to View User
     router.get(["/view"], usermiddleware.checkcookie, (req, res) => {
-        res.status(200).render("../views/User/View.ejs", { title: "Profile - Appa" });
+        let udata = jwt.getUID(res.locals.user);
+        console.log(udata.UD);
+        user.CheckUserByUID(udata.UD, (info) => {
+            if (info.Status == "err") {
+                req.flash("error", "Pls LogIn Again");
+                return res.status(200).redirect("/User/LogIn");
+            } else {
+                console.log(info.data);
+                return res.status(200).render("../views/User/View.ejs", { title: "Profile - Appa", data: info.data });
+            }
+        });
     });
 
     //get Route to Edit Profile
@@ -72,24 +83,31 @@ var usermiddleware = require("../middleware/userverification")(jwt);
         user.CheckUserByUID(res.locals.UID, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
-                res.status(200).redirect("/User/LogIn");
+                return res.status(200).redirect("/User/LogIn");
             } else {
-                res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
             }
         });
     });
 
     //get Route to Edit Profile
     router.post(["/userupdate", "/userprofile", "/profile", "/Edit"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
-        user.CheckUserByUID(res.locals.UID, (info) => {
+        let udata = jwt.getUID(res.locals.user);
+        user.CheckUserByUID(udata.UID, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
-                res.status(200).redirect("/User/LogIn");
+                return res.status(200).redirect("/User/LogIn");
             } else {
-                console.log(req.body);
-                console.log(info.data);
-                user.UpdateUser(info.data, (UserData) => {});
-                res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                let udata = req.body;
+                udata.UID = info.data.UID;
+                console.log(udata);
+                user.UpdateUser(req.body, (updateData) => {
+                    if (updateData.Status == "err") {
+                        return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                    } else {
+                        return res.status(200).redirect("/USer/View");
+                    }
+                });
             }
         });
     });
@@ -100,7 +118,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 {
     // get Route to forget password
     router.get(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
-        res.status(200).render("../views/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
+        return res.status(200).render("../views/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
     });
 
     // post Route to get data for forget password and email it
@@ -110,10 +128,10 @@ var usermiddleware = require("../middleware/userverification")(jwt);
             //   console.log(info);
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
-                res.status(200).redirect("/User/Signup");
+                return res.status(200).redirect("/User/Signup");
             } else {
                 req.flash("success", "Password send to Registred email");
-                res.status(200).redirect("/User/LogIn");
+                return res.status(200).redirect("/User/LogIn");
             }
         });
 
@@ -130,7 +148,7 @@ router.get(["/Logout", "/SignOut"], (req, res) => {
     req.session.tim = null;
     res.locals.is_User = false;
     req.flash("success", "Log Out Done");
-    res.status(200).redirect("/User/LogIn");
+    return res.status(200).redirect("/User/LogIn");
 });
 
 module.exports = router;

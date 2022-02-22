@@ -45,7 +45,8 @@ class UserData {
     }
 
     // user user with udi
-    async CheckUserByUID(UserInfo, cb) {
+    CheckUserByUID(UserInfo, cb) {
+        console.log(UserInfo);
         User.findOne({ UID: UserInfo }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
@@ -66,15 +67,19 @@ class UserData {
 
     //Update User
     async UpdateUser(UserInfo, cb) {
-        let user = {};
-        user.UFname = UserInfo.Ufname;
-        user.ULName = UserInfo.Ulname;
-        user.UPhone = UserInfo.Uphone;
-
-        await User.findOneAndUpdate({ UID: UserInfo.UID }, { $set: { user } }, (err, done) => {
+        console.log(UserInfo);
+        await User.findOneAndUpdate({ UID: UserInfo.UID }, {
+            $set: {
+                "UFname": UserInfo.Ufname,
+                "ULname": UserInfo.ulname,
+                "UPhone": UserInfo.uphone
+            }
+        }, { new: true }, (err, done) => {
             if (err) {
+                console.log(err);
                 return cb({ Status: "err", Msg: "User Allredy Exist", data: err });
             } else {
+                console.log(done);
                 return cb({ Status: "suc", Msg: "User Detail Saved", data: done });
             }
         });
@@ -83,7 +88,7 @@ class UserData {
     //forgot user
     async ForgetPassword(UserInfo, cb) {
         console.log(UserInfo);
-        User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
+        await User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
             } else if (user == null) {
