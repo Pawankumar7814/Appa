@@ -30,6 +30,10 @@
     transition: all .5s ease;
 }
 
+.nav-dropdown {
+    margin-left: 44%;
+}
+
 .navbar-light .navbar-nav .nav-link.active {
     color: rgb(199, 35, 85);
     transition: all .5s ease;
@@ -436,6 +440,12 @@
         margin-top: 10em;
         margin-top: 0em;
         margin-left: 4em;
+    }
+}
+
+@media screen and (max-width:322px) {
+    .coin {
+        margin-left: 117%;
     }
 }
 
