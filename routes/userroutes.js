@@ -120,6 +120,15 @@ var usermiddleware = require("../middleware/userverification")(jwt);
     });
 }
 
+// Change Password
+{
+    router.get(["/changepassword", "/ChangePassword"], (req, res) => {
+        res.status(200).render("../views/User/changepassword", { title: "Change Password" });
+    });
+
+
+}
+
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
 

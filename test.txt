@@ -1,4 +1,4 @@
-1) creat change password page with get route - Pawan
+1) creat change password page with get route - Done
 2) edit page back color remove - Done
 3) create home page like gana - Mehak
 4) forget passwor link login and register - Shrishti
