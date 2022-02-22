@@ -3,5 +3,5 @@
 3) create home page like gana - Mehak
 4) forget passwor link login and register - Shrishti
 5) check all button - Mehak
-6) remove cart and othere icon from 992px - Pawan
+6) remove cart and othere icon from 992px - Done
 7) need product page for enrty - Shrishti
