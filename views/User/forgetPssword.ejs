@@ -20,15 +20,18 @@
                                                 <label for="">OR</label>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="inputphonenumber1" class="col-sm-4 col-form-label">Contact
-                                                    No</label>
                                                 <div class="col-sm-8">
+                                                    <label for="inputphonenumber1" class="col-sm-4 col-form-label">Contact
+                                                    No</label>
                                                     <input type="text" class="" name="phone" id="inputphonenumber1" />
                                                 </div>
                                             </div>
                                             <div class="col text-center">
                                                 <button type="submit" class="btn-sm">Send</button>
                                             </div>
+
+                                            <h6 style="margin-top: 1%;" class="card-subtitle mb-2 text-muted">New User? &nbsp;<a href="/User/Register">Register now</a></h6>
+                                            <h6 class="card-subtitle mb-2 text-muted"><a href="/User/forgetpassword">Forget Password?</a></h6>
                                         </div>
                                         <% if ( error && error.length> 0 ) { %>
                                             <div class="alert alert-danger" role="alert">
