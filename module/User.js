@@ -1,65 +1,95 @@
-const mongooes = require('mongoose');
-const user = new mongooes.Schema({
-    UID: {
+<%- include("../partial/header.ejs") %> <
+main >
+    <
+    section >
+    <
+    div class = "container card " >
+    <
+    form class = "row g-3" >
+    <
+    div class = "container-fluid " >
+    <
+    h2 >
+    <
+    center >
+    <
+    i > About Me < /i> <
+    /center> <
+    /h2> <
+    /div> <
+    div class = "col-md-12" >
+    <
+    label
+for = "Uname"
+class = "form-label" > Name: -<%= data.UFname %>
+<%= data.ULname %> < /label> <
+/div> <
+div class = "col-md-6" >
+    <
+    label
+for = "Uemail"
+class = "form-label" > Email: -<%= data.UEmail %> < /label> <
+    /div> <
+    div class = "col-md-6" >
+    <
+    label
+for = "inputcontact"
+class = "form-label" > Contact No: -<%= data.UPhone %> < /label> <
+    /div> <
+    div class = "col-12" >
+    <
+    label
+for = "inputHopuseNumber"
+class = "form-label" > Address < /label>
+<%= data.Address.HouseNo %> <
+bR >
+    <%= data.Address.StreetNo %> <
+    bR >
+    <%= data.Address.City %> <
+    bR >
+    <%= data.Address.State %> <
+    bR >
+    <%= data.Address.PIN %> <
+    bR >
+    <%= data.Address.Country %> <
+    bR >
+    <%= data.Address.NearBy %> <
+    bR >
+    <
+    /div> <
+    div class = "col-12 text-center" >
+    <
+    a href = "/User/Edit"
+class = "btn btn-sm" > Edit < /a> <
+    /div> <
+    /form> <
+    /div> <
+    /section> <
+    /main>
+<%- include("../partial/footer.ejs") %>
+},
+State: {
         type: String,
-        unique: true,
-        required: [true, "ID can't be blank"],
-        index: true
+        default: " "
     },
-    UFname: {
-        type: String
+    PIN: {
+        type: Number,
+        default: " "
     },
-    ULname: {
-        type: String
-    },
-    UEmail: {
+    Country: {
         type: String,
-        unique: true,
-        required: [true, "Email can't be blank"],
-        index: true
+        default: " "
     },
-    UPhone: {
-        type: String
-    },
-    UPass: {
-        type: String
-    },
-    Ustatus: {
+    NearBy: {
         type: String,
-        enum: ['Active', 'NotActive'],
-        default: "Active",
-        required: [true, "Select from List"]
+        default: " "
     },
-    Address: {
-        type: Array,
-        optional: true,
-        address: {
-            HouseNo: {
-                type: String,
-                default: " "
-            },
-            City: {
-                type: String,
-                default: " "
-            },
-            State: {
-                type: String,
-                default: " "
-            },
-            PostalCode: {
-                type: Number,
-                default: " "
-            },
-            Country: {
-                type: String,
-                default: " "
-            },
-            Address_UUID: {
-                type: String
-            }
-        }
-    },
-    U_added_date: {
+    Address_UUID: {
+        type: String
+    }
+}
+},
+U_added_date: {
         type: Date,
         default: Date.now
     },
