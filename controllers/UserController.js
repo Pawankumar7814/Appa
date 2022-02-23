@@ -111,8 +111,8 @@ class UserData {
 
     //Change PAssword
     async changePassword(UserInfo, cb) {
-        //console.log(UserInfo);
-        await User.findOneAndUpdate({ UID: UserInfo.UID }, {
+        console.log(UserInfo);
+        await User.findOneAndUpdate({ UID: UserInfo.UID, UPass: UserInfo.inputoldpassword }, {
             $set: {
                 "UPass": UserInfo.inputpassword1
             }

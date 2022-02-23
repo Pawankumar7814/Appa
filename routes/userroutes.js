@@ -136,6 +136,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 
 // Change Password
 {
+
     router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
         res.status(200).render("../views/User/changepassword", { title: "Change Password" });
     });

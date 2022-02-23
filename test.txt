@@ -1,9 +1,9 @@
-1) creat change password page with get route - Done
-2) edit page back color remove - Done
+1) user name droupwon right side at 992px
+2) change pawsword layout work make it center and 
 3) create home page like gana - Mehak
 4) forget passwor link login and register - Shrishti
 5) check all button - Mehak
-6) remove cart and othere icon from 992px - Done
+6) user view houen no, street like some look
 7) need product page for enrty - Shrishti
 
 
@@ -50,9 +50,6 @@ modle for it
             }
         }
     },
-
-
-
 
 
 ///Add multiple adress

@@ -11,7 +11,7 @@ class JWT {
 
     getUID(token) {
         var output2 = jwt.verify(token, process.env.TOKEN_SECRET);
-        console.log(output2);
+        //  console.log(output2);
         return output2;
     }
 

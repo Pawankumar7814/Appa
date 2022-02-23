@@ -30,7 +30,6 @@ const user = new mongooes.Schema({
         default: "Active",
         required: [true, "Select from List"]
     },
-
     Address: {
         HouseNo: {
             type: String,
