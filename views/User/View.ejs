@@ -22,11 +22,20 @@
                     </div>
                     <div class="col-12">
                         <label for="inputHopuseNumber" class="form-label">Address</label>
-                        <p>9811945176</p>
-                        <p>9811945176</p>
-                        <p>9811945176</p>
-                        <p>9811945176</p>
-                        <p>9811945176</p>
+                        <%= data.Address.HouseNo %>
+                            <bR>
+                            <%= data.Address.StreetNo %>
+                                <bR>
+                                <%= data.Address.City %>
+                                    <bR>
+                                    <%= data.Address.State %>
+                                        <bR>
+                                        <%= data.Address.PIN %>
+                                            <bR>
+                                            <%= data.Address.Country %>
+                                                <bR>
+                                                <%= data.Address.NearBy %>
+                                                    <bR>
                     </div>
                     <div class="col-12 text-center">
                         <a href="/User/Edit" class="btn btn-sm">Edit</a>

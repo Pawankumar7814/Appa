@@ -40,17 +40,17 @@ app.use(express.urlencoded({ extended: false }));
 
 //some session variables i have created for work
 app.use(function(req, res, next) {
-
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     var token = req.cookies.token;
+    var UserName = req.cookies.UserName;
     if (token == null) {
         res.locals.is_User = false;
         res.locals.user = "";
         res.locals.UserName = "";
     } else {
         res.locals.user = token;
-        res.locals.UserName = req.flash("UserName");;
+        res.locals.UserName = UserName;
         res.locals.is_User = true;
     }
     next();

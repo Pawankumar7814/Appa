@@ -9,8 +9,6 @@ var jwt = new JWT();
 var usermiddleware = require("../middleware/userverification")(jwt);
 
 
-
-
 //log In Routes
 {
     // Get Route 
@@ -28,14 +26,13 @@ var usermiddleware = require("../middleware/userverification")(jwt);
             } else {
                 var token = jwt.generateAccessToken({ UD: udata.data.UID });
                 res.cookie("token", token, { maxAge: 60 * 1000 * 60, httpOnly: true });
-                req.flash("UserName", udata.data.UFname)
+                res.cookie("UserName", udata.data.UFname, { maxAge: 60 * 1000 * 60, httpOnly: true });
                 req.flash("success", udata.Msg);
                 return res.status(200).redirect("/User/View");
             }
         });
     });
 }
-
 
 //Registrations Route
 {
@@ -62,11 +59,10 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 
 //User Profile Route
 {
-
     // get Route to View User
     router.get(["/view"], usermiddleware.checkcookie, (req, res) => {
         let udata = jwt.getUID(res.locals.user);
-        console.log(udata.UD);
+        //console.log(udata.UD);
         user.CheckUserByUID(udata.UD, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
@@ -80,7 +76,8 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 
     //get Route to Edit Profile
     router.get(["/userupdate", "/userprofile", "/profile", "/Edit"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
-        user.CheckUserByUID(res.locals.UID, (info) => {
+        let udata = jwt.getUID(res.locals.user);
+        user.CheckUserByUID(udata.UD, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
@@ -93,14 +90,14 @@ var usermiddleware = require("../middleware/userverification")(jwt);
     //get Route to Edit Profile
     router.post(["/userupdate", "/userprofile", "/profile", "/Edit"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
         let udata = jwt.getUID(res.locals.user);
-        user.CheckUserByUID(udata.UID, (info) => {
+        user.CheckUserByUID(udata.UD, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
             } else {
                 let udata = req.body;
                 udata.UID = info.data.UID;
-                console.log(udata);
+                // console.log(udata);
                 user.UpdateUser(req.body, (updateData) => {
                     if (updateData.Status == "err") {
                         return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
@@ -111,7 +108,6 @@ var usermiddleware = require("../middleware/userverification")(jwt);
             }
         });
     });
-
 }
 
 //forgot passwword route
@@ -140,11 +136,30 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 
 // Change Password
 {
-    router.get(["/changepassword", "/ChangePassword"], (req, res) => {
+    router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
         res.status(200).render("../views/User/changepassword", { title: "Change Password" });
     });
 
-
+    router.post(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
+        let udata = jwt.getUID(res.locals.user);
+        user.CheckUserByUID(udata.UD, (info) => {
+            if (info.Status == "err") {
+                req.flash("error", "Pls LogIn Again");
+                return res.status(200).redirect("/User/LogIn");
+            } else {
+                let udata = req.body;
+                udata.UID = info.data.UID;
+                //  console.log(udata);
+                user.changePassword(udata, (updateData) => {
+                    if (updateData.Status == "err") {
+                        return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                    } else {
+                        return res.status(200).redirect("/USer/View");
+                    }
+                });
+            }
+        });
+    });
 }
 
 // Route to log out
@@ -154,6 +169,8 @@ router.get(["/Logout", "/SignOut"], (req, res) => {
     res.clearCookie('connect.sid', { path: '/' });
     res.cookie("token", null, { expires: new Date(0), httpOnly: true });
     res.clearCookie("token");
+    res.cookie("UserName", null, { expires: new Date(0), httpOnly: true });
+    res.clearCookie("UserName");
     req.session.tim = null;
     res.locals.is_User = false;
     req.flash("success", "Log Out Done");

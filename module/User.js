@@ -1,95 +1,71 @@
-<%- include("../partial/header.ejs") %> <
-main >
-    <
-    section >
-    <
-    div class = "container card " >
-    <
-    form class = "row g-3" >
-    <
-    div class = "container-fluid " >
-    <
-    h2 >
-    <
-    center >
-    <
-    i > About Me < /i> <
-    /center> <
-    /h2> <
-    /div> <
-    div class = "col-md-12" >
-    <
-    label
-for = "Uname"
-class = "form-label" > Name: -<%= data.UFname %>
-<%= data.ULname %> < /label> <
-/div> <
-div class = "col-md-6" >
-    <
-    label
-for = "Uemail"
-class = "form-label" > Email: -<%= data.UEmail %> < /label> <
-    /div> <
-    div class = "col-md-6" >
-    <
-    label
-for = "inputcontact"
-class = "form-label" > Contact No: -<%= data.UPhone %> < /label> <
-    /div> <
-    div class = "col-12" >
-    <
-    label
-for = "inputHopuseNumber"
-class = "form-label" > Address < /label>
-<%= data.Address.HouseNo %> <
-bR >
-    <%= data.Address.StreetNo %> <
-    bR >
-    <%= data.Address.City %> <
-    bR >
-    <%= data.Address.State %> <
-    bR >
-    <%= data.Address.PIN %> <
-    bR >
-    <%= data.Address.Country %> <
-    bR >
-    <%= data.Address.NearBy %> <
-    bR >
-    <
-    /div> <
-    div class = "col-12 text-center" >
-    <
-    a href = "/User/Edit"
-class = "btn btn-sm" > Edit < /a> <
-    /div> <
-    /form> <
-    /div> <
-    /section> <
-    /main>
-<%- include("../partial/footer.ejs") %>
-},
-State: {
+const mongooes = require('mongoose');
+const user = new mongooes.Schema({
+    UID: {
         type: String,
-        default: " "
+        unique: true,
+        required: [true, "ID can't be blank"],
+        index: true
     },
-    PIN: {
-        type: Number,
-        default: " "
-    },
-    Country: {
-        type: String,
-        default: " "
-    },
-    NearBy: {
-        type: String,
-        default: " "
-    },
-    Address_UUID: {
+    UFname: {
         type: String
-    }
-}
-},
-U_added_date: {
+    },
+    ULname: {
+        type: String
+    },
+    UEmail: {
+        type: String,
+        unique: true,
+        required: [true, "Email can't be blank"],
+        index: true
+    },
+    UPhone: {
+        type: String
+    },
+    UPass: {
+        type: String
+    },
+    Ustatus: {
+        type: String,
+        enum: ['Active', 'NotActive'],
+        default: "Active",
+        required: [true, "Select from List"]
+    },
+
+    Address: {
+        HouseNo: {
+            type: String,
+            default: " "
+        },
+        StreetNo: {
+            type: String,
+            default: " "
+        },
+        City: {
+            type: String,
+            default: " "
+        },
+        State: {
+            type: String,
+            default: " "
+        },
+        PIN: {
+            type: Number,
+            default: " "
+        },
+        Country: {
+            type: String,
+            default: " "
+        },
+        NearBy: {
+            type: String,
+            default: " "
+        },
+        Address_UUID: {
+            type: String
+        }
+
+    },
+    U_added_date: {
         type: Date,
         default: Date.now
     },

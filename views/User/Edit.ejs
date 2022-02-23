@@ -27,24 +27,37 @@
                         <label for="uphone" class="form-label">Contact No</label>
                         <input type="text" class="form-control" id="uphone" name="uphone" value="<%= data.UPhone %>">
                     </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <div class="col-md-6">
+                        <label for="inputHuseNo" class="form-label">House</label>
+                        <input type="text" class="form-control" id="inputHuseNo" name="inputHuseNo" placeholder="House Number 101" value="<%= data.Address.HouseNo %>">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="inputStreet" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="inputStreet" name="inputStreet" placeholder="7th Main Street" value="<%= data.Address.StreetNo %>">
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputState" class="form-label">State</label>
-                        <select id="inputState" class="form-select">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
+                    <div class="col-md-3">
+                        <label for="inputCity" class="form-label">City </label>
+                        <input type="text" class="form-control" id="inputCity" name="inputCity" placeholder="City" value="<%= data.Address.City %>">
                     </div>
-                    <div class="col-md-2">
-                        <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                    <div class="col-md-3">
+                        <label for="inputState" class="form-label"> State</label>
+                        <input type="text" class="form-control" id="inputState" name="inputState" placeholder="State" value="<%= data.Address.State %>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">PIN</label>
+                        <input type="text" class="form-control" id="inputZip" name="inputZip" placeholder="000000" value="<%= data.Address.PIN %>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputContry" class="form-label">Contery</label>
+                        <% if ( data.Country && data.Country.length> 0 ) { %>
+                            <input type="text" class="form-control" id="inputContry" name="inputContry" placeholder="India" value="<%= data.Address.Country %>">
+                            <% } else { %>
+                                <input type="text" class="form-control" id="inputContry" name="inputContry" placeholder="India" value="India">
+                                <% } %>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputNearBy" class="form-label">Near By</label>
+                        <input type="text" class="form-control" id="inputAddress" name="inputNearBy" placeholder="Neare By" value="<%= data.Address.NearBy %>">
                     </div>
                     <div class="container-fluid text-center">
                         <br>

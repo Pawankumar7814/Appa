@@ -46,7 +46,7 @@ class UserData {
 
     // user user with udi
     CheckUserByUID(UserInfo, cb) {
-        console.log(UserInfo);
+        // console.log(UserInfo);
         User.findOne({ UID: UserInfo }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
@@ -66,21 +66,63 @@ class UserData {
     }
 
     //Update User
-    async UpdateUser(UserInfo, cb) {
-        console.log(UserInfo);
-        await User.findOneAndUpdate({ UID: UserInfo.UID }, {
-            $set: {
-                "UFname": UserInfo.Ufname,
-                "ULname": UserInfo.ulname,
-                "UPhone": UserInfo.uphone
+    UpdateUser(UserInfo, cb) {
+        console.log({
+            Address: {
+                address: {
+                    HouseNo: UserInfo.inputHuseNo,
+                    StreetNo: UserInfo.inputStreet,
+                    City: UserInfo.inputCity,
+                    State: UserInfo.inputState,
+                    PIN: UserInfo.inputZip,
+                    Country: UserInfo.inputNearBy,
+                    NearBy: UserInfo.inputNearBy,
+                    Address_UUID: "asdkfsdfkaoiwlasdkfjasifdjls"
+                }
             }
-        }, { new: true }, (err, done) => {
+        });
+        User.findOneAndUpdate({ UID: UserInfo.UID }, {
+            $set: {
+                UFname: UserInfo.Ufname,
+                ULname: UserInfo.ulname,
+                UPhone: UserInfo.uphone,
+                Address: {
+                    HouseNo: UserInfo.inputHuseNo,
+                    StreetNo: UserInfo.inputStreet,
+                    City: UserInfo.inputCity,
+                    State: UserInfo.inputState,
+                    PIN: parseInt(UserInfo.inputZip),
+                    Country: UserInfo.inputNearBy,
+                    NearBy: UserInfo.inputNearBy,
+                    Address_UUID: "asdkfsdfkaoiwlasdkfjasifdjls"
+                }
+
+            }
+        }, { new: true, "upsert": true }, (err, done) => {
             if (err) {
                 console.log(err);
                 return cb({ Status: "err", Msg: "User Allredy Exist", data: err });
             } else {
                 console.log(done);
                 return cb({ Status: "suc", Msg: "User Detail Saved", data: done });
+            }
+        });
+    }
+
+    //Change PAssword
+    async changePassword(UserInfo, cb) {
+        //console.log(UserInfo);
+        await User.findOneAndUpdate({ UID: UserInfo.UID }, {
+            $set: {
+                "UPass": UserInfo.inputpassword1
+            }
+        }, { new: true }, (err, done) => {
+            if (err) {
+                ///  console.log(err);
+                return cb({ Status: "err", Msg: "User Passwword nto chaged", data: err });
+            } else {
+                ///  console.log(done);
+                return cb({ Status: "suc", Msg: "User Change Done", data: done });
             }
         });
     }

@@ -5,3 +5,86 @@
 5) check all button - Mehak
 6) remove cart and othere icon from 992px - Done
 7) need product page for enrty - Shrishti
+
+
+****************************
+//show muliyple address
+
+<%= data.Addresses[0].address.HouseNo %>
+
+modle for it
+ Addresses: {
+        type: Array,
+        optional: true,
+        ddress: {
+            HouseNo: {
+                type: String,
+                default: " "
+            },
+            StreetNo: {
+                type: String,
+                default: " "
+            },
+            City: {
+                type: String,
+                default: " "
+            },
+            State: {
+                type: String,
+                default: " "
+            },
+            PIN: {
+                type: Number,
+                default: " "
+            },
+            Country: {
+                type: String,
+                default: " "
+            },
+            NearBy: {
+                type: String,
+                default: " "
+            },
+            Address_UUID: {
+                type: String
+            }
+        }
+    },
+
+
+
+
+
+///Add multiple adress
+  User.findOneAndUpdate({ UID: UserInfo.UID }, {
+            $set: {
+                UFname: UserInfo.Ufname,
+                ULname: UserInfo.ulname,
+                UPhone: UserInfo.uphone
+            },
+            $push: {
+                Addresses: {
+                    address: {
+                        "HouseNo": UserInfo.inputHuseNo,
+                        StreetNo: UserInfo.inputStreet,
+                        City: UserInfo.inputCity,
+                        State: UserInfo.inputState,
+                        PIN: parseInt(UserInfo.inputZip),
+                        Country: UserInfo.inputNearBy,
+                        NearBy: UserInfo.inputNearBy,
+                        Address_UUID: "asdkfsdfkaoiwlasdkfjasifdjls"
+                    }
+                }
+            }
+        }, { new: true, "upsert": true }, (err, done) => {
+            if (err) {
+                console.log(err);
+                return cb({ Status: "err", Msg: "User Allredy Exist", data: err });
+            } else {
+                console.log(done);
+                return cb({ Status: "suc", Msg: "User Detail Saved", data: done });
+            }
+        });
+    }
+
+    ****************************************

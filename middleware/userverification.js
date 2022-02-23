@@ -27,7 +27,6 @@ module.exports = function(jwrt) {
             var output1 = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
             var output2 = jwt.verify(res.locals.user, process.env.TOKEN_SECRET);
             if (output1.UD === output2.UD) {
-                res.locals.UID = output1.UD;
                 next();
             } else {
                 req.flash("error", "Log In First");

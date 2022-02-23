@@ -1,5 +1,6 @@
 {
     "email": "lotusstemwick@gmail.com",
     "password": "pftvtuiktqqtvqlr",
-    "URI": "mongodb+srv://Appa:Appa123@cluster0.u7q9t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "URI": "mongodb+srv://Lotus:wick@cluster0.dvtqm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "URI1": "mongodb+srv://Appa:Appa123@cluster0.u7q9t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 }
