@@ -64,10 +64,14 @@ app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
 // Routes
 
 
-app.use("/user", require("./routes/userroutes"));
-app.use("/", require("./routes/productroutes"));
-app.use("/", require("./routes/emailroutes"));
-app.use("/", require("./routes/mainpageroutes"));
+app.use("/user", require("./routes/WebSiteRoutes/userroutes"));
+app.use("/", require("./routes/WebSiteRoutes/productroutes"));
+app.use("/", require("./routes/WebSiteRoutes/emailroutes"));
+app.use("/", require("./routes/WebSiteRoutes/mainpageroutes"));
+
+app.get("/*", (req, res) => {
+    res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 " });
+});
 
 // Creating server
 http.createServer(app).listen(port, () => {
