@@ -1,7 +1,7 @@
 1) user name droupwon right side at 992px
-2) change pawsword layout work make it center and 
+2) change pawsword layout work make it center and -  
 3) create home page like gana - Mehak
-4) forget passwor link login and register - Shrishti
+4) forget passwor link login and register - Done
 5) check all button - Mehak
 6) user view houen no, street like some look
 7) need product page for enrty - Shrishti
