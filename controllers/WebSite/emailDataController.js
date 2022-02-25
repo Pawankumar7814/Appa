@@ -23,6 +23,19 @@ class EmailData {
             }
         });
     }
+
+    //Check Admin in Database
+    async GetAllMsg(cb) {
+        Sender.find({}, (err, sender) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else if (sender == null) {
+                return cb({ Status: "err", Msg: "No data is there", data: err });
+            } else {
+                return cb({ Status: "suc", Msg: "User found", data: sender });
+            }
+        });
+    }
 }
 
 module.exports = EmailData;

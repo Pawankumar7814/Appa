@@ -10,7 +10,7 @@ class UserData {
         let user = {};
         user.UID = uuid.v4();
         user.UFname = UserInfo.Ufname;
-        user.ULName = UserInfo.Ulname;
+        user.ULName = UserInfo.ulname;
         user.UEmail = UserInfo.Uemail;
         user.UPhone = UserInfo.Uphone;
         user.UPass = UserInfo.Upass
@@ -151,6 +151,26 @@ class UserData {
                     }
                 });
 
+            }
+        });
+    }
+
+    //Check Admin in Database
+    async GetAllUser(cb) {
+        User.find({}, (err, users) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else if (users == null) {
+                return cb({ Status: "err", Msg: "Does not Exist", data: err });
+            } else {
+                let users2 = JSON.stringify(users);
+                let users1 = JSON.parse(users2);
+                delete users1.UPass;
+                delete users1.Ustatus;
+                delete users1.U_added_date;
+                delete users1._id;
+                //    console.log(typeof users1);
+                return cb({ Status: "suc", Msg: "User found", data: users1 });
             }
         });
     }

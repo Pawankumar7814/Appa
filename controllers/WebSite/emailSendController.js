@@ -5,7 +5,7 @@ class EmailSend {
 
     // use to send email to contact us form 
     async SendOnContactUSform(data, cb) {
-        ejs.renderFile('./views/email/thanks.ejs', { Udata: data }, function(err, tfile) {
+        ejs.renderFile('./views/WebSite/email/thanks.ejs', { Udata: data }, function(err, tfile) {
             if (err) {
                 console.log(err);
                 return cb({ Status: "err", Msg: "Error while file compling" });

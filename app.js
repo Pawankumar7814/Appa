@@ -44,6 +44,8 @@ app.use(function(req, res, next) {
     res.locals.error = req.flash("error");
     var token = req.cookies.token;
     var UserName = req.cookies.UserName;
+    var atoken = req.cookies.atoken;
+    var AdminName = req.cookies.AdminName;
     if (token == null) {
         res.locals.is_User = false;
         res.locals.user = "";
@@ -52,6 +54,15 @@ app.use(function(req, res, next) {
         res.locals.user = token;
         res.locals.UserName = UserName;
         res.locals.is_User = true;
+    }
+    if (atoken == null) {
+        res.locals.is_Admin = false;
+        res.locals.admin = "";
+        res.locals.AdminName = "";
+    } else {
+        res.locals.admin = atoken;
+        res.locals.AdminName = AdminName;
+        res.locals.is_Admin = true;
     }
     next();
 });
