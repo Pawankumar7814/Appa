@@ -37,6 +37,41 @@ var adminMiddleware = require("../../middleware/userverification")(jwt);
 
 }
 
+//route for Admin page show and save
+{
+
+    router.get(["/Add"], (req, res) => {
+        return res.status(200).render("../views/Admin/mainpages/Add.ejs", { title: "Add - Appa" });
+    });
+
+    router.post(["/Add"], (req, res) => {
+        console.log(req.body);
+        admin.SaveAdmin(req.body, (CbData) => {
+            if (CbData.Status == "err") {
+                req.flash("error", CbData.Msg);
+                return res.status(200).redirect("/Admin");
+            } else {
+                req.flash("success", "Admin Registration Done Try to Login");
+                return res.status(200).redirect("/Admin");
+            }
+        });
+    });
+
+}
+
+
+
+// Route to log out
+router.get(["/Logout", "/SignOut"], (req, res) => {
+    res.cookie("atoken", null, { expires: new Date(0), httpOnly: true });
+    res.clearCookie("atoken");
+    res.cookie("AdminName", null, { expires: new Date(0), httpOnly: true });
+    res.clearCookie("AdminName");
+    req.session.tim = null;
+    res.locals.is_Admin = false;
+    req.flash("success", "Log Out Done");
+    return res.status(200).redirect("/Admin/LogIn");
+});
 
 // Route All Admin
 router.get(["/ShowAllAdmin"], (req, res) => {
@@ -69,44 +104,10 @@ router.get(["/ShowAllMsg"], (req, res) => {
             req.flash("error", CbData.Msg);
             return res.status(200).redirect("/Admin/");
         } else {
-            //   console.log(CbData.data);
             return res.status(200).render("../views/Admin/mainpages/ShowAllMsg.ejs", { title: "All User - Appa", data: CbData.data });
         }
     });
 });
 
-//route for Admin page show and save
-{
-
-    router.get(["/Add"], (req, res) => {
-        return res.status(200).render("../views/Admin/mainpages/Add.ejs", { title: "Add - Appa" });
-    });
-
-    router.post(["/Add"], (req, res) => {
-        console.log(req.body);
-        admin.SaveAdmin(req.body, (CbData) => {
-            if (CbData.Status == "err") {
-                req.flash("error", CbData.Msg);
-                return res.status(200).redirect("/Admin");
-            } else {
-                req.flash("success", "Admin Registration Done Try to Login");
-                return res.status(200).redirect("/Admin");
-            }
-        });
-    });
-
-}
-
-// Route to log out
-router.get(["/Logout", "/SignOut"], (req, res) => {
-    res.cookie("atoken", null, { expires: new Date(0), httpOnly: true });
-    res.clearCookie("atoken");
-    res.cookie("AdminName", null, { expires: new Date(0), httpOnly: true });
-    res.clearCookie("AdminName");
-    req.session.tim = null;
-    res.locals.is_Admin = false;
-    req.flash("success", "Log Out Done");
-    return res.status(200).redirect("/Admin/LogIn");
-});
 
 module.exports = router;
