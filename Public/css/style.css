@@ -64,6 +64,7 @@
 .bttn {
     color: darkgreen;
     border-radius: 1em;
+    font-size: 50%;
     border: 2px solid gold;
     background-color: lavender;
 }
@@ -72,40 +73,47 @@
     border: 3px outset lemonchiffon;
     width: 10vw;
     background-color: white;
+    font-size: 50%;
 }
 
 .btn-sm:hover {
     border: 3px inset darkgreen;
     font-weight: bold;
     background-color: white;
+    font-size: 50%;
 }
 
 .bttn a:link {
     color: darkgreen;
     text-decoration: none;
+    font-size: 50%;
 }
 
 .bttn a:visited {
     color: darkgreen;
     text-decoration: none;
+    font-size: 50%;
 }
 
 .bttn:hover {
     color: lavender;
     background-color: darkgreen;
     border-color: gold;
+    font-size: 50%;
 }
 
 .bttn a:hover {
     color: lavender;
     background-color: darkgreen;
     border-color: gold;
+    font-size: 50%;
 }
 
 .bttn :hover {
     color: lavender;
     background-color: darkgreen;
     border-color: gold;
+    font-size: 50%;
 }
 
 
