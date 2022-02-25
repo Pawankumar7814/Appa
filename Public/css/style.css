@@ -488,3 +488,40 @@
 .card-changepassword {
     margin-left: 25%;
 }
+
+
+/* Section class */
+
+.section-padding {
+    padding: 5%;
+}
+
+.section-login {
+    padding: 14rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-register {
+    padding: 14rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-forget-password {
+    padding: 13rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-userpage {
+    padding: 8rem;
+    padding-left: 0rem;
+    padding-right: 0rem rem;
+}
+
+.section-change-password {
+    padding: 15rem;
+    padding-right: 0rem;
+    padding-left: 1rem;
+}
