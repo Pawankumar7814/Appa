@@ -1,12 +1,12 @@
 // All require modules
 var express = require("express");
 var router = express.Router();
-var User = require("../controllers/UserController");
-var JWT = require('../controllers/jwt');
+var User = require("../../controllers/Website/UserController");
+var JWT = require('../../controllers/Website/jwt');
 var uuid = require('uuid');
 var user = new User();
 var jwt = new JWT();
-var usermiddleware = require("../middleware/userverification")(jwt);
+var usermiddleware = require("../../middleware/userverification")(jwt);
 
 
 //log In Routes
@@ -14,7 +14,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
     // Get Route 
     router.get(["/", "/index", "/Signin", "/Login"], usermiddleware.checkuserexicte, (req, res) => {
 
-        return res.status(200).render("../views/User/index.ejs", { title: "LogIn - Appa" });
+        return res.status(200).render("../views/WebSite/User/index.ejs", { title: "LogIn - Appa" });
     });
 
     // Post Route 
@@ -38,7 +38,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 {
     // get Route 
     router.get(["/Signup", "/Register"], usermiddleware.checkuserexicte, (req, res) => {
-        return res.status(200).render("../views/User/Register.ejs", { title: "Register  - Appa" });
+        return res.status(200).render("../views//WebSite/User/Register.ejs", { title: "Register  - Appa" });
     });
 
     // post Route 
@@ -69,7 +69,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
                 return res.status(200).redirect("/User/LogIn");
             } else {
                 console.log(info.data);
-                return res.status(200).render("../views/User/View.ejs", { title: "Profile - Appa", data: info.data });
+                return res.status(200).render("../views/WebSite/User/View.ejs", { title: "Profile - Appa", data: info.data });
             }
         });
     });
@@ -82,7 +82,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
             } else {
-                return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
             }
         });
     });
@@ -100,7 +100,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
                 // console.log(udata);
                 user.UpdateUser(req.body, (updateData) => {
                     if (updateData.Status == "err") {
-                        return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                        return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
                     } else {
                         return res.status(200).redirect("/USer/View");
                     }
@@ -114,7 +114,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 {
     // get Route to forget password
     router.get(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
-        return res.status(200).render("../views/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
+        return res.status(200).render("../views/WebSite/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
     });
 
     // post Route to get data for forget password and email it
@@ -138,7 +138,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
 {
 
     router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
-        res.status(200).render("../views/User/changepassword", { title: "Change Password" });
+        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password" });
     });
 
     router.post(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
@@ -153,7 +153,7 @@ var usermiddleware = require("../middleware/userverification")(jwt);
                 //  console.log(udata);
                 user.changePassword(udata, (updateData) => {
                     if (updateData.Status == "err") {
-                        return res.status(200).render("../views/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                        return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
                     } else {
                         return res.status(200).redirect("/USer/View");
                     }
