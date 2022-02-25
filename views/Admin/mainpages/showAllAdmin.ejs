@@ -1,0 +1,64 @@
+<%- include("../partial/header.ejs") %>
+
+    <main>
+        <section>
+            <div class="container-fluid">
+                <div class="row border-5">
+                    <div class="col-12 ">
+                        <div class=" border row font-weight-bold text-center">
+                            <div class=" border col-md-1">
+                                First Name
+                            </div>
+                            <div class="border col-md-1">
+                                LAst Name
+                            </div>
+                            <div class=" border col-md-4">
+                                Email
+                            </div>
+                            <div class="border col-md-2">
+                                Phone
+                            </div>
+                            <div class="border col-md-2">
+                                Status
+                            </div>
+                            <div class="border col-md-2">
+                                Action
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="row border">
+                    <div class="col-12 border">
+                        <% data.forEach(data=> { %>
+                            <div class=" border row">
+                                <div class=" border col-md-1">
+                                    <%- data.UFname %>
+                                </div>
+                                <div class="border col-md-1">
+                                    <%- data.ULname %>
+                                </div>
+                                <div class=" border col-md-4">
+                                    <%- data.UEmail %>
+                                </div>
+                                <div class="border col-md-2">
+                                    <%- data.UPhone %>
+                                </div>
+                                <div class="border col-md-2">
+                                    <%- data.UFname %>
+                                </div>
+                                <div class="border col-md-2">
+                                    Delete|Edit|Send PAss
+                                </div>
+                            </div>
+                            <br>
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <%- include("../partial/footer.ejs") %>

@@ -30,6 +30,10 @@
     transition: all .5s ease;
 }
 
+.nav-dropdown {
+    margin-left: 44%;
+}
+
 .navbar-light .navbar-nav .nav-link.active {
     color: rgb(199, 35, 85);
     transition: all .5s ease;
@@ -67,6 +71,7 @@
     font-size: 50%;
     border: 2px solid gold;
     background-color: lavender;
+    /* margin-bottom: 5%; */
 }
 
 .btn-sm {
@@ -130,6 +135,10 @@
     height: 23vh;
     border-radius: 40%;
     margin: -2em 0em 3em 3em;
+}
+
+.justify {
+    text-align: justify;
 }
 
 .column {
@@ -303,11 +312,16 @@
     text-shadow: black 2px 2px 10px;
 }
 
+.card-text {
+    font-size: medium;
+}
+
 .card {
     margin: 5% 17%;
     box-shadow: 0 4px 8px 0;
     width: 70%;
-    height: 85%;
+    padding: 1%;
+    /* height: 85%; */
     border-radius: 2rem 2rem 2rem 2rem;
     border-color: orange;
 }
@@ -437,9 +451,26 @@
     }
 }
 
+@media screen and (max-width:322px) {
+    .coin {
+        margin-left: 117%;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .nav-icon2 {
         visibility: hidden;
+    }
+    #aboutus_message {
+        visibility: hidden;
+        clear: both;
+        float: left;
+        margin: 10px auto 5px 20px;
+        width: 28%;
+        display: none;
+    }
+    .midimg {
+        padding-left: 2vw;
     }
 }
 
@@ -451,8 +482,54 @@
 }
 
 
-/* CSS for Profile page */
+/* Product Image */
 
-.profileheading {
-    margin: 15%;
+.img-product {
+    width: 132%;
+    border-radius: 18px;
+    margin-top: 10%;
+}
+
+
+/* CSS for change password */
+
+.card-changepassword {
+    margin-left: 25%;
+}
+
+
+/* Section class */
+
+.section-padding {
+    padding: 5%;
+}
+
+.section-login {
+    padding: 14rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-register {
+    padding: 14rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-forget-password {
+    padding: 13rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-userpage {
+    padding: 8rem;
+    padding-left: 0rem;
+    padding-right: 0rem rem;
+}
+
+.section-change-password {
+    padding: 15rem;
+    padding-right: 0rem;
+    padding-left: 1rem;
 }

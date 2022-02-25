@@ -1,5 +1,5 @@
 const mongooes = require('mongoose');
-const user = new mongooes.Schema({
+const admin = new mongooes.Schema({
     UID: {
         type: String,
         unique: true,
@@ -73,4 +73,4 @@ const user = new mongooes.Schema({
     }
 });
 
-module.exports = User = mongooes.model('user', user);
+module.exports = Admin = mongooes.model('admin', admin);

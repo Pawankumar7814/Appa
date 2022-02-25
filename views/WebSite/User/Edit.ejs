@@ -1,0 +1,73 @@
+<%- include("../partial/header.ejs") %>
+    <main class="userprofile-body">
+        <section>
+
+            <div class="container card user-profile">
+                <form class="row g-3" action="/user/Edit" method="post">
+                    <div class="container-fluid profileheading">
+                        <h2>
+                            <center>
+                                <i>PROFILE</i>
+                            </center>
+                        </h2>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Ufname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="Ufname" name="Ufname" value="<%= data.UFname %>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="ulname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="ulname" name="ulname" value="<%= data.ULname %>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="uemail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="uemail" name="uemail" value="<%= data.UEmail %>" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="uphone" class="form-label">Contact No</label>
+                        <input type="text" class="form-control" id="uphone" name="uphone" value="<%= data.UPhone %>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputHuseNo" class="form-label">House</label>
+                        <input type="text" class="form-control" id="inputHuseNo" name="inputHuseNo" placeholder="House Number 101" value="<%= data.Address.HouseNo %>">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputStreet" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="inputStreet" name="inputStreet" placeholder="7th Main Street" value="<%= data.Address.StreetNo %>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputCity" class="form-label">City </label>
+                        <input type="text" class="form-control" id="inputCity" name="inputCity" placeholder="City" value="<%= data.Address.City %>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputState" class="form-label"> State</label>
+                        <input type="text" class="form-control" id="inputState" name="inputState" placeholder="State" value="<%= data.Address.State %>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">PIN</label>
+                        <input type="text" class="form-control" id="inputZip" name="inputZip" placeholder="000000" value="<%= data.Address.PIN %>">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputContry" class="form-label">Contery</label>
+                        <% if ( data.Country && data.Country.length> 0 ) { %>
+                            <input type="text" class="form-control" id="inputContry" name="inputContry" placeholder="India" value="<%= data.Address.Country %>">
+                            <% } else { %>
+                                <input type="text" class="form-control" id="inputContry" name="inputContry" placeholder="India" value="India">
+                                <% } %>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputNearBy" class="form-label">Near By</label>
+                        <input type="text" class="form-control" id="inputAddress" name="inputNearBy" placeholder="Neare By" value="<%= data.Address.NearBy %>">
+                    </div>
+                    <div class="container-fluid text-center">
+                        <br>
+                        <a href="/User/View"><button type="reset" class="btn-sm"
+                                onclick="history.back()">Back</button></a>
+                        <button type="submit" class="btn-sm">Update</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../partial/footer.ejs") %>
