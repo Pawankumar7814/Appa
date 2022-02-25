@@ -1,4 +1,4 @@
-var transporter = require("../config/mailer");
+var transporter = require("../../config/mailer");
 var ejs = require("ejs");
 
 class EmailSend {

@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var mongooe = require('mongoose');
-var Sender = require('../module/contactUsUser');
+var Sender = require('../../module/contactUsUser');
 var bodyParser = require('body-parser');
-var connectDBDev = require('../config/connection');
-const { redirect } = require('express/lib/response');
+var connectDBDev = require('../../config/connection');
+
 
 
 class EmailData {

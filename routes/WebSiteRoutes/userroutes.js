@@ -1,8 +1,8 @@
 // All require modules
 var express = require("express");
 var router = express.Router();
-var User = require("../../controllers/UserController");
-var JWT = require('../../controllers/jwt');
+var User = require("../../controllers/Website/UserController");
+var JWT = require('../../controllers/Website/jwt');
 var uuid = require('uuid');
 var user = new User();
 var jwt = new JWT();

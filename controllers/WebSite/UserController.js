@@ -1,5 +1,5 @@
-var User = require('../module/User');
-var connectDBDev = require('../config/connection');
+var User = require('../../module/User');
+var connectDBDev = require('../../config/connection');
 var uuid = require("uuid");
 var EmailSend = require("./emailSendController");
 var emailSend = new EmailSend();

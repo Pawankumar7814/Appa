@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-var SendEmail = require("../../controllers/emailSendController");
-var EmailData = require("../../controllers/emailDataController");
+var SendEmail = require("../../controllers/Website/emailSendController");
+var EmailData = require("../../controllers/Website/emailDataController");
 var sendemail = new SendEmail();
 var emaildata = new EmailData();
 let finalreturnvalue = {};

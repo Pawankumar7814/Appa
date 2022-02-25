@@ -37,8 +37,5 @@ router.get(["/aboutus1", "/about1"], (req, res) => {
     res.status(200).render("../views/WebSite/mainpages/aboutus1.ejs", { title: "About us - Appa" });
 });
 
-router.get("/*", (req, res) => {
-    res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 " });
-});
 
 module.exports = router;
