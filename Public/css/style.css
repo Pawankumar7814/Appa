@@ -464,6 +464,15 @@
     .midimg {
         padding-left: 2vw;
     }
+    .nav-dropdown {
+        display: inline-block;
+        position: relative;
+    }
+    .nav-dropdown-content {
+        position: relative;
+        top: 70px;
+        left: 150px;
+    }
 }
 
 .bg {
