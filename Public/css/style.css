@@ -220,9 +220,11 @@
     border: 3px outset lemonchiffon;
     width: 10vw;
     background-color: white;
+    font-size: medium;
 }
 
 .btn-sm:hover {
+    font-size: medium;
     border: 3px inset darkgreen;
     font-weight: bold;
     background-color: white;
