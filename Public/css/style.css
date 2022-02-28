@@ -68,6 +68,7 @@
 .bttn {
     color: darkgreen;
     border-radius: 1em;
+    font-size: 50%;
     border: 2px solid gold;
     background-color: lavender;
     /* margin-bottom: 5%; */
@@ -77,40 +78,47 @@
     border: 3px outset lemonchiffon;
     width: 10vw;
     background-color: white;
+    font-size: 50%;
 }
 
 .btn-sm:hover {
     border: 3px inset darkgreen;
     font-weight: bold;
     background-color: white;
+    font-size: 50%;
 }
 
 .bttn a:link {
     color: darkgreen;
     text-decoration: none;
+    font-size: 50%;
 }
 
 .bttn a:visited {
     color: darkgreen;
     text-decoration: none;
+    font-size: 50%;
 }
 
 .bttn:hover {
     color: lavender;
     background-color: darkgreen;
     border-color: gold;
+    font-size: 50%;
 }
 
 .bttn a:hover {
     color: lavender;
     background-color: darkgreen;
     border-color: gold;
+    font-size: 50%;
 }
 
 .bttn :hover {
     color: lavender;
     background-color: darkgreen;
     border-color: gold;
+    font-size: 50%;
 }
 
 
@@ -212,9 +220,11 @@
     border: 3px outset lemonchiffon;
     width: 10vw;
     background-color: white;
+    font-size: medium;
 }
 
 .btn-sm:hover {
+    font-size: medium;
     border: 3px inset darkgreen;
     font-weight: bold;
     background-color: white;
@@ -464,6 +474,15 @@
     .midimg {
         padding-left: 2vw;
     }
+    .nav-dropdown {
+        display: inline-block;
+        position: relative;
+    }
+    .nav-dropdown-content {
+        position: relative;
+        top: 70px;
+        left: 150px;
+    }
 }
 
 .bg {
@@ -488,3 +507,47 @@
 .card-changepassword {
     margin-left: 25%;
 }
+
+
+/* Section class */
+
+.section-padding {
+    padding: 5%;
+}
+
+.section-login {
+    padding: 14rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-register {
+    padding: 14rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-forget-password {
+    padding: 13rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+
+.section-userpage {
+    padding: 8rem;
+    padding-left: 0rem;
+    padding-right: 0rem rem;
+}
+
+.section-change-password {
+    padding: 15rem;
+    padding-right: 0rem;
+    padding-left: 1rem;
+}
+
+.section-admin-user {
+    padding: 7rem;
+}
+
+
+/* Section CSS end here */

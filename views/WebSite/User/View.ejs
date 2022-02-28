@@ -1,6 +1,6 @@
 <%- include("../partial/header.ejs") %>
     <main>
-        <section>
+        <section class="section-userpage">
             <div class="container card ">
                 <form class="row g-3">
                     <div class="container-fluid ">
@@ -20,23 +20,29 @@
                     <div class="col-md-6">
                         <label for="inputcontact" class="form-label">Contact No:- <%= data.UPhone %></label>
                     </div>
-                    <div class="col-12">
-                        <label for="inputHopuseNumber" class="form-label">Address</label>
-                        <%= data.Address.HouseNo %>
-                            <bR>
-                            <%= data.Address.StreetNo %>
-                                <bR>
-                                <%= data.Address.City %>
-                                    <bR>
-                                    <%= data.Address.State %>
-                                        <bR>
-                                        <%= data.Address.PIN %>
-                                            <bR>
-                                            <%= data.Address.Country %>
-                                                <bR>
-                                                <%= data.Address.NearBy %>
-                                                    <bR>
+                    <div class="col-12 col-md-6">
+                        <label for="inputHopuseNumber" class="form-label">Address: <%= data.Address.HouseNo %></label>
+                        <bR>
                     </div>
+                    <div class="col-12 col-md-6">
+                        <label for="inputhousestreetno" class="form-label">Street : <%= data.Address.StreetNo %></label>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="citylabel" class="form-label">City : <%= data.Address.City %></label>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="statelabel" class="form-label">State : <%= data.Address.State %></label>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="pinlabel" class="form-label">PIN : <%= data.Address.PIN %></label>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <label for="ccountrylabel" class="form-label">Country : <%= data.Address.Country %></label>
+                    </div>
+                    <div class="col-12 col-md-12">
+                        <label for="label-nearby" class="form-label">Near By : <%= data.Address.NearBy %></label>
+                    </div>
+
                     <div class="col-12 text-center">
                         <a href="/User/Edit" class="btn btn-sm">Edit</a>
                     </div>
