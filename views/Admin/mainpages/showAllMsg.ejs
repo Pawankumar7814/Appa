@@ -1,71 +1,68 @@
 <%- include("../partial/header.ejs") %>
 
-    <main>
-        <section>
-            <div class="container-fluid">
-                <div class="row border-5">
-                    <div class="col-12 ">
-                        <div class=" border row font-weight-bold text-center">
-                            <div class=" border col-md-2">
-                                Name
-                            </div>
-                            <div class=" border col-md-3">
-                                Email
-                            </div>
-                            <div class="border col-md-1">
-                                Phone
-                            </div>
-                            <div class="border col-md-2">
-                                Msg
-                            </div>
-                            <div class="border col-md-1">
-                                Date
-                            </div>
-                            <div class="border col-md-1">
-                                Resolved
-                            </div>
-                            <div class="border col-md-2">
-                                Action
-                            </div>
-                        </div>
-                        <br>
+
+    <div class="container-fluid">
+        <div class="row border-5">
+            <div class="col-12 ">
+                <div class=" border row font-weight-bold text-center">
+                    <div class=" border col-md-2">
+                        Name
+                    </div>
+                    <div class=" border col-md-3">
+                        Email
+                    </div>
+                    <div class="border col-md-1">
+                        Phone
+                    </div>
+                    <div class="border col-md-2">
+                        Msg
+                    </div>
+                    <div class="border col-md-1">
+                        Date
+                    </div>
+                    <div class="border col-md-1">
+                        Resolved
+                    </div>
+                    <div class="border col-md-2">
+                        Action
                     </div>
                 </div>
-                <div class="row border">
-                    <div class="col-12 border">
-                        <% data.forEach(data=> { %>
-                            <div class=" border row">
-                                <div class=" border col-md-2">
-                                    <%- data.FName %>
-                                </div>
-                                <div class=" border col-md-3">
-                                    <%- data.Email %>
-                                </div>
-                                <div class="border col-md-1">
-                                    <%- data.Phone %>
-                                </div>
-                                <div class="border col-md-2">
-                                    <%- data.Msg %>
-                                </div>
-                                <div class="border col-md-1">
-                                    <%- data.added_date.getDate() %>/
-                                        <%- data.added_date.getMonth() %>/
-                                            <%- data.added_date.getFullYear() %>
-                                </div>
-                                <div class="border col-md-1">
-                                    <%- data.resolved %>
-                                </div>
-                                <div class="border col-md-2">
-                                    Delete|Edit|Send PAss
-                                </div>
-                            </div>
-                            <br>
-                            <% }) %>
-                    </div>
-                </div>
+                <br>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="row border">
+            <div class="col-12 border">
+                <% data.forEach(data=> { %>
+                    <div class=" border row">
+                        <div class=" border col-md-2">
+                            <%- data.FName %>
+                        </div>
+                        <div class=" border col-md-3">
+                            <%- data.Email %>
+                        </div>
+                        <div class="border col-md-1">
+                            <%- data.Phone %>
+                        </div>
+                        <div class="border col-md-2">
+                            <%- data.Msg %>
+                        </div>
+                        <div class="border col-md-1">
+                            <%- data.added_date.getDate() %>/
+                                <%- data.added_date.getMonth() %>/
+                                    <%- data.added_date.getFullYear() %>
+                        </div>
+                        <div class="border col-md-1">
+                            <%- data.resolved %>
+                        </div>
+                        <div class="border col-md-2">
+                            Delete|Edit|Send PAss
+                        </div>
+                    </div>
+                    <br>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
 
 
 
