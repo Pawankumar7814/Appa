@@ -5,7 +5,7 @@ var Product = require("../../module/Product");
 
 //Route for product page show and add
 {
-    router.get("/Add", (req, res) => {
+    router.get("/Addproduct", (req, res) => {
         res.status(200).render("../views/Admin/products/Add.ejs", { title: "Add New Product - Appa" });
     });
 

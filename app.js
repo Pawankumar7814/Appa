@@ -79,7 +79,6 @@ app.use("/", require("./routes/WebSiteRoutes/emailroutes"));
 app.use("/", require("./routes/WebSiteRoutes/mainpageroutes"));
 
 // Admin Routes
-
 app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
 app.use("/Admin/Products", require("./routes/AdminRoutes/productRoute"));
 
