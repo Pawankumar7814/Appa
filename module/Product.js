@@ -19,6 +19,10 @@ var Product = mongoose.Schema({
 
     Productcolor: {
         type: String
+    },
+
+    ProductImage: {
+        type: String
     }
 })
 
