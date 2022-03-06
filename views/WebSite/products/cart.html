@@ -13,23 +13,33 @@
             background-image: url('/Public/Images/cart.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
+            height: 100%;
         }
         
         .carddis {
             margin: 5% 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 2);
+            transition: 0.3s;
         }
         
         .cardtext {
             text-align: center;
         }
         
-        .card {
-            box-shadow: 2% 2% 5% 10%;
+        .subcarddis {
+            box-shadow: 2px 4px 8px 2px yellow;
+            width: 42rem;
+            margin: 5% 10%;
         }
         
         .gap {
             margin-left: 5%;
+        }
+        
+        .textdes {
+            color: black;
+            text-shadow: 0 0 3px #FF0000;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -43,29 +53,33 @@
                         <div class="card-body">
                             <h1 class="card-title cardtext">Shopping Cart</h1>
                             <h6 class="card-subtitle mb-2 text-muted cardtext">Your Cart</h6>
-                            <div class="row">
-                                <div class="card" style="width: 42rem; margin: 2% 10%;">
+                            <div class="row ">
+                                <div class="card subcarddis" style="width: 42rem; margin: 2% 10%;">
                                     <div class="d-flex">
                                         <img src="..." class="card-img-top" alt="..." width="20%">
-                                        <div class="card-body gap">
-                                            <p class="card-text">
+                                        <div class="card-body ">
+                                            <p class="card-text textdes">
                                                 <label>Product Name:</label><br>
                                                 <label>Quantity:</label><br>
-                                                <label>Product Color:</label>
+                                                <label>Product Color:</label><br>
+                                                <label>Product Price:</label><br>
+                                                <label>Product Description:</label>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="card" style="width: 42rem; margin: 2% 10%;">
+                                <div class="card subcarddis" style="width: 42rem; margin: 2% 10%;">
                                     <div class="d-flex">
                                         <img src="..." class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text">
+                                            <p class="card-text textdes">
                                                 <label>Product Name:</label><br>
                                                 <label>Quantity:</label><br>
-                                                <label>Product Color:</label>
+                                                <label>Product Color:</label><br>
+                                                <label>Product Price:</label><br>
+                                                <label>Product Description:</label>
 
                                             </p>
                                         </div>
@@ -73,21 +87,25 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="card" style="width: 42rem; margin: 2% 10%;">
+                                <div class="card subcarddis" style="width: 42rem; margin: 2% 10%;">
                                     <div class="d-flex">
                                         <img src="..." class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <p class="card-text">
+                                            <p class="card-text textdes">
                                                 <label>Product Name:</label><br>
                                                 <label>Quantity:</label><br>
-                                                <label>Product Color:</label>
+                                                <label>Product Color:</label><br>
+                                                <label>Product Price:</label><br>
+                                                <label>Product Description:</label>
 
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <div class="d-flex row" style="margin-left: 35%;">
+                                    <a href="#" class="card-link col">Card link</a>
+                                    <a href="#" class="card-link col-10">Another link</a>
+                                </div>
                             </div>
                         </div>
                     </div>
