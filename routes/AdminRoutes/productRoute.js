@@ -10,6 +10,7 @@ var Product = require("../../module/Product");
     });
 
     router.post("/Add", (req, res) => {
+        console.log(req.body);
         let productdata = {
             Productname: req.body.pname,
             Productdescription: req.body.pdescription,
