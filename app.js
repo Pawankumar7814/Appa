@@ -79,8 +79,9 @@ app.use("/", require("./routes/WebSiteRoutes/emailroutes"));
 app.use("/", require("./routes/WebSiteRoutes/mainpageroutes"));
 
 // Admin Routes
-app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
 app.use("/Admin/Product", require("./routes/AdminRoutes/productRoute"));
+app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
+
 
 app.get("/*", (req, res) => {
     res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 " });

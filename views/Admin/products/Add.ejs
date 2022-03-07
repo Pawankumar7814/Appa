@@ -1,93 +1,66 @@
 <%- include("../partial/header.ejs") %>
     <main>
         <section>
-            <div class="container-fluid ">
-                <div id="mySidebar" class="sidebar">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                    <ul class="list-unstyled ps-0">
-                        <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                    Show
-                                </button>
-                            <div class="collapse show" id="home-collapse">
-                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="/Admin/ShowAllUser" class="link-dark rounded">User</a></li>
-                                    <li><a href="/Admin/ShowAllAdmin" class="link-dark rounded">Admin</a></li>
-                                    <li><a href="/Admin/ShowAllMsg" class="link-dark rounded">Msg</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <a href="#">Services</a>
-                        <a href="#">Clients</a>
-                        <a href="#">Contact</a>
-                </div>
-
-                <div class="row">
-                    <form action="/Admin/Product/Add" method="post">
-                        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
-                        <script>
-                            function openNav() {
-                                document.getElementById("mySidebar").style.width = "250px";
-                                document.getElementById("main").style.marginLeft = "250px";
-                            }
-
-                            function closeNav() {
-                                document.getElementById("mySidebar").style.width = "0";
-                                document.getElementById("main").style.marginLeft = "0";
-                            }
-                        </script>
-
+            <div class="row">
+                <form method="post" action="/Admin/Product/Add">
+                    <div class="row">
                         <div class="row">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <label for="pname" class="col-sm-4 col-form-label"><b>Product Name : </b></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="pname" name="pname" placeholder="Lotus Wick" required>
-                                    </div>
+                            <div class="col-12 col-md-6">
+                                <label for="ptitle" class="col-sm-4 col-form-label"><b>Product Title : </b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="ptitle" name="ptitle" placeholder="Lotus Wick" required>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="pdescription" class="col-sm-4 col-form-label"><b>Product Discrption : </b></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="pdescription" name="pdescription" placeholder="About" required>
-                                    </div>
+                                <label for="pcolor" class="col-sm-4 col-form-label"><b>Product Color :</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="pcolor" name="pcolor" placeholder="Red/White/Yellow" required>
+                                </div>
+                                <label for="pcprice" class="col-sm-4 col-form-label"><b>Product Cost Price :
+                                    </b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="pcprice" name="pcprice" placeholder="Rs. 100" required>
+                                </div>
+                                <label for="psprice" class="col-sm-4 col-form-label"><b>Product Sale Price :
+                                    </b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="psprice" name="psprice" placeholder="Rs. 150" required>
+                                </div>
+                                <label for="pquantity" class="col-sm-4 col-form-label"><b>Quantity :</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="pquantity" name="pquantity" placeholder="10" required>
+                                </div>
+                                <label for="pqtypack" class="col-sm-4 col-form-label"><b>Item In Pack :</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="pqtypack" name="pqtypack" placeholder="10/20/30" required>
+                                </div>
+                                <label for="pgst" class="col-sm-4 col-form-label"><b>GST :</b></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="pgst" name="pgst" placeholder="12%" required>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <label for="pprice" class="col-sm-4 col-form-label"><b>Product Price : </b></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="pprice" name="pprice" placeholder="Rs. 100" required>
-                                    </div>
+                            <div class="col-12 col-md-6">
+                                <label for="pdescription" class="col-sm-4 col-form-label"><b>Product Discrption :
+                                    </b></label>
+                                <div class="col-sm-8">
+                                    <textarea type="text" rows="7" class="form-control" id="pdescription" name="pdescription" placeholder="About" required></textarea>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="pquantity" class="col-sm-4 col-form-label"><b>Quantity :</b></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="pquantity" name="pquantity" placeholder="10" required>
-                                    </div>
+                                <label for="puse" class="col-sm-4 col-form-label"><b>How To Use It :
+                                    </b></label>
+                                <div class="col-sm-8">
+                                    <textarea type="text" rows="7" class="form-control" id="pusepuse" name="puse" placeholder="Soak in oil and use like all ordinary cotton wick.\n Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously."
+                                        required>Soak in oil and use like all ordinary cotton wick.\n Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously.</textarea>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <label for="pcolor" class="col-sm-4 col-form-label"><b>Product Color :</b></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="pcolor" name="pcolor" placeholder="red" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <label for="pimg" class="col-sm-4 col-form-label"><b>Product Image :</b></label>
-                                    <div class="col-sm-8">
-                                        <input type="file" class="form-control" id="pimg" name="pimg" placeholder="upload your image" value="upload your image" required>
-                                    </div>
+                                <label for="pimg" class="col-sm-4 col-form-label"><b>Product Image :</b></label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="form-control" id="pimg" name="pimg" placeholder="upload your image" value="upload your image" multiple required>
                                 </div>
                             </div>
                         </div>
-                        <div class="col text-center">
-                            <!-- <input type="submit" class="btn-sm" value="Send"> -->
-                            <button type="submit" class="btn-sm ">Add Product</button>
-                            <br>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="col text-center">
+                        <button type="submit" class="btn-sm ">Add Product</button>
+                        <br>
+                    </div>
+                </form>
             </div>
         </section>
     </main>

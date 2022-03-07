@@ -25,7 +25,7 @@ class AdminData {
 
     //Check Admin in Database
     async CheckAdmin(AdminInfo, cb) {
-        Admin.findOne({ UEmail: AdminInfo.Uemail, UPass: AdminInfo.Upass }, (err, admin) => {
+        Admin.findOne({ UEmail: AdminInfo.Uemail, UPass: AdminInfo.Upass, Ustatus: "Active" }, (err, admin) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
             } else if (admin == null) {
@@ -43,7 +43,6 @@ class AdminData {
         });
     }
 
-
     //Check Admin in Database
     async GetAllAdmin(cb) {
         Admin.find({}, (err, admin) => {
@@ -60,6 +59,23 @@ class AdminData {
                 delete admin1._id;
                 //    console.log(typeof admin1);
                 return cb({ Status: "suc", Msg: "User found", data: admin1 });
+            }
+        });
+    }
+
+    async changeStatus(UserInfo, cb) {
+        Admin.findOne({ UID: UserInfo }, (err, user) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else if (user == null) {
+                return cb({ Status: "err", Msg: "User Does not Exist", data: err });
+            } else {
+                if (user.Ustatus === "Active") {
+                    Admin.findOneAndUpdate({ UID: UserInfo }, { $set: { Ustatus: "NotActive" } }, (err, myd) => { console.log(err) });
+                } else {
+                    Admin.findOneAndUpdate({ UID: UserInfo }, { $set: { Ustatus: "Active" } }, (err, myd) => { console.log(err) });
+                }
+                return cb({ Status: "suc", Msg: "User Update", data: user });
             }
         });
     }

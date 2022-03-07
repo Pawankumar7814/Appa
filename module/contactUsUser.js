@@ -1,4 +1,5 @@
 const mongooes = require('mongoose');
+const { stringify } = require('uuid');
 const contactUsUser = new mongooes.Schema({
     FName: {
         type: String
@@ -25,11 +26,20 @@ const contactUsUser = new mongooes.Schema({
     },
     resolved: {
         type: Boolean,
-        default: false
+        enum: [true, false],
+        default: true,
+        required: [true, "Select from List"]
     },
     resolved_date: {
         type: Date
     },
+    feedback: [{
+        Msg: { type: String },
+        Msgdate: {
+            type: Date,
+            default: Date.now
+        }
+    }]
 });
 
 module.exports = ContactUsUSer = mongooes.model('contactUsUser', contactUsUser);

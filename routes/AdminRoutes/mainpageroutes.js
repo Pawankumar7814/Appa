@@ -87,7 +87,7 @@ router.get(["/ShowAllAdmin"], (req, res) => {
 
 // Route to All User
 router.get(["/ShowAllUser"], (req, res) => {
-    user.GetAllUser((CbData) => {
+    user.getAllUser((CbData) => {
         if (CbData.Status == "err") {
             req.flash("error", CbData.Msg);
             return res.status(200).redirect("/Admin/");
@@ -106,6 +106,54 @@ router.get(["/ShowAllMsg"], (req, res) => {
         } else {
             return res.status(200).render("../views/Admin/mainpages/ShowAllMsg.ejs", { title: "All User - Appa", data: CbData.data });
         }
+    });
+});
+
+
+//Change User Status
+router.get("/UserStatus/:id", (req, res) => {
+    console.log(req.params.id);
+    user.changeStatus(req.params.id, (CbData) => {
+        return res.status(200).redirect("/admin/ShowAllUser");
+    });
+});
+
+//Change Admin Status
+router.get("/AdminStatus/:id", (req, res) => {
+    console.log(req.params.id);
+    admin.changeStatus(req.params.id, (CbData) => {
+        return res.status(200).redirect("/admin/ShowAllAdmin");
+    });
+});
+
+//Change Msg Status
+router.get("/MsgStatus/:id", (req, res) => {
+    console.log(req.params.id);
+    sender.changeStatus(req.params.id, (CbData) => {
+        return res.status(200).redirect("/admin/ShowAllMsg");
+    });
+});
+
+//give Msg Feedback
+router.get("/MsgFeedBack/:id", (req, res) => {
+    sender.GetOneMsg(req.params.id, (CbData) => {
+        if (CbData.Status == "err") {
+            return res.status(404).redirect("/error404");
+        }
+        return res.status(200).render("../views/Admin/mainpages/msgFeedback.ejs", { title: "All User - Appa", data: CbData.data });
+    });
+});
+
+//give Msg Feedback
+router.post("/SaveReply/:id", (req, res) => {
+    console.log(req.params.id);
+    console.log(req.body.newF);
+    let sData = {
+        Id: req.params.id,
+        msg: req.body.newF
+    }
+    sender.SaveReply(sData, (CbData) => {
+        res.status(200).redirect("/Admin/MsgFeedBack/" + req.params.id);
     });
 });
 

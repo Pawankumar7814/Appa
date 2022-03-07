@@ -1,29 +1,52 @@
 let mongoose = require("mongoose");
-
+var uuid = require("uuid");
 var Product = mongoose.Schema({
-    Productname: {
+    Pid: {
+        type: String,
+        default: uuid.v4()
+    },
+    Title: {
         type: String
     },
-
-    Productdescription: {
+    Description: {
         type: String
     },
-
-    Productprice: {
+    CostPrice: {
+        type: Number
+    },
+    SalePrice: {
+        type: Number
+    },
+    Qty: {
+        type: Number
+    },
+    ItemInPack: {
+        type: Number
+    },
+    Color: {
         type: String
     },
-
-    Productquantity: {
-        type: String
+    Images: {
+        type: Array,
+        "default": []
     },
-
-    Productcolor: {
-        type: String
+    Rating: {
+        type: Number,
+        default: 5
     },
-
-    ProductImage: {
-        type: String
+    GST: {
+        type: Number,
+        default: 12
+    },
+    HowToUse: {
+        type: String,
+        default: "Soak in oil and use like all ordinary cotton wick.^ Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously.",
+    },
+    AddDate: {
+        type: Date,
+        default: Date.now
     }
+
 });
 
 module.exports = Product = mongoose.model("Product", Product);
