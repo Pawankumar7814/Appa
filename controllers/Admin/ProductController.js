@@ -4,8 +4,8 @@ var uuid = require("uuid");
 
 class ProductData {
 
-    async saveProduct(ProInfo, cb) {
-        console.log(ProInfo);
+    async saveProduct(ProInfo, imagesPath, cb) {
+        console.log(imagesPath);
         let data = {};
         data.Title = ProInfo.ptitle;
         data.Description = ProInfo.pdescription;
@@ -16,7 +16,7 @@ class ProductData {
         data.Color = ProInfo.pcolor;
         data.GST = ProInfo.pgst;
         data.HowToUse = ProInfo.puse;
-        data.Images = [{ ImgNane: ProInfo.pimg }];
+        data.Images = ProInfo.pimg;
         let productModle = new Product(data);
         await productModle.save((err, done) => {
             if (err) {

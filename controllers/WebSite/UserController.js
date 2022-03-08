@@ -45,7 +45,7 @@ class UserData {
     }
 
     // user user with udi
-    checkUserByUID(UserInfo, cb) {
+    async CheckUserByUID(UserInfo, cb) {
         // console.log(UserInfo);
         User.findOne({ UID: UserInfo }, (err, user) => {
             if (err) {
