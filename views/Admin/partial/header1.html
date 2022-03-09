@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%- title %>
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/Images/fevicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/CSS">
+    <a href="https://api.whatsapp.com/send?phone=+917305070166" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <script src="/Public/JS/script.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+        
+        .openbtn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+
+<body>
+    <a name="Home"></a>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"> <img src="/Images/logo.png" alt="Appa logo" width="90" height="60" class="d-inline-block align-text-top coin "></a>
+                <!-- <a class="navbar-brand nav-icon1" href="/user"> <i class="fa fa-user fa-7x" style="font-size: 2em; color:blue;"></i></a> -->
+                <!-- <a class="navbar-brand nav-icon1" href="/user"> <i class="fa fa-shopping-cart fa-7x" style="font-size: 2em; color:blue;"></i></a> -->
+                <button class="navbar-toggler nav-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav-dropdown-content" id="navbarSupportedContent" style="margin-left: unset;">
+                    <a class="navbar-brand nav-icon2" href="/Admin/"> <i class="fa fa-user fa-7x" style="font-size: 2em; color:blue;"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="row">
+                <div class="col-12 col-lg-2 ">
+                    <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+                    <script>
+                        function openNav() {
+                            document.getElementById("mySidebar").style.width = "250px";
+                            document.getElementById("main").style.marginLeft = "250px";
+                        }
+
+                        function closeNav() {
+                            document.getElementById("mySidebar").style.width = "0";
+                            document.getElementById("main").style.marginLeft = "0";
+                        }
+                    </script>
+                    <div class="flex-shrink-0 p-3 bg-info">
+                        <div id="mySidebar" class="sidebar">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                            <ul class="list-unstyled ps-0">
+                                <li class="mb-1">
+                                    <a href="#">Show</a>
+                                    <div class="collapse show container" id="home-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li><a href="/Admin/ShowAllUser" class="link-dark rounded">User</a></li>
+                                            <li><a href="/Admin/ShowAllAdmin" class="link-dark rounded">Admin</a></li>
+                                            <li><a href="/Admin/ShowAllMsg" class="link-dark rounded">Msg</a></li>
+                                            <li><a href="/Admin/Add" class="link-dark rounded">Add Admin</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="mb-1">
+                                    <a href="#">Products</a>
+                                    <div class="collapse container" id="Product-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li><a href="/Admin/Product/Add" class="link-dark rounded">Add</a></li>
+                                            <li><a href="#" class="link-dark rounded">Show All</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="mb-1">
+                                    <a href="#">Orders</a>
+                                    <div class="collapse container" id="orders-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li><a href="#" class="link-dark rounded">New</a></li>
+                                            <li><a href="#" class="link-dark rounded">Processed</a></li>
+                                            <li><a href="#" class="link-dark rounded">Shipped</a></li>
+                                            <li><a href="#" class="link-dark rounded">Returned</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="mb-1">
+                                    <a href="#">Account</a>
+                                    <div class="collapse container" id="account-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li><a href="#" class="link-dark rounded">New...</a></li>
+                                            <li><a href="#" class="link-dark rounded">Profile</a></li>
+                                            <li><a href="#" class="link-dark rounded">Settings</a></li>
+                                            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-10">
