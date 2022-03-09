@@ -40,17 +40,18 @@ const upload = multer({ storage });
     });
 
     router.post("/Add", upload.array("pimg"), (req, res) => {
-
         product.saveProduct(req.body, imagesPath, (CbData) => {
             if (CbData.Status == "err") {
                 res.status(200).redirect("/Admin/Product/Add");
             } else {
                 res.status(200).send("Show ALL Need to Create");
             }
-
         });
     });
 
+    router.get(["/AllProducts", "/ShowAllProduct"], (req, res) => {
+        res.status(200).render("../views/Admin/products/Allproductpage.ejs", { title: "All Products - Appa" });
+    });
 }
 
 module.exports = router;
