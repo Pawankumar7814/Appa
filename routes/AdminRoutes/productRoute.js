@@ -16,15 +16,13 @@ const storage = multer.diskStorage({
         cb(null, soratepath);
     },
     filename: (req, file, cb) => {
-        // let extArray = file.mimetype.split("/");
-        // let extension = extArray[extArray.length - 1];
-        file.originalname = uuid.v4() + "_" + file.originalname;
-        //  file.originalname = uuid.v4() + "." + extension;
-        console.log(file);
+        let extArray = file.mimetype.split("/");
+        let extension = extArray[extArray.length - 1];
+        //   file.originalname = uuid.v4() + "_" + file.originalname;
+        file.originalname = uuid.v4() + "." + extension;
+
         const { originalname } = file;
-        // uuid, or fieldname
         imagesPath.push(originalname);
-        // console.log(imagesPath);
         cb(null, originalname);
     }
 });
@@ -41,10 +39,15 @@ const upload = multer({ storage });
         res.status(200).render("../views/Admin/products/Add.ejs", { title: "Add New Product - Appa" });
     });
 
-    router.post("/Add", (req, res) => {
-        console.log("imagesPath");
+    router.post("/Add", upload.array("pimg"), (req, res) => {
+
         product.saveProduct(req.body, imagesPath, (CbData) => {
-            console.log(CbData);
+            if (CbData.Status == "err") {
+                res.status(200).redirect("/Admin/Product/Add");
+            } else {
+                res.status(200).send("Show ALL Need to Create");
+            }
+
         });
     });
 
