@@ -1,12 +1,13 @@
 // All require modules
 var express = require("express");
-var http = require("http");
 var ejs = require("ejs");
 var flash = require("connect-flash");
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var favicon = require("./config/favicon");
+var https = require("https");
 
+var httpsOptions = require("./config/https.js");
 
 // Creating appp
 var app = express();
@@ -24,6 +25,7 @@ process.env.TOKEN_SECRET = require("crypto").randomBytes(64).toString('hex');
 favicon(app);
 
 //conected to flash message
+
 app.use(flash());
 app.use(cookieParser("this is cokkie for appa"));
 app.use(session({
@@ -88,6 +90,6 @@ app.get("/*", (req, res) => {
 });
 
 // Creating server
-http.createServer(app).listen(port, () => {
+https.createServer(httpsOptions, app).listen(port, () => {
     console.log("port number = " + port);
 });
