@@ -459,9 +459,12 @@
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     .nav-icon2 {
         visibility: hidden;
+    }
+    .nav-icon1 {
+        visibility: visible;
     }
     #aboutus_message {
         visibility: hidden;
