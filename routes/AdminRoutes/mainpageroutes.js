@@ -40,7 +40,7 @@ var adminMiddleware = require("../../middleware/userverification")(jwt);
 //route for Admin page show and save
 {
 
-    router.get(["/Add"], (req, res) => {
+    router.get(["/Add", "/Add-Admin"], (req, res) => {
         return res.status(200).render("../views/Admin/mainpages/Add.ejs", { title: "Add - Appa" });
     });
 
