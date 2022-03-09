@@ -52,7 +52,7 @@ var adminMiddleware = require("../../middleware/userverification")(jwt);
                 return res.status(200).redirect("/Admin");
             } else {
                 req.flash("success", "Admin Registration Done Try to Login");
-                return res.status(200).redirect("/Admin");
+                return res.status(200).redirect("/Admin/ShowAllAdmin");
             }
         });
     });
