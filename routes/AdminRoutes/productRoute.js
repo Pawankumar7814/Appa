@@ -36,15 +36,16 @@ const upload = multer({ storage });
 {
 
     router.get("/Add", (req, res) => {
-        res.status(200).render("../views/Admin/products/Add.ejs", { title: "Add New Product - Appa" });
+        return res.status(200).render("../views/Admin/products/Add.ejs", { title: "Add New Product - Appa" });
     });
 
     router.post("/Add", upload.array("pimg"), (req, res) => {
         product.saveProduct(req.body, imagesPath, (CbData) => {
+            console.log(CbData);
             if (CbData.Status == "err") {
                 res.status(200).redirect("/Admin/Product/Add");
             } else {
-                res.status(200).redirect("/Admin/products/Allproductpage.ejs", { title: "All Products - Appa" });
+                res.status(200).redirect("/Admin/Product/AllProducts");
             }
         });
     });
