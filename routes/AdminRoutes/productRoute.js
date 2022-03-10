@@ -44,7 +44,7 @@ const upload = multer({ storage });
             if (CbData.Status == "err") {
                 res.status(200).redirect("/Admin/Product/Add");
             } else {
-                res.status(200).send("Show ALL Need to Create");
+                res.status(200).redirect("/Admin/products/Allproductpage.ejs", { title: "All Products - Appa" });
             }
         });
     });

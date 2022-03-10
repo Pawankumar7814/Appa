@@ -16,7 +16,7 @@
     <a href="https://api.whatsapp.com/send?phone=+917305070166" class="float" target="_blank">
         <i class="fa fa-whatsapp my-float"></i>
     </a>
-    <script src="/Public/JS/script.js"></script>
+    <script src="/JS"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
 </head>
 
@@ -38,10 +38,10 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="section-admin-header">
             <div class="row">
                 <div class="col-12 col-lg-2 ">
-                    <button class="openbtn" onclick="openNav()">☰ </button>
+                    <button class="openbtn" onclick="openNav()" style="margin-left: 2%;">☰ </button>
                     <script>
                         function openNav() {
                             document.getElementById("mySidebar").style.width = "250px";
@@ -58,46 +58,53 @@
                             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                             <ul class="list-unstyled ps-0">
                                 <li class="mb-1">
-                                    <a href="#">Show</a>
-                                    <div class="collapse show container" id="home-collapse">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                            <li><a href="/Admin/ShowAllUser" class="link-dark rounded">User</a></li>
-                                            <li><a href="/Admin/ShowAllAdmin" class="link-dark rounded">Admin</a></li>
-                                            <li><a href="/Admin/ShowAllMsg" class="link-dark rounded">Msg</a></li>
-                                            <li><a href="/Admin/Add" class="link-dark rounded">Add Admin</a></li>
-
-                                        </ul>
+                                    <div class="container">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed text-light" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">Administration Tools</button>
+                                        <div class="collapse show container" id="home-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="/Admin/ShowAllUser" class="link-dark rounded">View User</a></li>
+                                                <li><a href="/Admin/ShowAllAdmin" class="link-dark rounded">View Admin</a></li>
+                                                <li><a href="/Admin/ShowAllMsg" class="link-dark rounded">Message</a></li>
+                                                <li><a href="/Admin/Add" class="link-dark rounded">Add Admin</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="mb-1">
-                                    <a href="#">Products</a>
-                                    <div class="collapse container" id="Product-collapse">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                            <li><a href="/Admin/Product/Add" class="link-dark rounded">Add</a></li>
-                                            <li><a href="#" class="link-dark rounded">Show All</a></li>
-                                        </ul>
+                                    <div class="container">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed text-light" data-bs-toggle="collapse" data-bs-target="#Product-collapse" aria-expanded="false">Products</button>
+                                        <div class="collapse container" id="Product-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="/Admin/Product/Add" class="link-dark rounded">Add Product</a></li>
+                                                <li><a href="/Admin/Product/AllProducts" class="link-dark rounded">Show All Products</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="mb-1">
-                                    <a href="#">Orders</a>
-                                    <div class="collapse container" id="orders-collapse">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                            <li><a href="#" class="link-dark rounded">New</a></li>
-                                            <li><a href="#" class="link-dark rounded">Processed</a></li>
-                                            <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                                            <li><a href="#" class="link-dark rounded">Returned</a></li>
-                                        </ul>
+                                    <div class="container">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed text-light" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">Orders</button>
+                                        <div class="collapse container" id="orders-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="#" class="link-dark rounded">New</a></li>
+                                                <li><a href="#" class="link-dark rounded">Processed</a></li>
+                                                <li><a href="#" class="link-dark rounded">Shipped</a></li>
+                                                <li><a href="#" class="link-dark rounded">Returned</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="mb-1">
-                                    <a href="#">Account</a>
-                                    <div class="collapse container" id="account-collapse">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                            <li><a href="#" class="link-dark rounded">New...</a></li>
-                                            <li><a href="#" class="link-dark rounded">Profile</a></li>
-                                            <li><a href="#" class="link-dark rounded">Settings</a></li>
-                                            <li><a href="#" class="link-dark rounded">Sign out</a></li>
-                                        </ul>
+                                    <div class="container">
+                                        <button class="btn btn-toggle align-items-center rounded collapsed text-light" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">Account</button>
+                                        <div class="collapse container" id="account-collapse">
+                                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                <li><a href="#" class="link-dark rounded">New...</a></li>
+                                                <li><a href="#" class="link-dark rounded">Profile</a></li>
+                                                <li><a href="#" class="link-dark rounded">Settings</a></li>
+                                                <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -105,4 +112,4 @@
                     </div>
 
                 </div>
-                <div class="col-12 col-lg-10">
+                <div class="col-12 col-lg-8">

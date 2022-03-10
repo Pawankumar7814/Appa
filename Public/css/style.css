@@ -548,6 +548,10 @@
     padding-left: 1rem;
 }
 
+.section-admin-header {
+    margin-left: 2%;
+}
+
 
 /* Section CSS end here */
 
@@ -568,9 +572,9 @@
 }
 
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 0.2rem;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1rem;
     color: #818181;
     display: block;
     transition: 0.3s;
