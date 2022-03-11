@@ -30,9 +30,19 @@ class ProductData {
     async getAllProducts(cb) {
         Product.find({}, (err, products) => {
             if (err) {
-                return cb({ Status: "err", Msg: "Whle gett all blog", data: err });
+                return cb({ Status: "err", Msg: "While getting product", data: err });
             } else {
-                return cb({ Status: "scc", Msg: "got all blog", data: products });
+                return cb({ Status: "scc", Msg: "got all products", data: products });
+            }
+        });
+    }
+
+    async getProductById(id, cb) {
+        Product.findById({ _id: id }, (err, Product) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Whle geting  blog by id", data: err });
+            } else {
+                return cb({ Status: "scc", Msg: "goot all blog", data: Product });
             }
         });
     }
