@@ -1,0 +1,119 @@
+<%- include("../partial/header.ejs") %>
+
+
+    <div class="container-fluid">
+        <h5 class="text-center">Sender Details</h5>
+        <div class="row border-5">
+            <div class="col-12 ">
+                <div class=" border row font-weight-bold text-center">
+                    <div class=" border col-md-2">
+                        Name
+                    </div>
+                    <div class=" border col-md-3">
+                        Email
+                    </div>
+                    <div class="border col-md-1">
+                        Phone
+                    </div>
+                    <div class="border col-md-2">
+                        Msg
+                    </div>
+                    <div class="border col-md-2">
+                        Date
+                    </div>
+                    <div class="border col-md-1">
+                        Resolved
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="row border">
+            <div class="col-12 border">
+                <div class=" border row">
+                    <div class=" border col-md-2">
+                        <%- data.FName %>
+                    </div>
+                    <div class=" border col-md-3">
+                        <p>
+                            <%- data.Email %>
+                        </p>
+                    </div>
+                    <div class="border col-md-1">
+                        <%- data.Phone %>
+                    </div>
+                    <div class="border col-md-2">
+                        <%- data.Msg %>
+                    </div>
+                    <div class="border col-md-2">
+                        <%- data.added_date.getDate() %>/
+                            <%- data.added_date.getMonth() %>/
+                                <%- data.added_date.getFullYear() %>
+                    </div>
+                    <div class="border col-md-1">
+                        <%- data.resolved %>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br><br>
+        <h5 class="text-center">List of Reply</h5>
+        <div class="row border-5">
+            <div class="col-12 border">
+                <div class=" border row">
+                    <div class=" border col-md-8">
+                        Msg
+                    </div>
+                    <div class=" border col-md-4">
+                        Date
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border">
+            <div class="col-12 border">
+                <% data.feedback.forEach(data=> { %>
+                    <div class=" border row">
+                        <div class=" border col-md-8">
+                            <%- data.Msg %>
+                        </div>
+                        <div class=" border col-md-4">
+                            <p>
+                                <%- data.Msgdate %>
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                    <% }) %>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h5 class="text-center">Update New Reply</h5>
+        <div class="row border-10">
+            <div class="col-12 border">
+                <form action="/admin/SaveReply/<%- data.id %>" method="post">
+                    <div class="  row">
+                        <div class=" col-md-6 text-center ">
+                            <b> Enter New Message</b>
+                        </div>
+                        <div class=" col-md-6">
+                            <textarea class="form-control" rows="5" name="newF" width="200px"></textarea>
+                        </div>
+                    </div>
+                    <div class="  row">
+                        <div class=" col-12 text-center ">
+                            <button type="submit" class="btn-sm">Save</button>
+                            <a href="/User/View"><button type="reset" class="btn-sm"
+                                    onclick="history.back()">Back</button></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <%- include("../partial/footer.ejs") %>

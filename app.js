@@ -1,12 +1,13 @@
 // All require modules
 var express = require("express");
-var http = require("http");
 var ejs = require("ejs");
 var flash = require("connect-flash");
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var favicon = require("./config/favicon");
+var https = require("https");
 
+var httpsOptions = require("./config/https.js");
 
 // Creating appp
 var app = express();
@@ -24,6 +25,7 @@ process.env.TOKEN_SECRET = require("crypto").randomBytes(64).toString('hex');
 favicon(app);
 
 //conected to flash message
+
 app.use(flash());
 app.use(cookieParser("this is cokkie for appa"));
 app.use(session({
@@ -70,6 +72,8 @@ app.use(function(req, res, next) {
 // Route to Public 
 app.use("/Images", express.static(__dirname + "/Public/Images"));
 app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
+app.use("/JS", express.static(__dirname + "/Public/JS/script.js"));
+app.use("/Productimages", express.static(__dirname + "/Public/uploads"));
 
 
 // Website Routes
@@ -79,14 +83,15 @@ app.use("/", require("./routes/WebSiteRoutes/emailroutes"));
 app.use("/", require("./routes/WebSiteRoutes/mainpageroutes"));
 
 // Admin Routes
+app.use("/Admin/Product", require("./routes/AdminRoutes/productRoute"));
 app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
-app.use("/Admin/Products", require("./routes/AdminRoutes/productRoute"));
+
 
 app.get("/*", (req, res) => {
     res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 " });
 });
 
 // Creating server
-http.createServer(app).listen(port, () => {
+https.createServer(httpsOptions, app).listen(port, () => {
     console.log("port number = " + port);
 });

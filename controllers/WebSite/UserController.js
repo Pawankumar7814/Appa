@@ -26,7 +26,7 @@ class UserData {
 
     //Check User in Database
     async CheckUser(UserInfo, cb) {
-        User.findOne({ UEmail: UserInfo.Uemail, UPass: UserInfo.Upass }, (err, user) => {
+        User.findOne({ UEmail: UserInfo.Uemail, UPass: UserInfo.Upass, Ustatus: "Active" }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
             } else if (user == null) {
@@ -45,7 +45,7 @@ class UserData {
     }
 
     // user user with udi
-    CheckUserByUID(UserInfo, cb) {
+    async CheckUserByUID(UserInfo, cb) {
         // console.log(UserInfo);
         User.findOne({ UID: UserInfo }, (err, user) => {
             if (err) {
@@ -66,7 +66,7 @@ class UserData {
     }
 
     //Update User
-    UpdateUser(UserInfo, cb) {
+    async updateUser(UserInfo, cb) {
         console.log({
             Address: {
                 address: {
@@ -128,7 +128,7 @@ class UserData {
     }
 
     //forgot user
-    async ForgetPassword(UserInfo, cb) {
+    async forgetPassword(UserInfo, cb) {
         console.log(UserInfo);
         await User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
             if (err) {
@@ -156,7 +156,7 @@ class UserData {
     }
 
     //Check Admin in Database
-    async GetAllUser(cb) {
+    async getAllUser(cb) {
         User.find({}, (err, users) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
@@ -171,6 +171,23 @@ class UserData {
                 delete users1._id;
                 //    console.log(typeof users1);
                 return cb({ Status: "suc", Msg: "User found", data: users1 });
+            }
+        });
+    }
+
+    async changeStatus(UserInfo, cb) {
+        User.findOne({ UID: UserInfo }, (err, user) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Error checking  Data", data: err });
+            } else if (user == null) {
+                return cb({ Status: "err", Msg: "User Does not Exist", data: err });
+            } else {
+                if (user.Ustatus === "Active") {
+                    User.findOneAndUpdate({ UID: UserInfo }, { $set: { Ustatus: "NotActive" } }, (err, myd) => { console.log(err) });
+                } else {
+                    User.findOneAndUpdate({ UID: UserInfo }, { $set: { Ustatus: "Active" } }, (err, myd) => { console.log(err) });
+                }
+                return cb({ Status: "suc", Msg: "User Update", data: user });
             }
         });
     }
