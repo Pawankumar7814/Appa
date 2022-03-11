@@ -27,6 +27,15 @@ class ProductData {
         });
     }
 
+    async getAllProducts(cb) {
+        Product.find({}, (err, products) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "Whle gett all blog", data: err });
+            } else {
+                return cb({ Status: "scc", Msg: "got all blog", data: products });
+            }
+        });
+    }
 }
 
 module.exports = ProductData

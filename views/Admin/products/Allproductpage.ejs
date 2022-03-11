@@ -2,19 +2,49 @@
     <main>
         <section>
             <div class="container">
-                <div class="card text-left">
-                    <div class="row">
-                        <div class="col-12 col-md-3">
-                            <img class="card-img-top" src="holder.js/100px180/" alt="Product_Img">
-                        </div>
-                        <div class="col-12 col-md-9">
-                            <div class="card-body">
-                                <h4 class="card-title">Title</h4>
-                                <p class="card-text">Body</p>
+                <% for(var i = 0; i < data.length; i++) { %>
+                    <div class="card text-left">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <img class="card-img-top" src="/uploadproductimage/<%= data.Images %>" alt="Product_Img">
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <%= data[i].Title %>
+                                    </h4>
+                                    <p class="card-text">
+                                        <form action="">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Cost Price : <%= data[i].CostPrice %></label>
+                                                </div>
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Sale Price : <%= data[i].SalePrice %></label>
+                                                </div>
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Quantity : <%= data[i].Qty %> </label>
+                                                </div>
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Item in Pack : <%= data[i].ItemInPack %></label>
+                                                </div>
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Rating : <%= data[i].Rating %></label>
+                                                </div>
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">GST (in percentage) : <%= data[i].GST %></label>
+                                                </div>
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Quantity : <%= data[i].Qty %></label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <% } %>
             </div>
         </section>
     </main>
