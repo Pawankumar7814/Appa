@@ -37,12 +37,15 @@ class ProductData {
         });
     }
 
-    async getProductById(id, cb) {
-        Product.findById({ _id: id }, (err, Product) => {
+    async getProductById(ProInfo, cb) {
+        Product.findOne({ Pid: ProInfo }, (err, product) => {
+            console.log(err);
             if (err) {
-                return cb({ Status: "err", Msg: "Whle geting  blog by id", data: err });
+                return cb({ Status: "err", Msg: "error on searching", data: err });
+            } else if (product == null) {
+                return cb({ Status: "scc", Msg: "no data", data: product });
             } else {
-                return cb({ Status: "scc", Msg: "goot all blog", data: Product });
+                return cb({ Status: "scc", Msg: "get data", data: product });
             }
         });
     }

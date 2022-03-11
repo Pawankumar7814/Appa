@@ -3,11 +3,11 @@
         <!-- product start -->
         <section class="py-5">
             <div class="container-fluid">
-                <div class="row">
-                    <% for(var i = 0; i < data.length; i++) { %>
+                <div class="row ">
+                    <% for(var i=0; i < data.length; i++) { %>
                         <div class="col-md-4">
                             <div class="card">
-                                <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.30 PM.jpeg" class="card-img-top" width="40%" alt="...">
+                                <img src="/uploadproductimage/<%= data[i].Images[0] %>" class="card-img-top" width="40%" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <%= data[i].Title %>
@@ -15,7 +15,7 @@
                                     <p class="card-text">
                                         <%= data[i].Description %>
                                     </p>
-                                    <a href="/product/abc" class="btn bttn">Know more</a>
+                                    <a href="/product/<%= data[i].Pid %>" class="btn bttn">Know more</a>
                                 </div>
                             </div>
                         </div>

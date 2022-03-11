@@ -15,15 +15,19 @@ router.get(["/products/", "/products/index"], (req, res) => {
     });
 });
 
-// Route to index page
-router.get(["/product/abc", "/product"], (req, res) => {
+
+// Route for one product
+router.get(["/product/:id"], (req, res) => {
+    console.log(req.params.id);
     product.getProductById(req.params.id, (CbData) => {
         if (CbData.status == "err") {
+            console.log(err);
             return res.status(404).redirect("/error404");
         } else {
             res.status(200).render("../views/WebSite/products/product.ejs", { title: "Wick 1 - Appa", data: CbData.data });
         }
     });
 });
+
 
 module.exports = router;
