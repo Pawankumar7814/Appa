@@ -7,43 +7,67 @@
             <div class="container-fluid">
                 <div.<div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                     <!-- product details -->
-                    <div class="col-12 col-md-6 change">
+                    <div class="col-12 col-md-6 order-md-last order-2">
                         <div class="row ">
                             <div class="col  ">
-                                <h1 class="text-center">
+                                <h1 class="text-center" style="color: yellowgreen; font-family: cursive; ">
                                     <%= data.Title %>
                                 </h1>
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-12 col-md-6 text-center">
-                                <label for=""><b> Price : </b><%= data.SalePrice %></label>
-                            </div>
-                            <div class="col-12 col-md-6 text-center">
-                                <label for=""><b> Rating : </b> <%= data.Rating %></label>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-12  text-center ">
-                                <label for=""><b> Product Description </b>: <%= data.Description %></label>
+                            <div class="col-12 ">
+                                <label for="">
+                                    <%= data.Description %>
+                                </label>
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-12  text-center ">
-                                <label for=""><b> Color : </b> <%= data.Color %></label>
+                            <div class="col-12 col-md-6 text-center">
+                                <label for="">
+                                    <b>
+                                        <h3> &#x20B9; <%= data.SalePrice %>/-
+                                        </h3>
+                                    </b>
+                                </label>
+                                <br>
+                                <label for="">
+                                    <div><span class="stars-container stars-100"
+                                            style="font-size: xx-large;">★★★★★</span></div>
+                                </label><br>
+                            </div>
+                            <div class="col-12 col-md-6 text-center">
+                                <br>
+                                <label for=""><b>Color</b><br>
+                                    <span class="dot" style=" height: 25px; width: 25px;
+                                    background-color:red;
+                                    border-radius: 50%;
+                                    border-color:black ;
+                                    border-width: 20px;
+                                    display: inline-block;"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12 ">
+                                <div class="counter">
+                                    <b>Qty:</b> <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                                    <input type="text" value="1">
+                                    <span class="up" onClick='increaseCount(event, this)'>+</span>
+                                </div>
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col-12 col-md-6 text-center ">
-                                <h1>Add to Cart</h1>
+                                <button type="button" class="btn btn-outline-dark">Add To Cart</button>
                             </div>
                             <div class="col-12 col-md-6 text-center ">
-                                <h1>Buy Know</h1>
+                                <button type="button" class="btn btn-outline-dark">Buy Know</button>
                             </div>
                         </div>
                     </div>
                     <!-- product Image -->
-                    <div class="col-12 col-md-6 ">
+                    <div class="col-12 col-md-6 order-md-first order-1">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <% for(var i=0; i < data.Images.length; i++) { %>
