@@ -43,15 +43,21 @@ const upload = multer({ storage });
         product.saveProduct(req.body, imagesPath, (CbData) => {
             console.log(CbData);
             if (CbData.Status == "err") {
-                res.status(200).redirect("/Admin/Product/Add");
+                return res.status(200).redirect("/Admin/Product/Add");
             } else {
-                res.status(200).redirect("/Admin/Product/AllProducts");
+                return res.status(200).redirect("/Admin/Product/AllProducts");
             }
         });
     });
 
     router.get(["/AllProducts", "/ShowAllProduct"], (req, res) => {
-        res.status(200).render("../views/Admin/products/Allproductpage.ejs", { title: "All Products - Appa" });
+        product.getAllProducts((CbData) => {
+            if (CbData.Status == "err") {
+                return res.status(404).redirect("/error404");
+            } else {
+                return res.status(200).render("../views/Admin/products/Allproductpage.ejs", { title: "All Products - Appa", data: CbData.data });
+            }
+        });
     });
 }
 

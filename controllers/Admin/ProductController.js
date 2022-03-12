@@ -27,6 +27,28 @@ class ProductData {
         });
     }
 
+    async getAllProducts(cb) {
+        Product.find({}, (err, products) => {
+            if (err) {
+                return cb({ Status: "err", Msg: "While getting product", data: err });
+            } else {
+                return cb({ Status: "scc", Msg: "got all products", data: products });
+            }
+        });
+    }
+
+    async getProductById(ProInfo, cb) {
+        Product.findOne({ Pid: ProInfo }, (err, product) => {
+            console.log(err);
+            if (err) {
+                return cb({ Status: "err", Msg: "error on searching", data: err });
+            } else if (product == null) {
+                return cb({ Status: "scc", Msg: "no data", data: product });
+            } else {
+                return cb({ Status: "scc", Msg: "get data", data: product });
+            }
+        });
+    }
 }
 
 module.exports = ProductData

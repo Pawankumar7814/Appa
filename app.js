@@ -73,8 +73,7 @@ app.use(function(req, res, next) {
 app.use("/Images", express.static(__dirname + "/Public/Images"));
 app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
 app.use("/JS", express.static(__dirname + "/Public/JS/script.js"));
-app.use("/Productimages", express.static(__dirname + "/Public/uploads"));
-
+app.use("/uploadproductimage", express.static(__dirname + "/Public/uploads"));
 
 // Website Routes
 app.use("/user", require("./routes/WebSiteRoutes/userroutes"));
