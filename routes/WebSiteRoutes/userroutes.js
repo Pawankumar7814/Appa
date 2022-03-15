@@ -8,7 +8,6 @@ var user = new User();
 var jwt = new JWT();
 var usermiddleware = require("../../middleware/userverification")(jwt);
 
-
 //log In Routes
 {
     // Get Route 
