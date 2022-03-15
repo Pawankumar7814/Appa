@@ -5,6 +5,7 @@ var OgData = require("../../config/Og.json");
 
 // Route to index page
 router.get(["/", "/index"], (req, res) => {
+    console.log(OgData);
     res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Home - Appa", Og: OgData });
 });
 
