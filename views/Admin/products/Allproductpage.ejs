@@ -6,7 +6,9 @@
                     <div class="card text-left">
                         <div class="row">
                             <div class="col-12 col-md-4">
-                                <img class="card-img-top" src="/uploadproductimage/<%= data[i].Images[0] %>" alt="Product_Img">
+                                <% for(var j=0; j < data[i].Images.length; j++) { %>
+                                    <img src="/uploadproductimage/<%= data[i].Images[j] %>" alt="Product_Img" width="50%">
+                                    <% } %>
                             </div>
                             <div class="col-12 col-md-8">
                                 <div class="card-body">

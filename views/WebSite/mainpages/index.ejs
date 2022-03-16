@@ -33,72 +33,23 @@
         <!-- product start -->
         <section class="py-5">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-shadow">
-                            <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.30 PM.jpeg" class="card-img-top" width="40%" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">White Madar Wicks</h5>
-                                <p class="card-text justify">Our White Madar Wicks are a symbolic element during holy rituals that invokes the blessings of Lord Ganesha to remove all obstacles in life. With a unique blend of small fibres from white madar plants and the craftsmanship
-                                    of traditional wick-makers, such durable wicks are perfect for your next Ganesh Chaturthi. These high-quality wicks are available in packs of 10 and 20.</p>
-                                <a href="/product/abc" class="btn bttn">Know more</a>
+                <div class="row ">
+                    <% for(var i=0; i < data.length; i++) { %>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img src="/uploadproductimage/<%= data[i].Images[0] %>" class="card-img-top" width="40%" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= data[i].Title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= data[i].Description %>
+                                    </p>
+                                    <a href="/product/<%= data[i].Pid %>" class="btn bttn">Know more</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-shadow">
-                            <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.31 PM.jpeg" class="card-img-top" width="40%" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Wick title</h5>
-                                <p class="card-text justify">
-                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
-                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occassion. Our banana stem wicks are available in packs of 10 and 20.
-                                </p>
-                                <a href="/product/abc" class="btn bttn">Know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-shadow">
-                            <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.32 PM.jpeg" class="card-img-top" width="40%" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Lotus Stem Wicks</h5>
-                                <p class="card-text justify">Natural fibres extracted from the stalks of lotus flowers are handwoven to produce these durable wicks. Essentially used for worshipping the Hindu Goddesses - Lakshmi and Saraswati, these lotus stem wicks are perfect for
-                                    lighting diyas to bring good fortunes and abundance in the house. Our lotus stem wicks are available in a variety of natural colours that comes in packs of 10 and 20.</p>
-                                <a href="/product/abc" class="btn bttn">Know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-shadow">
-                            <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.33 PM.jpeg" class="card-img-top" width="40%" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Wick title</h5>
-                                <p class="card-text justify">Lotus stem wicks are prepared from the fiber of lotus stem Lighting lamp using these lotus wicks will brings you fortune in matters with goddess mahalakshmi blessings.</p>
-                                <a href="/product/abc" class="btn bttn">Know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-shadow">
-                            <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.34 PM.jpeg" class="card-img-top" width="40%" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Lotus Wick</h5>
-                                <p class="card-text justify">Lotus stem wicks are prepared from the fiber of lotus stem Lighting lamp using these lotus wicks will brings you fortune in matters with goddess mahalakshmi blessings.</p>
-                                <a href="/product/abc" class="btn bttn">Know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-shadow">
-                            <img src="/Images/WhatsApp Image 2022-01-22 at 6.40.35 PM.jpeg" class="card-img-top" width="40%" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Banana Wick title</h5>
-                                <p class="card-text justify">Lotus stem wicks are prepared from the fiber of lotus stem Lighting lamp using these lotus wicks will brings you fortune in matters with goddess mahalakshmi blessings.</p>
-                                <a href="/product/abc" class="btn bttn">Know more</a>
-                            </div>
-                        </div>
-                    </div>
+                        <% } %>
                 </div>
             </div>
         </section>
