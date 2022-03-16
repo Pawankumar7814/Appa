@@ -7,24 +7,41 @@ var OgData = require("../../config/Og.json");
 router.get(["/", "/index"], (req, res) => {
     OgData.title = "Home Page.";
     OgData.description = "Home Page All new products are shown on this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
     console.log(OgData);
     res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Home - Appa", Og: OgData });
 });
 
 router.get(["/indexsh"], (req, res) => {
-    res.status(200).render("../views/WebSite/mainpages/indexsh.ejs", { title: "Home - Appa" });
+    OgData.title = "Home Page.";
+    OgData.description = "Home Page All new products are shown on this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/indexsh.ejs", { title: "Home - Appa", Og: OgData });
 });
 
 router.get(["/index1"], (req, res) => {
-    res.status(200).render("../views/WebSite/mainpages/index1.ejs", { title: "Home - Appa" });
+    OgData.title = "Home Page.";
+    OgData.description = "Home Page All new products are shown on this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/index1.ejs", { title: "Home - Appa", Og: OgData });
 });
 
 router.get(["/index2"], (req, res) => {
-    res.status(200).render("../views/WebSite/mainpages/index2.ejs", { title: "Home - Appa" });
+    OgData.title = "Home Page.";
+    OgData.description = "Home Page All new products are shown on this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/index2.ejs", { title: "Home - Appa", Og: OgData });
 });
 
 router.get(["/index3"], (req, res) => {
-    res.status(200).render("../views/WebSite/mainpages/index3.ejs", { title: "Home - Appa" });
+    OgData.title = "Home Page.";
+    OgData.description = "Home Page All new products are shown on this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/index3.ejs", { title: "Home - Appa", Og: OgData });
 });
 
 // Route to contact page
