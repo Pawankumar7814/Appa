@@ -5,6 +5,8 @@ var OgData = require("../../config/Og.json");
 
 // Route to index page
 router.get(["/", "/index"], (req, res) => {
+    OgData.title = "Home Page.";
+    OgData.description = "Home Page All new products are shown on this page.";
     console.log(OgData);
     res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Home - Appa", Og: OgData });
 });
@@ -36,7 +38,10 @@ router.get(["/aboutus", "/about"], (req, res) => {
 });
 
 router.get(["/aboutus1", "/about1"], (req, res) => {
-    res.status(200).render("../views/WebSite/mainpages/aboutus1.ejs", { title: "About us - Appa" });
+    OgData.title = "About us - Appa";
+    OgData.description = "In this page we have our introduction";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/aboutus1.ejs", { title: "About us - Appa", Og: OgData });
 });
 
 module.exports = router;
