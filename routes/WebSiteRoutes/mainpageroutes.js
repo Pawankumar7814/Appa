@@ -51,6 +51,10 @@ router.get(["/contactus", "/contact"], (req, res) => {
 
 // Route to about page
 router.get(["/aboutus", "/about"], (req, res) => {
+    OgData.title = "About Us - Appa";
+    OgData.description = "These braided cotton threads that are used to hold flames for lamps have been widely produced in the temple town of Pattanam, Madurai, for years. The concept of Appa revolves around bringing these hand-crafted wicks made by traditional wick-makers of Madurai to the rest of the world. What makes Appa wicks different from their competitors is its precise braiding techniques that sustain the wick longer and burn durably with no soot."
+    OgData.image = "/Images/diya.jpeg";
+    console.log(OgData);
     res.status(200).render("../views/WebSite/mainpages/aboutus.ejs", { title: "About us - Appa", Og: OgData });
 });
 
