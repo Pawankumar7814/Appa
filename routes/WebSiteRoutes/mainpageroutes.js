@@ -46,6 +46,10 @@ router.get(["/index3"], (req, res) => {
 
 // Route to contact page
 router.get(["/contactus", "/contact"], (req, res) => {
+    OgData.title = "Contact Page.";
+    OgData.description = "A user can ask any query or give suggestions through this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
+    console.log(OgData);
     res.status(200).render("../views/WebSite/mainpages/contactus.ejs", { title: "Contact us - Appa", Og: OgData });
 });
 
