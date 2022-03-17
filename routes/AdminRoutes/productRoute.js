@@ -6,6 +6,7 @@ var product = new Product();
 const multer = require('multer');
 const uuid = require('uuid');
 var imagesPath = [];
+var OgData = require('../../config/Og.json');
 
 //Multer to upload file start
 
@@ -59,6 +60,16 @@ const upload = multer({ storage });
             }
         });
     });
+
+    router.get("/Editproduct", (req, res) => {
+        product.getProductById((CbData) => {
+            if (CbData.Status == "err") {
+                console.log(err);
+            } else {
+                res.status(200).render("../views/Admin/products/editproduct.ejs", { title: "Edit Product - Appa", data: CbData.data });
+            }
+        })
+    })
 }
 
 module.exports = router;
