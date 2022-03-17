@@ -76,7 +76,9 @@ var OgData = require("../../config/Og.json");
                 return res.status(200).redirect("/User/LogIn");
             } else {
                 console.log(info.data);
-                return res.status(200).render("../views/WebSite/User/View.ejs", { title: "Profile - Appa", data: info.data });
+                OgData.title = "User Profile";
+                OgData.description = "Here user can view his or her details.";
+                return res.status(200).render("../views/WebSite/User/View.ejs", { title: "Profile - Appa", data: info.data, Og: OgData });
             }
         });
     });
@@ -89,7 +91,7 @@ var OgData = require("../../config/Og.json");
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
             } else {
-                return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data, Og: OgData });
             }
         });
     });
