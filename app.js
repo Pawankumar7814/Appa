@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var favicon = require("./config/favicon");
 var https = require("https");
-
+var OgData = require("../../config/Og.json");
 var httpsOptions = require("./config/https.js");
 
 // Creating appp
@@ -87,7 +87,11 @@ app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
 
 
 app.get("/*", (req, res) => {
-    res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 " });
+    OgData.title = "Error 404";
+    OgData.description = "Page not Found";
+    OgData.image = "/Images/404error.jpg";
+    console.log(OgData);
+    res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 ", Og: OgData });
 });
 
 // Creating server
