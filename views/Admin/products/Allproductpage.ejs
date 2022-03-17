@@ -19,36 +19,62 @@
                                         <div class="row">
                                             <div class="col-12 col-md-12">
                                                 <label for="">Cost Price : <%= data[i].CostPrice %></label>
+                                                <form action="">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">Cost Price : <%= data[i].CostPrice %></label>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">Sale Price : <%= data[i].SalePrice %></label>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">Quantity : <%= data[i].Qty %> </label>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">Item in Pack : <%= data[i].ItemInPack %></label>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">Rating : <%= data[i].Rating %></label>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">GST (in percentage) : <%= data[i].GST %></label>
+                                                        </div>
+                                                        <div class="col-12 col-md-12">
+                                                            <label for="">Quantity : <%= data[i].Color %></label>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <input type="submit" value="Edit">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <label for="">Sale Price : <%= data[i].SalePrice %></label>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <label for="">Quantity : <%= data[i].Qty %> </label>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <label for="">Item in Pack : <%= data[i].ItemInPack %></label>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <label for="">Rating : <%= data[i].Rating %></label>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <label for="">GST (in percentage) : <%= data[i].GST %></label>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <label for="">Quantity : <%= data[i].Color %></label>
+                                                    </div>
+                                                    <div class="col-12 col-md-12">
+                                                        <a class="btn" href="">Edit Images</a>
+                                                    </div>
                                             </div>
-                                            <div class="col-12 col-md-12">
-                                                <label for="">Sale Price : <%= data[i].SalePrice %></label>
-                                            </div>
-                                            <div class="col-12 col-md-12">
-                                                <label for="">Quantity : <%= data[i].Qty %> </label>
-                                            </div>
-                                            <div class="col-12 col-md-12">
-                                                <label for="">Item in Pack : <%= data[i].ItemInPack %></label>
-                                            </div>
-                                            <div class="col-12 col-md-12">
-                                                <label for="">Rating : <%= data[i].Rating %></label>
-                                            </div>
-                                            <div class="col-12 col-md-12">
-                                                <label for="">GST (in percentage) : <%= data[i].GST %></label>
-                                            </div>
-                                            <div class="col-12 col-md-12">
-                                                <label for="">Quantity : <%= data[i].Color %></label>
-                                            </div>
-                                            <div class="col-12 col-md-12">
-                                                <a class="btn" href="">Edit Images</a>
-                                            </div>
-                                        </div>
                                     </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <% } %>
                     </div>
-                    <% } %>
-            </div>
         </section>
     </main>
     <%- include('../partial/footer.ejs') %>

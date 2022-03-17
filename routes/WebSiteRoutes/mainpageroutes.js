@@ -14,7 +14,7 @@ router.get(["/", "/index"], (req, res) => {
         if (CbData.status == "err") {
             return res.status(404).redirect("/error404");
         } else {
-            res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Products - Appa", data: CbData.data, Og: OgData });
+            res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Home - Appa", data: CbData.data, Og: OgData });
         }
     });
 });
