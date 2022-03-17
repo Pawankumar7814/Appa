@@ -7,13 +7,17 @@ var uuid = require('uuid');
 var user = new User();
 var jwt = new JWT();
 var usermiddleware = require("../../middleware/userverification")(jwt);
+var OgData = require("../../config/Og.json");
 
 //log In Routes
 {
     // Get Route 
     router.get(["/", "/index", "/Signin", "/Login"], usermiddleware.checkuserexicte, (req, res) => {
-
-        return res.status(200).render("../views/WebSite/User/index.ejs", { title: "LogIn - Appa" });
+        OgData.title = "Log In page";
+        OgData.description = "LogIn to Appa page now";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        console.log(OgData);
+        return res.status(200).render("../views/WebSite/User/index.ejs", { title: "LogIn - Appa", Og: OgData });
     });
 
     // Post Route 
@@ -37,7 +41,11 @@ var usermiddleware = require("../../middleware/userverification")(jwt);
 {
     // get Route 
     router.get(["/Signup", "/Register"], usermiddleware.checkuserexicte, (req, res) => {
-        return res.status(200).render("../views//WebSite/User/Register.ejs", { title: "Register  - Appa" });
+        OgData.title = "Register page";
+        OgData.description = "Register to Appa page now";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        console.log(OgData);
+        return res.status(200).render("../views//WebSite/User/Register.ejs", { title: "Register  - Appa", Og: OgData });
     });
 
     // post Route 
