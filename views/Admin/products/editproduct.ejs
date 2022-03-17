@@ -1,0 +1,61 @@
+<%- include('../partial/header.ejs') %>
+    <main>
+        <section>
+            <div class="container">
+                <div class="card text-left">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <% for(var j=0; j < data[i].Images.length; j++) { %>
+                                <img src="/uploadproductimage/<%= data[i].Images[j] %>" alt="Product_Img" width="50%">
+                                <% } %>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <%= data[i].Title %>
+                                </h4>
+                                <p class="card-text">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="col-12 col-md-12">
+                                                <label for="">Cost Price : </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.CostPrice %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="">Sale Price : </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.SalePrice %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="">Quantity :  </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.Qty %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="">Item in Pack : </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.ItemInPack %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="">Rating : </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.Rating %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="">GST (in percentage) : </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.GST %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="">Quantity : </label>
+                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.Color %>">
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <input type="submit" value="Edit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partial/footer.ejs') %>
