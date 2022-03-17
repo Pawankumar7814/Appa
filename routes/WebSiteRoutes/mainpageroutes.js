@@ -76,4 +76,10 @@ router.get(["/aboutus1", "/about1"], (req, res) => {
     res.status(200).render("../views/WebSite/mainpages/aboutus1.ejs", { title: "About us - Appa", Og: OgData });
 });
 
+router.get(["/addtocart", "/cart"], (req, res) => {
+    OgData.title = "Add To Cart - Appa";
+    OgData.description = "In this page you can add whatever product you like to buy them in future";
+    console.log(OgData);
+    req.status(200).render("../views/WebSite/mainpages/addtocart.ejs", { title: "cart - Appa", Og: OgData });
+})
 module.exports = router;
