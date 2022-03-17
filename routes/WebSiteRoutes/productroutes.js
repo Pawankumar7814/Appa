@@ -35,5 +35,13 @@ router.get(["/product/:id"], (req, res) => {
     });
 });
 
+//Route to cart
+router.get(["/addtocart", "/cart"], (req, res) => {
+    OgData.title = "Add To Cart - Appa";
+    OgData.description = "In this page you can add whatever product you like to buy them in future";
+    console.log(OgData);
+    req.status(200).render("../views/WebSite/mainpages/cart.ejs", { title: "cart - Appa", Og: OgData });
+});
+
 
 module.exports = router;

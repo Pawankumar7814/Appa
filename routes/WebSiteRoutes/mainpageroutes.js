@@ -14,7 +14,7 @@ router.get(["/", "/index"], (req, res) => {
         if (CbData.status == "err") {
             return res.status(404).redirect("/error404");
         } else {
-            res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Products - Appa", data: CbData.data, Og: OgData });
+            res.status(200).render("../views/WebSite/mainpages/index.ejs", { title: "Home - Appa", data: CbData.data, Og: OgData });
         }
     });
 });
@@ -76,10 +76,4 @@ router.get(["/aboutus1", "/about1"], (req, res) => {
     res.status(200).render("../views/WebSite/mainpages/aboutus1.ejs", { title: "About us - Appa", Og: OgData });
 });
 
-router.get(["/addtocart", "/cart"], (req, res) => {
-    OgData.title = "Add To Cart - Appa";
-    OgData.description = "In this page you can add whatever product you like to buy them in future";
-    console.log(OgData);
-    req.status(200).render("../views/WebSite/mainpages/addtocart.ejs", { title: "cart - Appa", Og: OgData });
-})
 module.exports = router;
