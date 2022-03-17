@@ -61,15 +61,66 @@ const upload = multer({ storage });
         });
     });
 
-    router.get("/Editproduct", (req, res) => {
-        product.getProductById((CbData) => {
+    router.get("/Edit/:id", (req, res) => {
+        product.getProductById(req.params.id, (CbData) => {
             if (CbData.Status == "err") {
                 console.log(err);
             } else {
-                res.status(200).render("../views/Admin/products/editproduct.ejs", { title: "Edit Product - Appa", data: CbData.data });
+                return res.status(200).render("../views/Admin/products/editproduct.ejs", { title: "Edit Product - Appa", data: CbData.data });
             }
-        })
-    })
+        });
+    });
+
+    router.post("/Edit/:id", (req, res) => {
+        product.updateProductById(req.params.id, req.body, (CbData) => {
+            return res.status(200).redirect("../Edit/" + req.params.id);
+        });
+    });
+
+    router.get("/EditImages/:id", (req, res) => {
+        product.getProductById(req.params.id, (CbData) => {
+            if (CbData.Status == "err") {
+                console.log(err);
+            } else {
+                return res.status(200).render("../views/Admin/products/editImages.ejs", { title: "Edit Product - Appa", data: CbData.data });
+            }
+        });
+    });
+
+    router.post("/EditImages/:id", upload.array("pimg"), (req, res) => {
+        product.addProductImageById(req.params.id, imagesPath, (CbData) => {
+            if (CbData.Status == "err") {
+                console.log(err);
+            } else {
+                return res.status(200).redirect("/Admin/Product/EditImages/" + req.params.id);
+            }
+        });
+    });
+
+
+    router.get("/EditImage/:id/:file", (req, res) => {
+        product.deleteProductImageById(req.params.id, req.params.file, (CbData) => {
+            if (CbData.Status == "err") {
+                console.log(err);
+            } else {
+                var pp = "../EditImages/" + req.params.id;
+                console.log(pp);
+                return res.status(200).redirect("/Admin/Product/EditImages/" + req.params.id);
+            }
+        });
+    });
+
+    router.get("/Delelte/:id", (req, res) => {
+        product.deleteProductById(req.params.id, (CbData) => {
+            if (CbData.Status == "err") {
+                console.log(err);
+            } else {
+                return res.status(200).redirect("../AllProducts")
+            }
+        });
+    });
+
+
 }
 
 module.exports = router;

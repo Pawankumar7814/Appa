@@ -5,48 +5,59 @@
                 <div class="card text-left">
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <% for(var j=0; j < data[i].Images.length; j++) { %>
-                                <img src="/uploadproductimage/<%= data[i].Images[j] %>" alt="Product_Img" width="50%">
+                            <% for(var j=0; j < data.Images.length; j++) { %>
+                                <img src="/uploadproductimage/<%= data.Images[j] %>" alt="Product_Img" width="50%">
                                 <% } %>
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title">
-                                    <%= data[i].Title %>
-                                </h4>
                                 <p class="card-text">
-                                    <form action="">
+                                    <form action="../Edit/<%= data.Pid %>" method="post">
                                         <div class="row">
                                             <div class="col-12 col-md-12">
-                                                <label for="">Cost Price : </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.CostPrice %>">
+                                                <label for="ptitle">Title : </label>
+                                                <input type="text" class="form-control" name="ptitle" id="ptitle" value="<%= data.Title %>">
                                             </div>
                                             <div class="col-12 col-md-12">
-                                                <label for="">Sale Price : </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.SalePrice %>">
+                                                <label for="pcp">Cost Price : </label>
+                                                <input type="text" class="form-control" name="pcp" id="pcp" value="<%= data.CostPrice %>">
                                             </div>
                                             <div class="col-12 col-md-12">
-                                                <label for="">Quantity :  </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.Qty %>">
+                                                <label for="psp">Sale Price : </label>
+                                                <input type="text" class="form-control" name="psp" id="psp" value="<%= data.SalePrice %>">
                                             </div>
                                             <div class="col-12 col-md-12">
-                                                <label for="">Item in Pack : </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.ItemInPack %>">
+                                                <label for="pqty">Quantity :  </label>
+                                                <input type="text" class="form-control" name="pqty" id="pqty" value="<%= data.Qty %>">
                                             </div>
                                             <div class="col-12 col-md-12">
-                                                <label for="">Rating : </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.Rating %>">
+                                                <label for="piip">Item in Pack : </label>
+                                                <input type="text" class="form-control" name="piip" id="piip" value="<%= data.ItemInPack %>">
                                             </div>
                                             <div class="col-12 col-md-12">
-                                                <label for="">GST (in percentage) : </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.GST %>">
+                                                <label for="pr">Rating : </label>
+                                                <input type="text" class="form-control" name="pr" id="pr" value="<%= data.Rating %>">
                                             </div>
                                             <div class="col-12 col-md-12">
-                                                <label for="">Quantity : </label>
-                                                <input type="text" name="dbinputcostprice" id="" value="<%= data.Color %>">
+                                                <label for="pgst">GST (in %) : </label>
+                                                <input type="text" class="form-control" name="pgst" id="pgst" value="<%= data.GST %>">
                                             </div>
-                                            <div class="col-12 col-md-6">
-                                                <input type="submit" value="Edit">
+                                            <div class="col-12 col-md-12">
+                                                <label for="pcolor">Color : </label>
+                                                <input type="text" class="form-control" name="pcolor" id="pcolor" value="<%= data.Color %>">
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="pds">Discription : </label>
+                                                <textarea rows="5" class="form-control" name="pds" id="pds"><%= data.Description %></textarea>
+                                            </div>
+                                            <div class="col-12 col-md-12">
+                                                <label for="phow">How to User : </label>
+                                                <textarea rows="5" class="form-control" name="phow" id="phow"><%= data.HowToUse %></textarea>
+                                            </div>
+                                            <br> <br><br>
+                                            <div class="col-12 col-md-12">
+                                                <input type="submit" class="btn btn-primary" value="Edit">
+                                                <button type="reset" class=" btn btn-info" onclick="history.back()">Back</button>
                                             </div>
                                         </div>
                                     </form>

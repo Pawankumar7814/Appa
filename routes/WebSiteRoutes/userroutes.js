@@ -121,7 +121,10 @@ var OgData = require("../../config/Og.json");
 {
     // get Route to forget password
     router.get(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
-        return res.status(200).render("../views/WebSite/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
+        OgData.title = "Forget Password";
+        OgData.description = "Enter your Email if you Forget your Password";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        return res.status(200).render("../views/WebSite/User/forgetPssword.ejs", { title: "Forget Password - Appa", Og: OgData });
     });
 
     // post Route to get data for forget password and email it

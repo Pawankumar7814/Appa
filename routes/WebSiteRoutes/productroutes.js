@@ -20,7 +20,6 @@ router.get(["/products/", "/products/index"], (req, res) => {
 // Route for one product
 router.get(["/product/:id"], (req, res) => {
     console.log(req.params.id);
-
     product.getProductById(req.params.id, (CbData) => {
         if (CbData.status == "err") {
             console.log(err);
