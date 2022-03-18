@@ -1,7 +1,5 @@
 <%- include("../partial/header.ejs") %>
     <main>
-
-
         <!-- product start -->
         <section class="py-5">
             <div class="container-fluid">
@@ -37,6 +35,12 @@
                                 </label><br>
                             </div>
                             <div class="col-12 col-md-6 text-center">
+                                <label for="">
+                                    <b>
+                                        <h5>Item in Pack : <%= data.ItemInPack %>
+                                        </h5>
+                                    </b>
+                                </label>
                                 <br>
                                 <label for=""><b>Color</b><br>
                                     <span class="dot" style=" height: 25px; width: 25px;
@@ -67,7 +71,6 @@
                         </div>
                         <br><br>
                         <div class="row ">
-
                             <div class="col-12 ">
                                 How To Use It:-
                                 <label for="" style="font-size: small;">
@@ -78,7 +81,24 @@
                     </div>
                     <!-- product Image -->
                     <div class="col-12 col-md-6 order-md-first order-1">
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <% for(var i=0; i < data.Images.length; i++) { %>
+                                    <div class="carousel-item active">
+                                        <img src="/uploadproductimage/<%= data.Images[i] %>" class="d-block w-100" alt="...">
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <% for(var i=0; i < data.Images.length; i++) { %>
                                     <div class="carousel-item active">
@@ -94,10 +114,10 @@
                             <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
-                            </a>
+                            </a> -->
 
-                        </div>
                     </div>
+            </div>
             </div>
         </section>
         <!-- product end -->

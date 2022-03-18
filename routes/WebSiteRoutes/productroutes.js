@@ -29,7 +29,7 @@ router.get(["/product/:id"], (req, res) => {
             OgData.description = CbData.data.Description;
             OgData.price = CbData.data.SalePrice;
             console.log(OgData);
-            res.status(200).render("../views/WebSite/products/product.ejs", { title: "Wick 1 - Appa", data: CbData.data, Og: OgData });
+            res.status(200).render("../views/WebSite/products/product.ejs", { title: CbData.data.Title + " - Appa", data: CbData.data, Og: OgData });
         }
     });
 });
