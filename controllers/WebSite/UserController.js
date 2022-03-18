@@ -66,7 +66,7 @@ class UserData {
     }
 
     //Update User
-    async updateUser(UserInfo, cb) {
+    async UpdateUser(UserInfo, cb) {
         console.log({
             Address: {
                 address: {
