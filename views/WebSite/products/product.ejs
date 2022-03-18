@@ -3,7 +3,7 @@
         <!-- product start -->
         <section class="py-5">
             <div class="container-fluid">
-                <div.<div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                     <!-- product details -->
                     <div class="col-12 col-md-6 order-md-last order-2">
                         <div class="row ">
@@ -80,25 +80,8 @@
                         </div>
                     </div>
                     <!-- product Image -->
-                    <div class="col-12 col-md-6 order-md-first order-1">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <% for(var i=0; i < data.Images.length; i++) { %>
-                                    <div class="carousel-item active">
-                                        <img src="/uploadproductimage/<%= data.Images[i] %>" class="d-block w-100" alt="...">
-                                    </div>
-                                    <% } %>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="col-12 col-md-6">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <% for(var i=0; i < data.Images.length; i++) { %>
                                     <div class="carousel-item active">
@@ -114,10 +97,10 @@
                             <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
-                            </a> -->
-
+                            </a>
+                        </div>
                     </div>
-            </div>
+                </div>
             </div>
         </section>
         <!-- product end -->
