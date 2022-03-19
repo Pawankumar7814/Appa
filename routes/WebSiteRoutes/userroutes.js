@@ -180,7 +180,6 @@ var OgData = require("../../config/Og.json");
 
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
-
     res.cookie('connect.sid', '', { expires: new Date(0), httpOnly: true });
     res.clearCookie('connect.sid', { path: '/' });
     res.cookie("token", null, { expires: new Date(0), httpOnly: true });
@@ -190,6 +189,9 @@ router.get(["/Logout", "/SignOut"], (req, res) => {
     req.session.tim = null;
     res.locals.is_User = false;
     req.flash("success", "Log Out Done");
+    OgData.title = "Log Out- Appa";
+    OgData.description = "signing out from our appa website";
+    OgData.image = "/Images/ganesha-left.jpeg";
     return res.status(200).redirect("/User/LogIn");
 });
 
