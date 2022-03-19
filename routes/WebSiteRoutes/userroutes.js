@@ -150,7 +150,10 @@ var OgData = require("../../config/Og.json");
 {
 
     router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
-        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password" });
+        OgData.title = "Change Password";
+        OgData.description = "Enter new password if you want to change your Password";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password", Og: OgData });
     });
 
     router.post(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
