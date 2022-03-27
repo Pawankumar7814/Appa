@@ -151,9 +151,15 @@ var OgData = require("../../config/Og.json");
 
     router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
         OgData.title = "Change Password";
+<<<<<<< HEAD
         OgData.description = "Change Password Page";
         OgData.image = "/Images/ganesha-left.jpeg";
         return res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password", Og: OgData });
+=======
+        OgData.description = "Enter new password if you want to change your Password";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password", Og: OgData });
+>>>>>>> 50b5c1e5369f26cefc0a33c3292c73dbfa407e50
     });
 
     router.post(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
@@ -189,6 +195,9 @@ router.get(["/Logout", "/SignOut"], (req, res) => {
     req.session.tim = null;
     res.locals.is_User = false;
     req.flash("success", "Log Out Done");
+    OgData.title = "Log Out- Appa";
+    OgData.description = "signing out from our appa website";
+    OgData.image = "/Images/ganesha-left.jpeg";
     return res.status(200).redirect("/User/LogIn");
 });
 
