@@ -15,7 +15,7 @@
                                     <p class="card-text justify">
                                         <%= data[i].Description %>
                                     </p>
-                                    <a href="/product/<%= data[i].Pid %>" class="btn bttn">Know more</a>
+                                    <a href="/product/<%= data[i].Title.replace(/\s/g, '_') %>/<%= data[i].Pid %>" class="btn bttn">Know more</a>
                                 </div>
                             </div>
                         </div>

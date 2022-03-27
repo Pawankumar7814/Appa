@@ -3,7 +3,7 @@ var uuid = require("uuid");
 var Product = mongoose.Schema({
     Pid: {
         type: String,
-        default: uuid.v4()
+        default: function geuid() { uuid; }
     },
     Title: {
         type: String

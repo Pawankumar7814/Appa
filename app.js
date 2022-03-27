@@ -78,6 +78,7 @@ app.use("/uploadproductimage", express.static(__dirname + "/Public/uploads"));
 // Website Routes
 app.use("/user", require("./routes/WebSiteRoutes/userroutes"));
 app.use("/", require("./routes/WebSiteRoutes/productroutes"));
+app.use("/Cart", require("./routes/WebSiteRoutes/Cart"));
 app.use("/", require("./routes/WebSiteRoutes/emailroutes"));
 app.use("/", require("./routes/WebSiteRoutes/mainpageroutes"));
 

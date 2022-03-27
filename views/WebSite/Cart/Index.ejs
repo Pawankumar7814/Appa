@@ -1,0 +1,18 @@
+<%- include("../partial/header.ejs") %>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="backg">
+                <h6 class="card-subtitle mb-2 text-muted cardtext">Your Cart</h6>
+                <%= data.products %>
+                    <%for (var result in data.products){%>
+                        <div class="carddis row">
+                            <div class="col-12 col-md-4">Product Name</div>
+
+                            <div class="col-12 col-md-4">Quantity</div>
+                            <div class="col-12 col-md-4">Product Price</div>
+                        </div>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+    <%- include("../partial/footer.ejs") %>

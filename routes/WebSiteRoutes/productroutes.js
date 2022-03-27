@@ -18,29 +18,22 @@ router.get(["/products/", "/products/index"], (req, res) => {
 
 
 // Route for one product
-router.get(["/product/:id"], (req, res) => {
+router.get(["/product/:Pname/:id"], (req, res) => {
     console.log(req.params.id);
     product.getProductById(req.params.id, (CbData) => {
-        if (CbData.status == "err") {
-            console.log(err);
+        if (CbData.Status == "err") {
             return res.status(404).redirect("/error404");
         } else {
             OgData.title = CbData.data.Title;
             OgData.description = CbData.data.Description;
             OgData.price = CbData.data.SalePrice;
             console.log(OgData);
-            res.status(200).render("../views/WebSite/products/product.ejs", { title: CbData.data.Title + " - Appa", data: CbData.data, Og: OgData });
+            return res.status(200).render("../views/WebSite/products/product.ejs", { title: CbData.data.Title + " - Appa", data: CbData.data, Og: OgData });
         }
     });
 });
 
-//Route to cart
-router.get(["/addtocart", "/cart"], (req, res) => {
-    OgData.title = "Add To Cart - Appa";
-    OgData.description = "In this page you can add whatever product you like to buy them in future";
-    console.log(OgData);
-    req.status(200).render("../views/WebSite/mainpages/cart.ejs", { title: "cart - Appa", Og: OgData });
-});
+
 
 
 module.exports = router;

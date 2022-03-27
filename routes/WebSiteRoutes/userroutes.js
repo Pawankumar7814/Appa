@@ -31,7 +31,7 @@ var OgData = require("../../config/Og.json");
                 res.cookie("token", token, { maxAge: 60 * 1000 * 60, httpOnly: true });
                 res.cookie("UserName", udata.data.UFname, { maxAge: 60 * 1000 * 60, httpOnly: true });
                 req.flash("success", udata.Msg);
-                return res.status(200).redirect("/User/View");
+                return res.status(200).redirect("/");
             }
         });
     });
@@ -67,7 +67,7 @@ var OgData = require("../../config/Og.json");
 //User Profile Route
 {
     // get Route to View User
-    router.get(["/view"], usermiddleware.checkcookie, (req, res) => {
+    router.get(["/view"], usermiddleware.authenticateToken, (req, res) => {
         let udata = jwt.getUID(res.locals.user);
         //console.log(udata.UD);
         user.CheckUserByUID(udata.UD, (info) => {
@@ -132,7 +132,7 @@ var OgData = require("../../config/Og.json");
     // post Route to get data for forget password and email it
     router.post(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
         // console.log(req.body);
-        user.ForgetPassword(req.body, (info) => {
+        user.forgetPassword(req.body, (info) => {
             //   console.log(info);
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
@@ -150,7 +150,10 @@ var OgData = require("../../config/Og.json");
 {
 
     router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
-        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password" });
+        OgData.title = "Change Password";
+        OgData.description = "Change Password Page";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        return res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password", Og: OgData });
     });
 
     router.post(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
@@ -177,7 +180,6 @@ var OgData = require("../../config/Og.json");
 
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
-
     res.cookie('connect.sid', '', { expires: new Date(0), httpOnly: true });
     res.clearCookie('connect.sid', { path: '/' });
     res.cookie("token", null, { expires: new Date(0), httpOnly: true });

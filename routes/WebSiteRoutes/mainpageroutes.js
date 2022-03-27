@@ -69,6 +69,26 @@ router.get(["/aboutus", "/about"], (req, res) => {
     res.status(200).render("../views/WebSite/mainpages/aboutus.ejs", { title: "About us - Appa", Og: OgData });
 });
 
+// Route to Refund
+router.get(["/Return-Refunds-Cancellation"], (req, res) => {
+    OgData.title = "Return Refunds & Cancellation - Appa";
+    OgData.description = "These braided cotton threads that are used to hold flames for lamps have been widely produced in the temple town of Pattanam, Madurai, for years. The concept of Appa revolves around bringing these hand-crafted wicks made by traditional wick-makers of Madurai to the rest of the world. What makes Appa wicks different from their competitors is its precise braiding techniques that sustain the wick longer and burn durably with no soot."
+    OgData.image = "/Images/diya.jpeg";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/Return.ejs", { title: "Return Refunds & Cancellation - Appa", Og: OgData });
+});
+
+// Route to Term and conditions
+router.get(["/customer-terms-and-conditions"], (req, res) => {
+    OgData.title = "Customer’s Terms & Conditions - Appa";
+    OgData.description = "These braided cotton threads that are used to hold flames for lamps have been widely produced in the temple town of Pattanam, Madurai, for years. The concept of Appa revolves around bringing these hand-crafted wicks made by traditional wick-makers of Madurai to the rest of the world. What makes Appa wicks different from their competitors is its precise braiding techniques that sustain the wick longer and burn durably with no soot."
+    OgData.image = "/Images/diya.jpeg";
+    console.log(OgData);
+    res.status(200).render("../views/WebSite/mainpages/Term_condition.ejs", { title: "Customer’s Terms & Conditions - Appa", Og: OgData });
+});
+
+
+
 router.get(["/aboutus1", "/about1"], (req, res) => {
     OgData.title = "About us - Appa";
     OgData.description = "In this page we have our introduction";

@@ -5,7 +5,7 @@ class EmailSend {
 
     // use to send email to contact us form 
     async SendOnContactUSform(data, cb) {
-        ejs.renderFile('./views/WebSite/email/thanks.ejs', { Udata: data }, function(err, tfile) {
+        ejs.renderFile('../views/WebSite/email/thanks.ejs', { Udata: data }, function(err, tfile) {
             if (err) {
                 console.log(err);
                 return cb({ Status: "err", Msg: "Error while file compling" });
@@ -31,7 +31,7 @@ class EmailSend {
     }
 
     async forgetpasswordemail(data, cb) {
-        ejs.renderFile('./views/email/forgetpassword.ejs', { Udata: data }, function(err, tfile) {
+        ejs.renderFile('./views/website/email/forgetpassword.ejs', { Udata: data }, function(err, tfile) {
             if (err) {
                 console.log(err);
                 return cb({ Status: "err", Msg: "Error while file compling" });

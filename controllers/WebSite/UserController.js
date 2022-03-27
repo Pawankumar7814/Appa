@@ -77,7 +77,7 @@ class UserData {
                     PIN: UserInfo.inputZip,
                     Country: UserInfo.inputNearBy,
                     NearBy: UserInfo.inputNearBy,
-                    Address_UUID: "asdkfsdfkaoiwlasdkfjasifdjls"
+                    Address_UUID: uuid.v4()
                 }
             }
         });
@@ -94,9 +94,8 @@ class UserData {
                     PIN: parseInt(UserInfo.inputZip),
                     Country: UserInfo.inputNearBy,
                     NearBy: UserInfo.inputNearBy,
-                    Address_UUID: "asdkfsdfkaoiwlasdkfjasifdjls"
+                    Address_UUID: uuid.v4()
                 }
-
             }
         }, { new: true, "upsert": true }, (err, done) => {
             if (err) {
@@ -112,16 +111,16 @@ class UserData {
     //Change PAssword
     async changePassword(UserInfo, cb) {
         console.log(UserInfo);
-        await User.findOneAndUpdate({ UID: UserInfo.UID, UPass: UserInfo.inputoldpassword }, {
+        User.findOneAndUpdate({ UID: UserInfo.UID, UPass: UserInfo.inputoldpassword }, {
             $set: {
                 "UPass": UserInfo.inputpassword1
             }
         }, { new: true }, (err, done) => {
             if (err) {
-                ///  console.log(err);
+                console.log(err);
                 return cb({ Status: "err", Msg: "User Passwword nto chaged", data: err });
             } else {
-                ///  console.log(done);
+                console.log(done);
                 return cb({ Status: "suc", Msg: "User Change Done", data: done });
             }
         });
@@ -130,7 +129,7 @@ class UserData {
     //forgot user
     async forgetPassword(UserInfo, cb) {
         console.log(UserInfo);
-        await User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
+        User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
             } else if (user == null) {
@@ -150,7 +149,6 @@ class UserData {
                         return cb({ Status: "suc", Msg: "Check your email for password", data: user1 });
                     }
                 });
-
             }
         });
     }
@@ -176,7 +174,7 @@ class UserData {
     }
 
     async changeStatus(UserInfo, cb) {
-        User.findOne({ UID: UserInfo }, (err, user) => {
+        await User.findOne({ UID: UserInfo }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
             } else if (user == null) {

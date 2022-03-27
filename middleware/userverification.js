@@ -10,7 +10,7 @@ module.exports = function(jwrt) {
                 next();
             } else {
                 req.flash("error", "Log In First");
-                res.status(200).redirect("/User/LogIn");
+                return res.status(200).redirect("/User/LogIn");
             }
         };
 
@@ -20,7 +20,7 @@ module.exports = function(jwrt) {
                 next();
             } else {
                 req.flash("error", "First Log out");
-                res.status(200).redirect("../");
+                return res.status(200).redirect("../User/logout");
             }
         };
 
@@ -32,16 +32,24 @@ module.exports = function(jwrt) {
                     next();
                 } else {
                     req.flash("error", "Log In First");
-                    res.status(200).redirect("/User/LogIn");
+                    return res.status(200).redirect("/User/LogIn");
                 }
             } catch (E) {
                 req.flash("error", "Log In First");
-                res.status(200).redirect("/User/LogIn");
+                return res.status(200).redirect("/User/LogIn");
             }
         };
 
+        out.UserID = (req, res, next) => {
+            try {
+                var output = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
+                console.log("user id" + output);
+                return output;
+            } catch (E) {
+                return "Error";
+            }
+        }
     }
-
 
     //Admin Validation
     {

@@ -40,11 +40,12 @@ class ProductData {
 
     async getProductById(ProInfo, cb) {
         Product.findOne({ Pid: ProInfo }, (err, product) => {
-            console.log(err);
+            // console.log(err);
             if (err) {
                 return cb({ Status: "err", Msg: "error on searching", data: err });
             } else if (product == null) {
-                return cb({ Status: "scc", Msg: "no data", data: product });
+
+                return cb({ Status: "err", Msg: "no data", data: null });
             } else {
                 return cb({ Status: "scc", Msg: "get data", data: product });
             }
