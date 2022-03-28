@@ -74,7 +74,6 @@ class EmailData {
     }
 
     async SaveReply(UserInfo, cb) {
-        console.log(UserInfo);
         Sender.findOneAndUpdate({ _id: UserInfo.Id }, { $push: { feedback: { Msg: UserInfo.msg } } }, (err, myd) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });

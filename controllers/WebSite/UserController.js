@@ -38,7 +38,6 @@ class UserData {
                 delete user1.Ustatus;
                 delete user1.U_added_date;
                 delete user1._id;
-                //    console.log(typeof user1);
                 return cb({ Status: "suc", Msg: "User found", data: user1 });
             }
         });
@@ -46,7 +45,6 @@ class UserData {
 
     // user user with udi
     async CheckUserByUID(UserInfo, cb) {
-        // console.log(UserInfo);
         User.findOne({ UID: UserInfo }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
@@ -59,7 +57,6 @@ class UserData {
                 delete user1.Ustatus;
                 delete user1.U_added_date;
                 delete user1._id;
-                // console.log(typeof user1);
                 return cb({ Status: "suc", Msg: "User found", data: user1 });
             }
         });
@@ -67,20 +64,6 @@ class UserData {
 
     //Update User
     async UpdateUser(UserInfo, cb) {
-        console.log({
-            Address: {
-                address: {
-                    HouseNo: UserInfo.inputHuseNo,
-                    StreetNo: UserInfo.inputStreet,
-                    City: UserInfo.inputCity,
-                    State: UserInfo.inputState,
-                    PIN: UserInfo.inputZip,
-                    Country: UserInfo.inputNearBy,
-                    NearBy: UserInfo.inputNearBy,
-                    Address_UUID: uuid.v4()
-                }
-            }
-        });
         User.findOneAndUpdate({ UID: UserInfo.UID }, {
             $set: {
                 UFname: UserInfo.Ufname,
@@ -99,10 +82,8 @@ class UserData {
             }
         }, { new: true, "upsert": true }, (err, done) => {
             if (err) {
-                console.log(err);
                 return cb({ Status: "err", Msg: "User Allredy Exist", data: err });
             } else {
-                console.log(done);
                 return cb({ Status: "suc", Msg: "User Detail Saved", data: done });
             }
         });
@@ -110,17 +91,14 @@ class UserData {
 
     //Change PAssword
     async changePassword(UserInfo, cb) {
-        console.log(UserInfo);
         User.findOneAndUpdate({ UID: UserInfo.UID, UPass: UserInfo.inputoldpassword }, {
             $set: {
                 "UPass": UserInfo.inputpassword1
             }
         }, { new: true }, (err, done) => {
             if (err) {
-                console.log(err);
                 return cb({ Status: "err", Msg: "User Passwword nto chaged", data: err });
             } else {
-                console.log(done);
                 return cb({ Status: "suc", Msg: "User Change Done", data: done });
             }
         });
@@ -128,7 +106,6 @@ class UserData {
 
     //forgot user
     async forgetPassword(UserInfo, cb) {
-        console.log(UserInfo);
         User.findOne({ UEmail: UserInfo.emailid }, (err, user) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Data", data: err });
@@ -141,7 +118,6 @@ class UserData {
                 delete user1.Ustatus;
                 delete user1.U_added_date;
                 delete user1._id;
-                console.log(typeof user1);
                 emailSend.forgetpasswordemail(user1, (info) => {
                     if (info.Status == "err") {
                         return cb({ Status: "err", Msg: "Error sending email", data: err });
@@ -167,7 +143,6 @@ class UserData {
                 delete users1.Ustatus;
                 delete users1.U_added_date;
                 delete users1._id;
-                //    console.log(typeof users1);
                 return cb({ Status: "suc", Msg: "User found", data: users1 });
             }
         });

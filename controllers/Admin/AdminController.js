@@ -37,7 +37,7 @@ class AdminData {
                 delete admin1.Ustatus;
                 delete admin1.U_added_date;
                 delete admin1._id;
-                //    console.log(typeof admin1);
+
                 return cb({ Status: "suc", Msg: "User found", data: admin1 });
             }
         });
@@ -57,7 +57,6 @@ class AdminData {
                 delete admin1.Ustatus;
                 delete admin1.U_added_date;
                 delete admin1._id;
-                //    console.log(typeof admin1);
                 return cb({ Status: "suc", Msg: "User found", data: admin1 });
             }
         });

@@ -14,7 +14,6 @@ router.post("/sendemail", async(req, res) => {
     await sendemail.SendOnContactUSform(req.body, async function(returnvalue) {
         await emaildata.SaveContactUserEmail(req.body, function(data) {});
         finalreturnvalue = returnvalue;
-        //console.log(finalreturnvalue);
     });
     setTimeout(() => {
         if (finalreturnvalue.Status == "err") {

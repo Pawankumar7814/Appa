@@ -90,7 +90,6 @@ app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
 app.get("/*", (req, res) => {
     OgData.title = "Error 404";
     OgData.description = "";
-    console.log(OgData);
     res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 ", Og: OgData });
 });
 

@@ -21,15 +21,6 @@ router.get(["/index", "/"], usermiddleware.checkcookie, (req, res) => {
     cart.findAllProductsInCart(output, (CbData) => {
         if (CbData.Status == "err") {} else {
             var obdata = (CbData.data);
-            console.log(obdata.products);
-            // for (var i = 0; i < obdata.products.length; i++) {
-            //     var object = obdata[i];
-            //     for (var property in object) {
-            //         console.log('item ' + i + ': ' + property + '=' + object[property]);
-            //     }
-            //     // If property names are known beforehand, you can also just do e.g.
-            //     // alert(object.id + ',' + object.Title);
-            // }
             return res.status(200).render("../views/WebSite/cart/index.ejs", { title: "cart - Appa", Og: OgData, data: obdata });
         }
     });
@@ -39,7 +30,7 @@ router.post(["/Add/:id"], usermiddleware.authenticateToken, (req, res) => {
 
     var output = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
     cart.addProductsInCart(output, req.params.id, req.body, (CbData) => {
-        console.log(CbData);
+        console.log("🚀 ~ file: Cart.js ~ line 33 ~ cart.addProductsInCart ~ CbData", CbData)
     });
     return res.status(200).redirect("/Cart");
 });

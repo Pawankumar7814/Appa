@@ -7,7 +7,6 @@ class EmailSend {
     async SendOnContactUSform(data, cb) {
         ejs.renderFile('../views/WebSite/email/thanks.ejs', { Udata: data }, function(err, tfile) {
             if (err) {
-                console.log(err);
                 return cb({ Status: "err", Msg: "Error while file compling" });
             } else {
                 var mainOptions = {
@@ -16,11 +15,8 @@ class EmailSend {
                     subject: 'Thanks For Reaching Us',
                     html: tfile
                 };
-                // console.log(data);
-                // console.log("html data ======================>", mainOptions.html);
                 transporter.sendMail(mainOptions, function(err, info) {
                     if (err) {
-                        // console.log(err);
                         return cb({ Status: "err", Msg: "Error Sending Email" });
                     } else {
                         return cb({ Status: "Suc", Msg: "Your Messeage Sent, We will contact you soon" });
@@ -33,7 +29,6 @@ class EmailSend {
     async forgetpasswordemail(data, cb) {
         ejs.renderFile('./views/website/email/forgetpassword.ejs', { Udata: data }, function(err, tfile) {
             if (err) {
-                console.log(err);
                 return cb({ Status: "err", Msg: "Error while file compling" });
             } else {
                 var mainOptions = {
@@ -42,11 +37,8 @@ class EmailSend {
                     subject: 'Thanks For Reaching Us',
                     html: tfile
                 };
-                // console.log(data);
-                // console.log("html data ======================>", mainOptions.html);
                 transporter.sendMail(mainOptions, function(err, info) {
                     if (err) {
-                        // console.log(err);
                         return cb({ Status: "err", Msg: "Error Sending Email" });
                     } else {
                         return cb({ Status: "Suc", Msg: "Your Messeage Sent, We will contact you soon" });

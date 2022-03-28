@@ -43,7 +43,6 @@ module.exports = function(jwrt) {
         out.UserID = (req, res, next) => {
             try {
                 var output = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
-                console.log("user id" + output);
                 return output;
             } catch (E) {
                 return "Error";

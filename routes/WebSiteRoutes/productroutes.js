@@ -19,7 +19,6 @@ router.get(["/products/", "/products/index"], (req, res) => {
 
 // Route for one product
 router.get(["/product/:Pname/:id"], (req, res) => {
-    console.log(req.params.id);
     product.getProductById(req.params.id, (CbData) => {
         if (CbData.Status == "err") {
             return res.status(404).redirect("/error404");
@@ -27,7 +26,6 @@ router.get(["/product/:Pname/:id"], (req, res) => {
             OgData.title = CbData.data.Title;
             OgData.description = CbData.data.Description;
             OgData.price = CbData.data.SalePrice;
-            console.log(OgData);
             return res.status(200).render("../views/WebSite/products/product.ejs", { title: CbData.data.Title + " - Appa", data: CbData.data, Og: OgData });
         }
     });

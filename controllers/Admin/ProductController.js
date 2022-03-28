@@ -40,11 +40,9 @@ class ProductData {
 
     async getProductById(ProInfo, cb) {
         Product.findOne({ Pid: ProInfo }, (err, product) => {
-            // console.log(err);
             if (err) {
                 return cb({ Status: "err", Msg: "error on searching", data: err });
             } else if (product == null) {
-
                 return cb({ Status: "err", Msg: "no data", data: null });
             } else {
                 return cb({ Status: "scc", Msg: "get data", data: product });
@@ -54,14 +52,12 @@ class ProductData {
 
     async deleteProductImageById(ProInfo, filename, cb) {
         Product.findOneAndUpdate({ Pid: ProInfo }, { $pull: { Images: filename } }, (err, product) => {
-            console.log(filename);
             if (err) {
                 return cb({ Status: "err", Msg: "error on searching", data: err });
             } else if (product == null) {
                 return cb({ Status: "scc", Msg: "no data", data: product });
             } else {
                 var path = require('path');
-
                 var jsonPath = path.join(__dirname, '..', '..', 'Public', 'uploads', filename);
                 fs.unlinkSync(jsonPath);
                 return cb({ Status: "scc", Msg: "get data", data: product });
@@ -94,7 +90,6 @@ class ProductData {
         data.Rating = pdara.pr;
         data.HowToUse = pdara.phow;
         Product.findOneAndUpdate({ Pid: ProInfo }, data, (err, product) => {
-            console.log(err);
             if (err) {
                 return cb({ Status: "err", Msg: "error on searching", data: err });
             } else if (product == null) {
@@ -107,7 +102,6 @@ class ProductData {
 
     async deleteProductById(ProInfo, cb) {
         Product.findOneAndDelete({ Pid: ProInfo }, (err, product) => {
-            console.log(err);
             if (err) {
                 return cb({ Status: "err", Msg: "error on deleting", data: err });
             } else if (product == null) {

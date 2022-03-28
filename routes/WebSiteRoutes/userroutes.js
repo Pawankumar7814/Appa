@@ -16,7 +16,6 @@ var OgData = require("../../config/Og.json");
         OgData.title = "Log In page";
         OgData.description = "LogIn to Appa page now";
         OgData.image = "/Images/ganesha-left.jpeg";
-        console.log(OgData);
         return res.status(200).render("../views/WebSite/User/index.ejs", { title: "LogIn - Appa", Og: OgData });
     });
 
@@ -44,15 +43,12 @@ var OgData = require("../../config/Og.json");
         OgData.title = "Register page";
         OgData.description = "Register to Appa page now";
         OgData.image = "/Images/ganesha-left.jpeg";
-        console.log(OgData);
         return res.status(200).render("../views//WebSite/User/Register.ejs", { title: "Register  - Appa", Og: OgData });
     });
 
     // post Route 
     router.post(["/Signup", "/Register"], usermiddleware.checkuserexicte, (req, res) => {
-        // console.log(req.body);
         user.SaveUser(req.body, (info) => {
-            console.log(info);
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
                 return res.status(200).redirect("/User/Signup");
@@ -69,13 +65,11 @@ var OgData = require("../../config/Og.json");
     // get Route to View User
     router.get(["/view"], usermiddleware.authenticateToken, (req, res) => {
         let udata = jwt.getUID(res.locals.user);
-        //console.log(udata.UD);
         user.CheckUserByUID(udata.UD, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
             } else {
-                console.log(info.data);
                 OgData.title = "User Profile";
                 OgData.description = "Here user can view his or her details.";
                 return res.status(200).render("../views/WebSite/User/View.ejs", { title: "Profile - Appa", data: info.data, Og: OgData });
@@ -106,7 +100,6 @@ var OgData = require("../../config/Og.json");
             } else {
                 let udata = req.body;
                 udata.UID = info.data.UID;
-                // console.log(udata);
                 user.UpdateUser(req.body, (updateData) => {
                     if (updateData.Status == "err") {
                         return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
@@ -131,9 +124,7 @@ var OgData = require("../../config/Og.json");
 
     // post Route to get data for forget password and email it
     router.post(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
-        // console.log(req.body);
         user.forgetPassword(req.body, (info) => {
-            //   console.log(info);
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
                 return res.status(200).redirect("/User/Signup");
@@ -168,7 +159,6 @@ var OgData = require("../../config/Og.json");
             } else {
                 let udata = req.body;
                 udata.UID = info.data.UID;
-                //  console.log(udata);
                 user.changePassword(udata, (updateData) => {
                     if (updateData.Status == "err") {
                         return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });

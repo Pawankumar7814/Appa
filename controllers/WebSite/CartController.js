@@ -49,11 +49,9 @@ class CartData {
                     userId,
                     products: Pdata
                 });
-
                 return cb({ Status: "suc", Msg: "Error checking  Cart", data: cart });
             }
         } catch (err) {
-            //  console.log(err);
             return cb({ Status: "err", Msg: "Error checking  Cart", data: err });
         }
     }
@@ -66,7 +64,6 @@ class CartData {
             } else if (cart == null) {
                 return cb({ Status: "err", Msg: "Cart Does not Exist", data: err });
             } else {
-                console.debug(cart);
                 return cb({ Status: "suc", Msg: "Cart  found", data: cart });
             }
         });
@@ -85,6 +82,7 @@ class CartData {
             }
         });
     }
+
 }
 
 module.exports = CartData
