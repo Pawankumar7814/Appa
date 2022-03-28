@@ -31,7 +31,4 @@ router.get(["/product/:Pname/:id"], (req, res) => {
     });
 });
 
-
-
-
 module.exports = router;

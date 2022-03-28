@@ -23,14 +23,11 @@ class CartData {
         });
         const userId = userid.UD;
         //     return cb({ Status: "err", Msg: "Error checking  Cart", data: null });
-
         try {
             let cart = await Cart.findOne({ userId });
-
             if (cart) {
                 //cart exists for user
                 let itemIndex = cart.products.findIndex(p => p.productId == Pdata.productId);
-
                 if (itemIndex > -1) {
                     //product exists in the cart, update the quantity
                     let productItem = cart.products[itemIndex];
@@ -58,7 +55,7 @@ class CartData {
 
     async findAllProductsInCart(UserInfo, cb) {
         let UserId = UserInfo.UD;
-        Cart.find({ UserId }, (err, cart) => {
+        Cart.findOne({ UserId }, (err, cart) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Cart", data: err });
             } else if (cart == null) {
