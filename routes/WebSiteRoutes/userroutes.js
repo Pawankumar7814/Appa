@@ -16,7 +16,6 @@ var OgData = require("../../config/Og.json");
         OgData.title = "Log In page";
         OgData.description = "LogIn to Appa page now";
         OgData.image = "/Images/ganesha-left.jpeg";
-        console.log(OgData);
         return res.status(200).render("../views/WebSite/User/index.ejs", { title: "LogIn - Appa", Og: OgData });
     });
 
@@ -31,7 +30,7 @@ var OgData = require("../../config/Og.json");
                 res.cookie("token", token, { maxAge: 60 * 1000 * 60, httpOnly: true });
                 res.cookie("UserName", udata.data.UFname, { maxAge: 60 * 1000 * 60, httpOnly: true });
                 req.flash("success", udata.Msg);
-                return res.status(200).redirect("/User/View");
+                return res.status(200).redirect("/");
             }
         });
     });
@@ -44,15 +43,12 @@ var OgData = require("../../config/Og.json");
         OgData.title = "Register page";
         OgData.description = "Register to Appa page now";
         OgData.image = "/Images/ganesha-left.jpeg";
-        console.log(OgData);
         return res.status(200).render("../views//WebSite/User/Register.ejs", { title: "Register  - Appa", Og: OgData });
     });
 
     // post Route 
     router.post(["/Signup", "/Register"], usermiddleware.checkuserexicte, (req, res) => {
-        // console.log(req.body);
         user.SaveUser(req.body, (info) => {
-            console.log(info);
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
                 return res.status(200).redirect("/User/Signup");
@@ -67,16 +63,16 @@ var OgData = require("../../config/Og.json");
 //User Profile Route
 {
     // get Route to View User
-    router.get(["/view"], usermiddleware.checkcookie, (req, res) => {
+    router.get(["/view"], usermiddleware.authenticateToken, (req, res) => {
         let udata = jwt.getUID(res.locals.user);
-        //console.log(udata.UD);
         user.CheckUserByUID(udata.UD, (info) => {
             if (info.Status == "err") {
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
             } else {
-                console.log(info.data);
-                return res.status(200).render("../views/WebSite/User/View.ejs", { title: "Profile - Appa", data: info.data });
+                OgData.title = "User Profile";
+                OgData.description = "Here user can view his or her details.";
+                return res.status(200).render("../views/WebSite/User/View.ejs", { title: "Profile - Appa", data: info.data, Og: OgData });
             }
         });
     });
@@ -89,7 +85,7 @@ var OgData = require("../../config/Og.json");
                 req.flash("error", "Pls LogIn Again");
                 return res.status(200).redirect("/User/LogIn");
             } else {
-                return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
+                return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data, Og: OgData });
             }
         });
     });
@@ -104,7 +100,6 @@ var OgData = require("../../config/Og.json");
             } else {
                 let udata = req.body;
                 udata.UID = info.data.UID;
-                // console.log(udata);
                 user.UpdateUser(req.body, (updateData) => {
                     if (updateData.Status == "err") {
                         return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
@@ -121,14 +116,15 @@ var OgData = require("../../config/Og.json");
 {
     // get Route to forget password
     router.get(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
-        return res.status(200).render("../views/WebSite/User/forgetPssword.ejs", { title: "Forget Password - Appa" });
+        OgData.title = "Forget Password";
+        OgData.description = "Enter your Email if you Forget your Password";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        return res.status(200).render("../views/WebSite/User/forgetPssword.ejs", { title: "Forget Password - Appa", Og: OgData });
     });
 
     // post Route to get data for forget password and email it
     router.post(["/forgetpassword"], usermiddleware.checkuserexicte, (req, res) => {
-        // console.log(req.body);
-        user.ForgetPassword(req.body, (info) => {
-            //   console.log(info);
+        user.forgetPassword(req.body, (info) => {
             if (info.Status == "err") {
                 req.flash("error", info.Msg);
                 return res.status(200).redirect("/User/Signup");
@@ -145,7 +141,13 @@ var OgData = require("../../config/Og.json");
 {
 
     router.get(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
-        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password" });
+        OgData.title = "Change Password";
+        OgData.description = "Change Password Page";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        return res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password", Og: OgData });
+        OgData.description = "Enter new password if you want to change your Password";
+        OgData.image = "/Images/ganesha-left.jpeg";
+        res.status(200).render("../views/WebSite/User/changepassword", { title: "Change Password", Og: OgData });
     });
 
     router.post(["/changepassword", "/ChangePassword"], usermiddleware.checkcookie, usermiddleware.authenticateToken, (req, res) => {
@@ -157,7 +159,6 @@ var OgData = require("../../config/Og.json");
             } else {
                 let udata = req.body;
                 udata.UID = info.data.UID;
-                //  console.log(udata);
                 user.changePassword(udata, (updateData) => {
                     if (updateData.Status == "err") {
                         return res.status(200).render("../views/WebSite/User/Edit.ejs", { title: "Update User - Appa", data: info.data });
@@ -172,7 +173,6 @@ var OgData = require("../../config/Og.json");
 
 // Route to log out
 router.get(["/Logout", "/SignOut"], (req, res) => {
-
     res.cookie('connect.sid', '', { expires: new Date(0), httpOnly: true });
     res.clearCookie('connect.sid', { path: '/' });
     res.cookie("token", null, { expires: new Date(0), httpOnly: true });
@@ -182,6 +182,9 @@ router.get(["/Logout", "/SignOut"], (req, res) => {
     req.session.tim = null;
     res.locals.is_User = false;
     req.flash("success", "Log Out Done");
+    OgData.title = "Log Out- Appa";
+    OgData.description = "signing out from our appa website";
+    OgData.image = "/Images/ganesha-left.jpeg";
     return res.status(200).redirect("/User/LogIn");
 });
 

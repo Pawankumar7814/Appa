@@ -18,22 +18,17 @@ router.get(["/products/", "/products/index"], (req, res) => {
 
 
 // Route for one product
-router.get(["/product/:id"], (req, res) => {
-    console.log(req.params.id);
-
+router.get(["/product/:Pname/:id"], (req, res) => {
     product.getProductById(req.params.id, (CbData) => {
-        if (CbData.status == "err") {
-            console.log(err);
+        if (CbData.Status == "err") {
             return res.status(404).redirect("/error404");
         } else {
             OgData.title = CbData.data.Title;
             OgData.description = CbData.data.Description;
             OgData.price = CbData.data.SalePrice;
-            console.log(OgData);
-            res.status(200).render("../views/WebSite/products/product.ejs", { title: "Wick 1 - Appa", data: CbData.data, Og: OgData });
+            return res.status(200).render("../views/WebSite/products/product.ejs", { title: CbData.data.Title + " - Appa", data: CbData.data, Og: OgData });
         }
     });
 });
-
 
 module.exports = router;

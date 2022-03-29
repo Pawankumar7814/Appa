@@ -1,0 +1,50 @@
+<%- include('../partial/header.ejs') %>
+    <main>
+        <section>
+            <div class="container">
+                <div class="card text-left">
+                    <div class="row">
+                        <div class="col-12 col-md-12">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <div class="row">
+                                        <div class="col-12 col-md-12">
+                                            <label for="ptitle">Title : <%= data.Title %></label>
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <label for="piip">Item in Pack : <%= data.ItemInPack %></label>
+                                        </div>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-12 text-center">
+                            <% for(var j=0; j < data.Images.length; j++) { %>
+                                <img src="/uploadproductimage/<%= data.Images[j] %>" alt="Product_Img" width="50%">
+                                <a href="../EditImage/<%= data.Pid %>/<%= data.Images[j] %>"> <i class="fa fa-trash-o" style="font-size:48px;color:red"></i></a>
+                                <br> <br>
+                                <% } %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form method="post" action="/Admin/Product/EditImages/<%= data.Pid %>" enctype="multipart/form-data">
+                            <div class="row ">
+                                <div class="col-12 col-md-12 text-center">
+                                    <input type="file" class="form-control" id="pimg" name="pimg" placeholder="upload More image" value="upload your image" multiple required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-12 text-center">
+                                    <input type="submit" class="btn btn-primary" value="UpLoad">
+                                    <button type="reset" class=" btn btn-info" onclick="history.back()">Back</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partial/footer.ejs') %>

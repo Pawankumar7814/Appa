@@ -21,7 +21,6 @@ var adminMiddleware = require("../../middleware/userverification")(jwt);
 
     // Route to index page
     router.post(["/Login"], (req, res) => {
-        console.log(req.body);
         admin.CheckAdmin(req.body, (CbData) => {
             if (CbData.Status == "err") {
                 req.flash("error", CbData.Msg);
@@ -45,7 +44,6 @@ var adminMiddleware = require("../../middleware/userverification")(jwt);
     });
 
     router.post(["/Add"], (req, res) => {
-        console.log(req.body);
         admin.SaveAdmin(req.body, (CbData) => {
             if (CbData.Status == "err") {
                 req.flash("error", CbData.Msg);
@@ -112,7 +110,6 @@ router.get(["/ShowAllMsg"], (req, res) => {
 
 //Change User Status
 router.get("/UserStatus/:id", (req, res) => {
-    console.log(req.params.id);
     user.changeStatus(req.params.id, (CbData) => {
         return res.status(200).redirect("/admin/ShowAllUser");
     });
@@ -120,7 +117,6 @@ router.get("/UserStatus/:id", (req, res) => {
 
 //Change Admin Status
 router.get("/AdminStatus/:id", (req, res) => {
-    console.log(req.params.id);
     admin.changeStatus(req.params.id, (CbData) => {
         return res.status(200).redirect("/admin/ShowAllAdmin");
     });
@@ -128,7 +124,6 @@ router.get("/AdminStatus/:id", (req, res) => {
 
 //Change Msg Status
 router.get("/MsgStatus/:id", (req, res) => {
-    console.log(req.params.id);
     sender.changeStatus(req.params.id, (CbData) => {
         return res.status(200).redirect("/admin/ShowAllMsg");
     });
@@ -146,8 +141,6 @@ router.get("/MsgFeedBack/:id", (req, res) => {
 
 //give Msg Feedback
 router.post("/SaveReply/:id", (req, res) => {
-    console.log(req.params.id);
-    console.log(req.body.newF);
     let sData = {
         Id: req.params.id,
         msg: req.body.newF

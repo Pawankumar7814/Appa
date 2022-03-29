@@ -1,17 +1,16 @@
 <%- include("../partial/header.ejs") %>
     <main>
-
-
         <!-- product start -->
         <section class="py-5">
             <div class="container-fluid">
-                <div.<div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+                <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
                     <!-- product details -->
                     <div class="col-12 col-md-6 order-md-last order-2">
                         <div class="row ">
                             <div class="col  ">
                                 <h1 class="text-center" style="color: yellowgreen; font-family: cursive; ">
                                     <%= data.Title %>
+                                        <%   console.log("🚀 ~ file: product.ejs ~ line 13 ~ data.Title", data.Title) %>
                                 </h1>
                             </div>
                         </div>
@@ -37,32 +36,49 @@
                                 </label><br>
                             </div>
                             <div class="col-12 col-md-6 text-center">
+                                <label for="">
+                                    <b>
+                                        <h5>Item in Pack : <%= data.ItemInPack %>
+                                        </h5>
+                                    </b>
+                                </label>
                                 <br>
-                                <label for=""><b>Color</b><br>
-                                    <span class="dot" style=" height: 25px; width: 25px;
+                                <label for=""><b>Color <%= data.Color %></b><br>
+                                    <span class="dot" style="border: 5px solid rgb(0, 0, 0);
+                                    height: 25px; width: 25px;
                                     background-color : <%= data.Color %>;
                                     border-radius: 50%;
-                                    border-color:black ;
-                                    border-width: 20px;
                                     display: inline-block;"></span>
                                 </label>
                             </div>
                         </div>
-                        <div class="row ">
-                            <div class="col-12 ">
-                                <div class="counter">
-                                    <b>Qty:</b> <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                                    <input type="text" value="1">
-                                    <span class="up" onClick='increaseCount(event, this)'>+</span>
+                        <form method="post" action="/Cart/Add/<%= data.Pid %>">
+                            <input type="text" value=" <%= data.Title %>" name="Pname" hidden="true">
+                            <div class="row ">
+                                <div class="col-12 ">
+                                    <div class="counter">
+                                        <b>Qty:</b> <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                                        <input type="text" value="1" name="Qty">
+                                        <span class="up" onClick='increaseCount(event, this)'>+</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-12 col-md-6 text-center ">
-                                <button type="button" class="btn btn-outline-dark">Add To Cart</button>
+                            <div class="row ">
+                                <div class="col-12 col-md-6 text-center ">
+                                    <button type="submit" class="btn btn-outline-dark">Add To Cart</button>
+                                </div>
+                                <div class="col-12 col-md-6 text-center ">
+                                    <button type="button" class="btn btn-outline-dark">Buy Know</button>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-6 text-center ">
-                                <button type="button" class="btn btn-outline-dark">Buy Know</button>
+                        </form>
+                        <br><br>
+                        <div class="row ">
+                            <div class="col-12 ">
+                                How To Use It:-
+                                <label for="" style="font-size: small;">
+                                    <%= data.HowToUse %>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -76,7 +92,6 @@
                                     </div>
                                     <% } %>
                             </div>
-
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -85,12 +100,10 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
-
                         </div>
                     </div>
-            </div>
+                </div>
         </section>
         <!-- product end -->
-
     </main>
     <%- include("../partial/footer.ejs") %>

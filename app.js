@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var favicon = require("./config/favicon");
 var https = require("https");
-
+var OgData = require("./config/Og.json");
 var httpsOptions = require("./config/https.js");
 
 // Creating appp
@@ -72,12 +72,13 @@ app.use(function(req, res, next) {
 // Route to Public 
 app.use("/Images", express.static(__dirname + "/Public/Images"));
 app.use("/CSS", express.static(__dirname + "/Public/CSS/style.css"));
-app.use("/JS", express.static(__dirname + "/Public/JS/"));
+app.use("/JS", express.static(__dirname + "/Public/js/"));
 app.use("/uploadproductimage", express.static(__dirname + "/Public/uploads"));
 
 // Website Routes
 app.use("/user", require("./routes/WebSiteRoutes/userroutes"));
 app.use("/", require("./routes/WebSiteRoutes/productroutes"));
+app.use("/Cart", require("./routes/WebSiteRoutes/Cart"));
 app.use("/", require("./routes/WebSiteRoutes/emailroutes"));
 app.use("/", require("./routes/WebSiteRoutes/mainpageroutes"));
 
@@ -87,7 +88,9 @@ app.use("/Admin", require("./routes/AdminRoutes/mainpageroutes"));
 
 
 app.get("/*", (req, res) => {
-    res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 " });
+    OgData.title = "Error 404";
+    OgData.description = "";
+    res.status(404).render("../views/WebSite/mainpages/error404.ejs", { title: "Error 404 ", Og: OgData });
 });
 
 // Creating server

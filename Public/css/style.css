@@ -556,7 +556,8 @@
 }
 
 .section-admin-header {
-    margin-left: 2%;
+    margin-top: 3%;
+    margin-left: 1%;
 }
 
 
@@ -716,3 +717,42 @@
     color: #0052cc;
     user-select: none;
 }
+
+
+/*css for cart starting*/
+
+.backg {
+    background-image: url('/Public/Images/cart.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.carddis {
+    margin: 5% 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 2);
+    transition: 0.3s;
+}
+
+.cardtext {
+    text-align: center;
+}
+
+.subcarddis {
+    box-shadow: 2px 4px 8px 2px yellow;
+    width: 42rem;
+    margin: 5% 10%;
+}
+
+.gap {
+    margin-left: 5%;
+}
+
+.textdes {
+    color: black;
+    text-shadow: 0 0 3px #FF0000;
+    font-weight: bold;
+}
+
+
+/*css ending for cart*/

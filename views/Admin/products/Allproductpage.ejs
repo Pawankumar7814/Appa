@@ -16,8 +16,11 @@
                                         <%= data[i].Title %>
                                     </h4>
                                     <p class="card-text">
-                                        <form action="">
-                                            <div class="row">
+                                        <div class="row">
+                                            <form action="">
+                                                <div class="col-12 col-md-12">
+                                                    <label for="">Cost Price : <%= data[i].CostPrice %></label>
+                                                </div>
                                                 <div class="col-12 col-md-12">
                                                     <label for="">Cost Price : <%= data[i].CostPrice %></label>
                                                 </div>
@@ -39,8 +42,14 @@
                                                 <div class="col-12 col-md-12">
                                                     <label for="">Quantity : <%= data[i].Color %></label>
                                                 </div>
-                                            </div>
-                                        </form>
+                                                <br>
+                                                <div class="col-12 col-md-12">
+                                                    <a class="btn btn-primary" href="./Edit/<%= data[i].Pid %>"> Edit</a>
+                                                    <a class="btn btn-info" href="./EditImages/<%= data[i].Pid %>"> Edit Images</a>
+                                                    <a class="btn btn-danger" href="./Delelte/<%= data[i].Pid %>"> Delelte</a>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </p>
                                 </div>
                             </div>

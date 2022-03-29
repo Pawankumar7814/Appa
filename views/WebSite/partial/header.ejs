@@ -66,6 +66,7 @@
                                             <a class="nav-link" href="/contactus">Contact Us</a>
                                             <% } %>
                                 </li>
+<<<<<<< HEAD
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle = " dropdown-menu href=" /products/ " id="navbarDropdown " role="button " data-bs-toggle="dropdown " aria-expanded="false ">
                                             Products
@@ -117,34 +118,44 @@
                                                 </a>
                                         </li>
                                     </ul>
+=======
+                                <li class="nav-item ">
+                                    <% if(title=="Products - Appa" ) { %>
+                                        <a class="nav-link active" href="/products/">Products  </a>
+                                        <% } else { %>
+                                            <a class="nav-link " href="/products/"> Products</a>
+                                            <% } %>
+>>>>>>> 0fc6205140818824fbfb62fa64f412d52c86be0c
                                 </li>
                                 <li>
                                 </li>
                             </ul>
-                            <!-- <a class="navbar-brand nav-icon2 " href="/user "> <i class="fa fa-user fa-7x " style="font-size: 2em; color:blue; "></i></a> -->
-
                             <% if(is_User==true) { %>
-                                <div class="btn-group ">
-                                    <button type="button " class="btn btn-secondary dropdown-toggle " data-bs-toggle="dropdown " aria-expanded="false " style="margin-right: 5em; ">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 5em;">
                                             <% if ( UserName && UserName.length> 0 ) { %>
                                                 <%= UserName.replace(/^[a-z]/, function(m){ return m.toUpperCase() });
                                                     %>
                                                     <% } %>
                                         </button>
-                                    <ul class="dropdown-menu dropdown-menu-end " role="menu " aria-labelledby="dropdownMenu ">
-                                        <li><a class="dropdown-item " href="/User/View ">Profile</a></li>
-                                        <li><a class="dropdown-item " href="/User/ChangePassword ">Change Password</a>
-                                        </li>
-                                        <li class="divider ">
-                                            <hr>
-                                        </li>
-                                        <li><a class="dropdown-item " href="/User/LogOut ">Sign out</a></li>
+                                    <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="dropdownMenu">
+                                        <li><a class="dropdown-item" href="/User/View">Profile</a></li>
+                                        <li><a class="dropdown-item" href="/User/ChangePassword">Change Password</a>
+                                            <li><a class="dropdown-item" href="/cart/">Add to Cart</a>
+                                            </li>
+                                            <li class="divider">
+                                                <hr>
+                                            </li>
+                                            <li><a class="dropdown-item" href="/User/LogOut">Sign out</a></li>
                                     </ul>
                                 </div>
                                 <% } if(is_User==false) { %>
-                                    <a class="navbar-brand nav-icon2 " href="/user "> <i class="fa fa-user fa-7x " style="font-size: 2em; color:blue; "></i></a>
+                                    <a class="navbar-brand nav-icon2" href="/user"> <i class="fa fa-user fa-7x" style="font-size: 2em; color:blue;"></i></a>
                                     <% } %>
                         </div>
             </div>
+        </nav>
+        <nav>
+
         </nav>
     </header>
