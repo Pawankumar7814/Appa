@@ -1,66 +1,74 @@
 <%- include("../partial/header.ejs") %>
     <main>
-        <section>
-            <div class="row">
-                <form method="post" action="/Admin/Product/Add" enctype="multipart/form-data">
-                    <div class="row">
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="pageheading">
+                        <h1>
+                            Add Product
+                        </h1>
+                        <hr>
+                    </div>
+                    <form method="post" action="/Admin/Product/Add" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-12 col-md-6">
-                                <label for="ptitle" class="col-sm-4 col-form-label"><b>Product Title : </b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="ptitle" name="ptitle" placeholder="Lotus Wick" required>
-                                </div>
-                                <label for="pcolor" class="col-sm-4 col-form-label"><b>Product Color :</b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="pcolor" name="pcolor" placeholder="Red/White/Yellow" required>
-                                </div>
-                                <label for="pcprice" class="col-sm-4 col-form-label"><b>Product Cost Price :
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label for="ptitle" class="col-sm-4 col-form-label"><b>Product Title : </b></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="ptitle" name="ptitle" placeholder="Lotus Wick" required>
+                                    </div>
+                                    <label for="pcolor" class="col-sm-4 col-form-label"><b>Product Color :</b></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="pcolor" name="pcolor" placeholder="Red/White/Yellow" required>
+                                    </div>
+                                    <label for="pcprice" class="col-sm-4 col-form-label"><b>Product Cost Price :
                                     </b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="pcprice" name="pcprice" placeholder="Rs. 100" required>
-                                </div>
-                                <label for="psprice" class="col-sm-4 col-form-label"><b>Product Sale Price :
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="pcprice" name="pcprice" placeholder="Rs. 100" required>
+                                    </div>
+                                    <label for="psprice" class="col-sm-4 col-form-label"><b>Product Sale Price :
                                     </b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="psprice" name="psprice" placeholder="Rs. 150" required>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="psprice" name="psprice" placeholder="Rs. 150" required>
+                                    </div>
+                                    <label for="pquantity" class="col-sm-4 col-form-label"><b>Quantity :</b></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="pquantity" name="pquantity" placeholder="10" required>
+                                    </div>
+                                    <label for="pqtypack" class="col-sm-4 col-form-label"><b>Item In Pack :</b></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="pqtypack" name="pqtypack" placeholder="10/20/30" required>
+                                    </div>
+                                    <label for="pgst" class="col-sm-4 col-form-label"><b>GST :</b></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="pgst" name="pgst" placeholder="12%" required>
+                                    </div>
                                 </div>
-                                <label for="pquantity" class="col-sm-4 col-form-label"><b>Quantity :</b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="pquantity" name="pquantity" placeholder="10" required>
-                                </div>
-                                <label for="pqtypack" class="col-sm-4 col-form-label"><b>Item In Pack :</b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="pqtypack" name="pqtypack" placeholder="10/20/30" required>
-                                </div>
-                                <label for="pgst" class="col-sm-4 col-form-label"><b>GST :</b></label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="pgst" name="pgst" placeholder="12%" required>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label for="pdescription" class="col-sm-4 col-form-label"><b>Product Discrption :
+                                <div class="col-12 col-md-6">
+                                    <label for="pdescription" class="col-sm-4 col-form-label"><b>Product Discrption :
                                     </b></label>
-                                <div class="col-sm-8">
-                                    <textarea type="text" rows="7" class="form-control" id="pdescription" name="pdescription" placeholder="About" required></textarea>
-                                </div>
-                                <label for="puse" class="col-sm-4 col-form-label"><b>How To Use It :
+                                    <div class="col-sm-8">
+                                        <textarea type="text" rows="7" class="form-control" id="pdescription" name="pdescription" placeholder="About" required></textarea>
+                                    </div>
+                                    <label for="puse" class="col-sm-4 col-form-label"><b>How To Use It :
                                     </b></label>
-                                <div class="col-sm-8">
-                                    <textarea type="text" rows="7" class="form-control" id="pusepuse" name="puse" placeholder="Soak in oil and use like all ordinary cotton wick.\n Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously."
-                                        required>Soak in oil and use like all ordinary cotton wick.\n Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously.</textarea>
-                                </div>
-                                <label for="pimg" class="col-sm-4 col-form-label"><b>Product Image :</b></label>
-                                <div class="col-sm-8">
-                                    <input type="file" class="form-control" id="pimg" name="pimg" placeholder="upload your image" value="upload your image" multiple required>
+                                    <div class="col-sm-8">
+                                        <textarea type="text" rows="7" class="form-control" id="pusepuse" name="puse" placeholder="Soak in oil and use like all ordinary cotton wick.\n Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously."
+                                            required>Soak in oil and use like all ordinary cotton wick.\n Always light Banana Stem wicks with Ghee facing North and East which gives positive results. Light these wicks for 48 days continuously.</textarea>
+                                    </div>
+                                    <label for="pimg" class="col-sm-4 col-form-label"><b>Product Image :</b></label>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control" id="pimg" name="pimg" placeholder="upload your image" value="upload your image" multiple required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col text-center">
-                        <button type="submit" class="btn-sm ">Add Product</button>
-                        <br>
-                    </div>
-                </form>
+                        <div class="col text-center">
+                            <button type="submit" class="btn-sm ">Add Product</button>
+                            <br>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>

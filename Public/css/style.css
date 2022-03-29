@@ -66,6 +66,12 @@
     margin-left: 41%;
 }
 
+
+/* Css ends for error 404 */
+
+
+/* CSS for Buttons */
+
 .bttn {
     font-family: 'Josefin Slab', serif;
     color: darkgreen;
@@ -82,17 +88,17 @@
 }
 
 .btn-sm {
-    border: 3px outset lemonchiffon;
-    width: 10vw;
+    border: 3px outset darkred;
+    width: 100px;
     background-color: white;
-    font-size: 50%;
+    font-size: medium;
 }
 
 .btn-sm:hover {
     border: 3px inset darkgreen;
     font-weight: bold;
     background-color: white;
-    font-size: 50%;
+    font-size: medium;
 }
 
 .bttn a:link {
@@ -127,6 +133,9 @@
     border-color: gold;
     font-size: 99;
 }
+
+
+/* CSS ends for Buttons */
 
 
 /* CSS for Home Page */
@@ -183,7 +192,7 @@
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 100px;
+    right: 40px;
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
@@ -221,20 +230,6 @@
 .eror {
     margin-top: 8%;
     margin-left: 41%;
-}
-
-.btn-sm {
-    border: 3px outset lemonchiffon;
-    width: 10vw;
-    background-color: white;
-    font-size: medium;
-}
-
-.btn-sm:hover {
-    font-size: medium;
-    border: 3px inset darkgreen;
-    font-weight: bold;
-    background-color: white;
 }
 
 
@@ -326,9 +321,9 @@
 }
 
 .card {
-    margin: 5% 17%;
+    margin: 5% 10%;
     box-shadow: 0 4px 8px 0;
-    width: 70%;
+    width: 80%;
     padding: 1%;
     /* height: 85%; */
     border-radius: 2rem 2rem 2rem 2rem;
@@ -355,7 +350,7 @@
     font-size: larger;
     color: brown;
     font-weight: bold;
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 1rem 1rem;
     border-color: black;
 }
 
@@ -503,13 +498,28 @@
 }
 
 
-/* Product Image */
+/* Css for Product Image (Index1)*/
 
 .img-product {
     width: 132%;
     border-radius: 18px;
+    margin-top: 5px;
+}
+
+
+/* CSS ends for Product Image */
+
+
+/* Css for Product Image (All Product page of Admin)*/
+
+.img-product {
+    width: 100%;
+    border-radius: 18px;
     margin-top: 10%;
 }
+
+
+/* CSS ends for Product Image */
 
 
 /* CSS for change password */
@@ -756,3 +766,17 @@
 
 
 /*css ending for cart*/
+
+
+/* CSS for add product page */
+
+.pageheading {
+    text-align: center;
+    color: brown;
+}
+
+
+/* CSS ending for add product page */
+
+
+/* CSS ending for add product page */
