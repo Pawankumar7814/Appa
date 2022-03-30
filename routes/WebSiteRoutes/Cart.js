@@ -24,9 +24,7 @@ router.get(["/index", "/"], usermiddleware.checkcookie, (req, res) => {
         req.flash("error", "Due to Network Isssue you get logout");
         return res.status(200).redirect("/User/LogOut");
     }
-    console.log("🚀 ~ file: Cart.js ~ line 35 ~ router.get ~ output", output)
     cart.findAllProductsInCart(output, (CbData) => {
-        console.log("🚀 ~ file: Cart.js ~ line 29 ~ cart.findAllProductsInCart ~ CbData", CbData)
         if (CbData.Status == "err" || CbData.data == null) {
             return res.status(200).render("../views/WebSite/cart/index.ejs", { title: "cart - Appa", Og: OgData, data: null });
         } else {

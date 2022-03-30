@@ -57,7 +57,6 @@ class CartData {
         let UserId = UserInfo.UD;
 
         Cart.findOne({ userId: UserInfo.UD }, (err, cart) => {
-            console.log("🚀 ~ file: CartController.js ~ line 59 ~ CartData ~ Cart.findOne ~ cart", cart)
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Cart", data: err });
             } else if (cart == null) {

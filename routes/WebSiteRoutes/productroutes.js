@@ -20,7 +20,6 @@ router.get(["/products/", "/products/index"], (req, res) => {
 // Route for one product
 router.get(["/product/:Pname/:id"], (req, res) => {
     product.getProductById(req.params.id, (CbData) => {
-        console.log("🚀 ~ file: productroutes.js ~ line 23 ~ product.getProductById ~ CbData", CbData)
         if (CbData.Status == "err") {
             return res.status(404).redirect("/error404");
         } else {
