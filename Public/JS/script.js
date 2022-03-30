@@ -178,3 +178,10 @@ function colourNameToHex(colour) {
 
     return false;
 }
+
+function changImage(i) {
+
+    var imgpath = document.getElementById("fromimg" + i).src;
+    var filename = imgpath.replace(/^.*[\\\/]/, '');
+    document.getElementById("mainimg").src = "/uploadproductimage/" + filename;
+}

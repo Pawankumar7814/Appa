@@ -10,31 +10,37 @@
                         <div class="col-12 col-md-3">Product Price</div>
                         <div class="col-12 col-md-3">Final Price</div>
                     </div>
-                    <%for (var result in data.products){%>
-                        <div class=" row" style="margin: 2% 7%; ">
-                            <div class="col-12 col-md-3">
-                                <%= data.products[result].pname %>
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <%= data.products[result].quantity %>
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <%= data.products[result].pprice %>
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <%= data.products[result].pprice*data.products[result].quantity %>
-                                    <% total=total+data.products[result].pprice*data.products[result].quantity %>
-                            </div>
-                        </div>
-                        <% } %>
-                            <div class="carddis row" style="margin: 2% 7%;font-weight: bold;">
-                                <div class="col-12 col-md-3">Total:-</div>
-                                <div class="col-12 col-md-3"></div>
-                                <div class="col-12 col-md-3"></div>
+                    <% if(data!=null) { %>
+                        <%for (var result in data.products){%>
+                            <div class=" row" style="margin: 2% 7%; ">
                                 <div class="col-12 col-md-3">
-                                    <%= total %>/-
+                                    <%= data.products[result].pname %>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <%= data.products[result].quantity %>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <%= data.products[result].pprice %>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <%= data.products[result].pprice*data.products[result].quantity %>
+                                        <% total=total+data.products[result].pprice*data.products[result].quantity %>
                                 </div>
                             </div>
+                            <% } %>
+                                <div class="carddis row" style="margin: 2% 7%;font-weight: bold;">
+                                    <div class="col-12 col-md-3">Total:-</div>
+                                    <div class="col-12 col-md-3"></div>
+                                    <div class="col-12 col-md-3"></div>
+                                    <div class="col-12 col-md-3">
+                                        <%= total %>/-
+                                    </div>
+                                </div>
+                                <% } else { %>
+                                    <div class="carddis row" style="margin: 2% 7%;font-weight: bold;">
+                                        <div class="col-12 " style="text-align: center; color: red; font-size: 3em;">No product add to cart</div>
+                                    </div>
+                                    <% } %>
 
             </div>
         </div>

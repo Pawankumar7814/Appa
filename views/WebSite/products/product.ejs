@@ -85,7 +85,7 @@
                     <div class="col-12 col-md-1 order-md-first order-1">
                         <% for(var i=0; i < data.Images.length; i++) { %>
                             <div class="">
-                                <a href=""><img src="/uploadproductimage/<%= data.Images[i] %>" class="d-block" width="100%" alt="<%= data.Description %>"></a>
+                                <img id="fromimg<%= i %>" src="/uploadproductimage/<%= data.Images[i] %>" class="d-block imgzoom" width="100%" alt="<%= data.Description %>" onclick="changImage('<%= i %>')">
                                 <% j = i %>
                                     <br>
                             </div>
@@ -93,15 +93,15 @@
                     </div>
                     <!-- Side bar for image -->
                     <!-- Selected image display here -->
-                    <div class="col-12 col-md-5">
+                    <div class="col-12 col-md-5 ">
                         <% if( j == i) { %>
-                            <div class="">
-                                <img src="/uploadproductimage/<%= data.Images[j] %>" class="d-block" width="100%" alt="<%= data.Description %>">
+                            <div class="imgzoom">
+                                <img id="mainimg" src="/uploadproductimage/<%= data.Images[j] %>" class="d-block" width="100%" alt="<%= data.Description %>">
                                 <br>
                             </div>
                             <% } else { %>
-                                <div class="">
-                                    <img src="/uploadproductimage/<%= data.Images[0] %>" class="d-block" width="100%" alt="<%= data.Description %>">
+                                <div class="imgzoom">
+                                    <img id="mainimg" src="/uploadproductimage/<%= data.Images[0] %>" class="d-block" width="100%" alt="<%= data.Description %>">
                                     <br>
                                 </div>
                                 <% } %>

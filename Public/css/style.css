@@ -777,3 +777,17 @@
 
 
 /* CSS ending for admin page heading */
+
+.imgzoom {
+    /* transition: transform .2s; */
+    /* Animation */
+    /* width: 10vw;
+    height: 10vh; */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.imgzoom:hover {
+    transform: scale(1.5) translateX(30%);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
