@@ -90,7 +90,7 @@ router.get(["/ShowAllUser"], (req, res) => {
             req.flash("error", CbData.Msg);
             return res.status(200).redirect("/Admin/");
         } else {
-            return res.status(200).render("../views/Admin/mainpages/ShowAllUser.ejs", { title: "All User - Appa", data: CbData.data });
+            return res.status(200).render("../views/Admin/mainpages/ShowAllUserr.ejs", { title: "All User - Appa", data: CbData.data });
         }
     });
 });

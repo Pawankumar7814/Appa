@@ -101,6 +101,19 @@
                         document.getElementById("mySidebar").style.width = "0";
                         document.getElementById("main").style.marginLeft = "0";
                     }
+                    // Close the dropdown if the user clicks outside of it
+                    window.onclick = function(event) {
+                        if (!event.target.matches(' btn-toggle-nav list-unstyled fw-normal pb-1 small')) {
+                            var dropdowns = document.getElementsByClassName("link-dark rounded");
+                            var i;
+                            for (i = 0; i < dropdowns.length; i++) {
+                                var openDropdown = dropdowns[i];
+                                if (openDropdown.classList.contains('show')) {
+                                    openDropdown.classList.remove('show');
+                                }
+                            }
+                        }
+                    }
                 </script>
             </div>
             <div class="col-12 col-lg-10">
