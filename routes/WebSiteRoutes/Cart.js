@@ -20,14 +20,12 @@ router.get(["/index", "/"], usermiddleware.checkcookie, (req, res) => {
     try {
         var output = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
     } catch (E) {
-        console.log("🚀 ~ file: Cart.js ~ line 23 ~ router.get ~ E", E)
         req.flash("error", "Due to Network Isssue you get logout");
         return res.status(200).redirect("/User/LogOut");
     }
     cart.findAllProductsInCart(output, (CbData) => {
         if (CbData.Status == "err") {} else {
             var obdata = (CbData.data);
-            console.log("🚀 ~ file: Cart.js ~ line 30 ~ cart.findAllProductsInCart ~ obdata", JSON.stringify(obdata.products))
             return res.status(200).render("../views/WebSite/cart/index.ejs", { title: "cart - Appa", Og: OgData, data: obdata });
         }
     });

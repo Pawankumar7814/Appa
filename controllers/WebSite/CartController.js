@@ -55,7 +55,7 @@ class CartData {
 
     async findAllProductsInCart(UserInfo, cb) {
         let UserId = UserInfo.UD;
-        Cart.findOne({ UserId }, (err, cart) => {
+        Cart.findOne({ userId: UserInfo.UD }, (err, cart) => {
             if (err) {
                 return cb({ Status: "err", Msg: "Error checking  Cart", data: err });
             } else if (cart == null) {
