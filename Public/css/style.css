@@ -321,7 +321,7 @@
 }
 
 .card {
-    margin: 5% 10%;
+    margin: 20px 10%;
     box-shadow: 0 4px 8px 0;
     width: 80%;
     padding: 1%;
@@ -768,15 +768,12 @@
 /*css ending for cart*/
 
 
-/* CSS for add product page */
+/* CSS for admin page heading */
 
-.pageheading {
+.adminpageheading {
     text-align: center;
     color: brown;
 }
 
 
-/* CSS ending for add product page */
-
-
-/* CSS ending for add product page */
+/* CSS ending for admin page heading */
