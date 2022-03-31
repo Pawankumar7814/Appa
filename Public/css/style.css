@@ -788,6 +788,6 @@
 }
 
 .imgzoom:hover {
-    transform: scale(1.5) translateX(30%);
+    transform: scale(1.5) translateX(15%);
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
