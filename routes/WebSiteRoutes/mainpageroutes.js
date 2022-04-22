@@ -79,8 +79,6 @@ router.get(["/customer-terms-and-conditions"], (req, res) => {
     res.status(200).render("../views/WebSite/mainpages/Term_condition.ejs", { title: "Customer’s Terms & Conditions - Appa", Og: OgData });
 });
 
-
-
 router.get(["/aboutus1", "/about1"], (req, res) => {
     OgData.title = "About us - Appa";
     OgData.description = "In this page we have our introduction";
