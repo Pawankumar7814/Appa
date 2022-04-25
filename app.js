@@ -16,7 +16,7 @@ var app = express();
 app.set("view engine", "ejs");
 
 // assign port number
-var port = 3100 | process.env.port;
+var port = process.env.PORT || 8080;
 
 //token for jwt
 process.env.TOKEN_SECRET = require("crypto").randomBytes(64).toString('hex');
