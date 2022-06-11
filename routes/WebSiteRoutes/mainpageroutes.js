@@ -47,6 +47,13 @@ router.get(["/index3"], (req, res) => {
     res.status(200).render("../views/WebSite/mainpages/index3.ejs", { title: "Home - Appa", Og: OgData });
 });
 
+router.get(["/index4"], (req, res) => {
+    OgData.title = "Home Page.";
+    OgData.description = "Home Page All new products are shown on this page.";
+    OgData.image = "/Images/ganesha-left.jpeg";
+    res.status(200).render("../views/WebSite/mainpages/index4.ejs", { title: "Home - Appa", Og: OgData });
+});
+
 // Route to contact page
 router.get(["/contactus", "/contact"], (req, res) => {
     OgData.title = "Contact Page.";

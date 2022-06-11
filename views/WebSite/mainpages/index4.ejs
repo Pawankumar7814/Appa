@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/Images/fevicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=+917305070166" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <script src="/Public/JS/script.js"></script>
+    <style>
+        .bttn {
+            color: darkgreen;
+            border-radius: 1em;
+            border: 2px solid gold;
+            background-color: lavender;
+            width: 20%;
+        }
+        
+        .bttn-sm {
+            border: 3px outset lightgreen;
+            width: 10vw;
+            background-color: white;
+            font-size: small;
+        }
+        
+        .bttn-sm:hover {
+            border: 3px inset darkgreen;
+            font-weight: normal;
+            font-size: small;
+            background-color: white;
+        }
+        
+        .bttn a:link {
+            color: darkgreen;
+            text-decoration: none;
+        }
+        
+        .bttn a:visited {
+            color: darkgreen;
+            text-decoration: none;
+        }
+        
+        .bttn:hover {
+            color: lavender;
+            background-color: darkgreen;
+            border-color: gold;
+        }
+        
+        .bttn a:hover {
+            color: lavender;
+            background-color: darkgreen;
+            border-color: gold;
+        }
+        
+        .bttn :hover {
+            color: lavender;
+            background-color: darkgreen;
+            border-color: gold;
+        }
+        
+        .button-align {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .card-image {
+            margin-top: 30px;
+            height: 104px;
+            border-radius: 10px;
+        }
+        
+        .card-title {
+            margin-top: 51px;
+            padding-left: 0px;
+            margin-left: 0px;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            justify-content: right;
+            text-decoration: wavy;
+        }
+        
+        .card-description {
+            justify-content: flex-start;
+            text-align: justify;
+            font-size: small;
+        }
+        
+        .card-skew {
+            margin-left: -34px;
+            transform: skewX(10deg);
+        }
+        
+        .card-skew:hover {
+            transition: 1s;
+            transform: skewY(0deg);
+        }
+    </style>
+</head>
+<%- include("../partial/header.ejs") %>
+
+    <body>
+        <section>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/Images/carousel-1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Lotus Wick</h5>
+                            <p>Appa, Eco friendly and handmade wicks crafted by the natives of madurai that awakens the spiritual connection between devotees and devotion.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/Images/carousel-2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Banana Wick </h5>
+                            <p>Appa, Eco friendly and handmade wicks crafted by the natives of madurai that awakens the spiritual connection between devotees and devotion.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/Images/carousel-1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Lotus Wick</h5>
+                            <p>Appa, Eco friendly and handmade wicks crafted by the natives of madurai that awakens the spiritual connection between devotees and devotion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- carsol end -->
+
+        <!-- product start -->
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card card-skew">
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-7">
+                                        <img src="/Images/carousel-1.jpg" class="card-image d-block w-100" alt="...">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <h5 class="card-title">Banana Stem Wick</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid card-description">
+                                <p>
+                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
+                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occasion. Our banana stem wicks are available in packs of 10.
+                                </p>
+                            </div>
+                            <div class="col-12 button-align">
+                                <button class="bttn-sm">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card card-skew">
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-7">
+                                        <img src="/Images/carousel-1.jpg" class="card-image d-block w-100" alt="...">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <h5 class="card-title">Banana Stem Wick</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid card-description">
+                                <p>
+                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
+                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occasion. Our banana stem wicks are available in packs of 10.
+                                </p>
+                            </div>
+                            <div class="col-12 button-align">
+                                <button class="bttn-sm">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card card-skew">
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-7">
+                                        <img src="/Images/carousel-1.jpg" class="card-image d-block w-100" alt="...">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <h5 class="card-title">Banana Stem Wick</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid card-description">
+                                <p>
+                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
+                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occasion. Our banana stem wicks are available in packs of 10.
+                                </p>
+                            </div>
+                            <div class="col-12 button-align">
+                                <button class="bttn-sm">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card card-skew">
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-7">
+                                        <img src="/Images/carousel-1.jpg" class="card-image d-block w-100" alt="...">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <h5 class="card-title">Banana Stem Wick</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid card-description">
+                                <p>
+                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
+                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occasion. Our banana stem wicks are available in packs of 10.
+                                </p>
+                            </div>
+                            <div class="col-12 button-align">
+                                <button class="bttn-sm">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card card-skew">
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-7">
+                                        <img src="/Images/carousel-1.jpg" class="card-image d-block w-100" alt="...">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <h5 class="card-title">Banana Stem Wick</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid card-description">
+                                <p>
+                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
+                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occasion. Our banana stem wicks are available in packs of 10.
+                                </p>
+                            </div>
+                            <div class="col-12 button-align">
+                                <button class="bttn-sm">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="card card-skew">
+                            <div class="container mb-3">
+                                <div class="row">
+                                    <div class="col-12 col-md-12 col-lg-7">
+                                        <img src="/Images/carousel-1.jpg" class="card-image d-block w-100" alt="...">
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-5">
+                                        <h5 class="card-title">Banana Stem Wick</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid card-description">
+                                <p>
+                                    Locally known as Vazhaithandu Thiri in Madurai, our banana stem wicks are made by weaving fibres of banana stem through an extensive hand-drawing process by master craftsmen. The next time you decide to light diyas for clearing bad karma and obstacles
+                                    out of your way, these banana stem wicks will be the perfect element for such a blissful occasion. Our banana stem wicks are available in packs of 10.
+                                </p>
+                            </div>
+                            <div class="col-12 button-align">
+                                <button class="bttn-sm">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <%- include("../partial/footer.ejs") %>
+
+</html>
