@@ -25,11 +25,13 @@ router.get(["/index", "/"], usermiddleware.checkcookie, (req, res) => {
         return res.status(200).redirect("/User/LogOut");
     }
     cart.findAllProductsInCart(output, (CbData) => {
+        console.log("🚀 ~ file: Cart.js ~ line 28 ~ cart.findAllProductsInCart ~ CbData", CbData)
         if (CbData.Status == "err" || CbData.data == null) {
             return res.status(200).render("../views/WebSite/cart/index.ejs", { title: "cart - Appa", Og: OgData, data: null });
         } else {
             var obdata = (CbData.data);
             return res.status(200).render("../views/WebSite/cart/index.ejs", { title: "cart - Appa", Og: OgData, data: obdata });
+
         }
     });
 });
@@ -38,8 +40,9 @@ router.get(["/index", "/"], usermiddleware.checkcookie, (req, res) => {
 router.post(["/Add/:id"], usermiddleware.authenticateToken, (req, res) => {
 
     var output = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
-    cart.addProductsInCart(output, req.params.id, req.body, (CbData) => {});
-    return res.status(200).redirect("/Cart");
+    cart.addProductsInCart(output, req.params.id, req.body, (CbData) => {
+        return res.status(200).redirect("/products");
+    });
 });
 
 module.exports = router;
