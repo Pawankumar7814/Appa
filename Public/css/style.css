@@ -34,15 +34,13 @@
 
 /* CSS for header anchor tag*/
 
-
-/* 
 .navbar {
     z-index: 1;
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-} */
+}
 
 .navbar-dropdown-item {
     z-index: 1;
@@ -72,10 +70,9 @@
     transition: all .5s ease;
 }
 
-
-/* .main {
+.main {
     margin-top: 80px;
-} */
+}
 
 .dropdown-item {
     z-index: 1;
