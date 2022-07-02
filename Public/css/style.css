@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&family=Josefin+Slab:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@700&family=Poppins:wght@200&display=swap');
-
-/* font-family: 'Gentium Book Plus', serif; (For Navbar links) */
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
 
 /* CSS for whatsapp */
 
@@ -55,7 +46,6 @@
 
 .navbar-light .navbar-nav .nav-link {
     color: Black;
-    font-family: 'Gentium Book Plus', serif;
     font-size: 20px;
     transition: all .5s ease;
 }
@@ -66,13 +56,6 @@
 
 .navbar-light .navbar-nav .nav-link.active {
     color: rgb(199, 35, 85);
-    font-style: italic;
-    text-decoration: underline;
-    transition: all .3s ease;
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-    color: darkviolet;
     transition: all .5s ease;
 }
 
