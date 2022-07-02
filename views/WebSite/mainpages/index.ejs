@@ -1,59 +1,57 @@
 <%- include("../partial/header.ejs") %>
-    <main>
-        <!-- carasol start -->
-        <section>
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/Images/carousel-1.jpg" class=" w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Lotus Wick</h5>
-                            <p>Appa, Eco friendly and handmade wicks crafted by the natives of madurai that awakens the spiritual connection between devotees and devotion.</p>
-                        </div>
+    <!-- carasol start -->
+    <section>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/Images/carousel-1.jpg" class=" w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lotus Wick</h5>
+                        <p>Appa, Eco friendly, handmade crafted wicks by the natives of Madurai that awakens the spiritual connection between devotees and devotion.</p>
                     </div>
-                    <div class="carousel-item">
-                        <img src="/Images/carousel-2.jpg" class=" w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Banana Wick </h5>
-                            <p>Appa, Eco friendly and handmade wicks crafted by the natives of madurai that awakens the spiritual connection between devotees and devotion.</p>
-                        </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/Images/carousel-2.jpg" class=" w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Banana Wick </h5>
+                        <p>Appa, Eco friendly, handmade crafted wicks by the natives of Madurai that awakens the spiritual connection between devotees and devotion.</p>
                     </div>
-                    <div class="carousel-item">
-                        <img src="/Images/carousel-1.jpg" class=" w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Lotus Wick</h5>
-                            <p>Appa, Eco friendly and handmade wicks crafted by the natives of madurai that awakens the spiritual connection between devotees and devotion.</p>
-                        </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/Images/carousel-1.jpg" class=" w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lotus Wick</h5>
+                        <p>Appa, Eco friendly, handmade crafted wicks by the natives of Madurai that awakens the spiritual connection between devotees and devotion.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- carsol end -->
+        </div>
+    </section>
+    <!-- carsol end -->
 
-        <!-- product start -->
-        <section class="py-5">
-            <div class="container-fluid">
-                <div class="row ">
-                    <% for(var i=0; i < data.length; i++) { %>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <img src="/uploadproductimage/<%= data[i].Images[0] %>" class="card-img-top" width="40%" alt="<%= data[i].Title %>">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <%= data[i].Title %>
-                                    </h5>
-                                    <p class="card-text justify">
-                                        <%= data[i].Description %>
-                                    </p>
-                                    <a href="/product/<%= data[i].Title.replace(/\s/g, '_') %>/<%= data[i].Pid %>" class="btn bttn">Know more</a>
-                                </div>
+    <!-- product start -->
+    <section class="py-5">
+        <div class="container-fluid">
+            <div class="row ">
+                <% for(var i=0; i < data.length; i++) { %>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="/uploadproductimage/<%= data[i].Images[0] %>" class="card-img-top" width="40%" alt="<%= data[i].Title %>">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= data[i].Title %>
+                                </h5>
+                                <p class="card-text justify">
+                                    <%= data[i].Description %>
+                                </p>
+                                <a href="/product/<%= data[i].Title.replace(/\s/g, '_') %>/<%= data[i].Pid %>" class="btn bttn">Know more</a>
                             </div>
                         </div>
-                        <% } %>
-                </div>
+                    </div>
+                    <% } %>
             </div>
-        </section>
-        <!-- product end -->
+        </div>
+    </section>
+    <!-- product end -->
 
-    </main>
     <%- include("../partial/footer.ejs") %>
